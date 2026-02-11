@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Picks Empire',
+        title: 'Pocket Trading',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
