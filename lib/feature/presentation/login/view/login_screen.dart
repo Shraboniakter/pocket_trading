@@ -132,7 +132,7 @@ class LoginScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
-        decoration: InputDecoration(
+        decoration:  InputDecoration(
           hintText: hint,
           suffixIcon: Icon(icon, color: Colors.grey),
           border: OutlineInputBorder(
