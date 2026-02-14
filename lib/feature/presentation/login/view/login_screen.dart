@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: MediaQuery.of(context).size.height * 0.7,
             decoration: const BoxDecoration(
               color: ColorManager.blue,
               borderRadius: BorderRadius.only(
@@ -82,7 +82,7 @@ class LoginScreen extends StatelessWidget {
           ),
 
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.6 - 35,
+            top: MediaQuery.of(context).size.height * 0.7 - 35,
             left: MediaQuery.of(context).size.width / 2 - 30,
             // top: (screenHeight * 0.7) - 35,
             child: Container(
