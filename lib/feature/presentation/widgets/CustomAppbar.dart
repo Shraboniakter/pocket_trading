@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 
 import '../../../core/constrants/app_color.dart';
 
@@ -9,14 +11,9 @@ class CustomHomeAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 158,
-      padding: const EdgeInsets.only(
-        top: 50,
-        left: 20,
-        right: 20,
-        bottom: 25,
-      ),
+      padding: const EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 25),
       decoration: BoxDecoration(
-        color: ColorManager.blue, // Blue color
+        color: ColorManager.blue,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(30),
           bottomRight: Radius.circular(30),
@@ -27,32 +24,24 @@ class CustomHomeAppBar extends StatelessWidget {
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              SizedBox(height: 10,),
-              Text(
-                "Hello! 👋",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+            children: [
+              SizedBox(height: 10),
+              CustomText(
+                text: "Hello!",
+                color: Colors.white,
+                size: 26,
+                fontWeight: FontWeight.w700,
               ),
-              SizedBox(height: 5),
-              Text(
-                "Imran Hassen",
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: 16,
-                ),
+
+              CustomText(
+                text: "Imran Hassen",
+                color: Colors.white,
+                size: 18,
               ),
             ],
           ),
 
-          const Icon(
-            Icons.person_pin,
-            color: Colors.white,
-            size: 30,
-          )
+          const Icon(CupertinoIcons.person_alt_circle, color: Colors.white, size: 30),
         ],
       ),
     );
