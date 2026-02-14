@@ -11,9 +11,29 @@ class AppRoute {
         return MaterialPageRoute(
           builder: (_) => LoginScreen(),
         );
+      case RouteName.signUpScreen:
+        return MaterialPageRoute(
+          builder: (_) => SignUpScreen(),
+        );
+      case RouteName.verifyOptScreen:
+        return MaterialPageRoute(
+          builder: (_) =>  VerifyOptScreen(),
+        );
       case RouteName.forgotPasswordScreen:
         return MaterialPageRoute(
           builder: (_) => ForgotPasswordScreen(),
+        );
+      case RouteName.forgotPasswordOTPScreen:
+        return MaterialPageRoute(
+          builder: (_) => ForgotPasswordOtpScreen(),
+        );
+      case RouteName.setNewPasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => SetNewPasswordScreen(),
+        );
+      case RouteName.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => HomeScreen(),
         );
       default:
         return MaterialPageRoute(

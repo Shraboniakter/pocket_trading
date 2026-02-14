@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 
 import '../../../../core/constrants/app_color.dart';
+import '../../../../core/routes/route_name.dart';
 import '../../widgets/CustomTextfield.dart';
 import '../../widgets/pimary_bottom.dart';
 
@@ -56,7 +57,12 @@ class ForgotPasswordScreen extends StatelessWidget {
               width: double.infinity,
               child: CustomElevatedBottom(
                 text: "Send Code",
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    RouteName.forgotPasswordOTPScreen,
+                  );
+                },
                 textColor: Colors.white,
                 borderRadius: 16,
                 size: 18,
@@ -74,7 +80,12 @@ class ForgotPasswordScreen extends StatelessWidget {
                   color: ColorManager.gray,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      RouteName.loginScreen,
+                    );
+                  },
                   child: CustomText(
                     text: " Sign In",
                     size: 16,

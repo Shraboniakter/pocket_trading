@@ -63,7 +63,7 @@ class CustomTextfield extends StatelessWidget {
         // ✅ HEIGHT CONTROL
         isDense: false,
         contentPadding: const EdgeInsets.symmetric(
-          vertical: 22,
+          vertical: 20,
           horizontal: 16,
         ),
 
