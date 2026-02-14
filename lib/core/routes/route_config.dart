@@ -11,6 +11,10 @@ class AppRoute {
         return MaterialPageRoute(
           builder: (_) => LoginScreen(),
         );
+      case RouteName.forgotPasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => ForgotPasswordScreen(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) =>

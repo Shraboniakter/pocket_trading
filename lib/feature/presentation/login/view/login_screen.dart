@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_trading/core/constrants/app_images.dart';
+import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
+import 'package:pocket_trading/feature/presentation/widgets/CustomTextfield.dart';
+import '../../../../core/constrants/app_color.dart';
+import '../../../../core/routes/route_name.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,7 +15,7 @@ class LoginScreen extends StatelessWidget {
     final double screenWidth = size.width;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorManager.bg,
       body: SingleChildScrollView(
         child: SizedBox(
           height: screenHeight,
@@ -22,7 +26,7 @@ class LoginScreen extends StatelessWidget {
                 height: screenHeight * 0.7,
                 width: screenWidth,
                 decoration: const BoxDecoration(
-                  color: Color(0xFF0077C2),
+                  color: ColorManager.blue,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(40),
                     bottomRight: Radius.circular(40),
@@ -35,17 +39,18 @@ class LoginScreen extends StatelessWidget {
 
                       Image.asset(AssetPaths.loginPage, height: 80),
                       const SizedBox(height: 20),
-                      const Text(
-                        "Getting Started",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      CustomText(
+                        text: "Getting Started",
+                        size: 24,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
                       ),
-                      const Text(
-                        "Let's Sign In for explore continues",
-                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                      SizedBox(height: 5),
+                      CustomText(
+                        text: "Let’s Sign In for explore continues",
+                        size: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
                       ),
                       const SizedBox(height: 40),
 
@@ -53,22 +58,34 @@ class LoginScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: Column(
                           children: [
-                            _buildTextField(
-                              Icons.email_outlined,
-                              "Email Address",
+                            CustomTextfield(
+                              hintText: "Email Address",
+                              suffix: Icon(
+                                Icons.email_outlined,
+                                color: ColorManager.gray,
+                              ),
                             ),
                             const SizedBox(height: 20),
-                            _buildTextField(
-                              Icons.visibility_off_outlined,
-                              "Password",
+                            CustomTextfield(
+                              hintText: "Password",
+                              suffix: Icon(
+                                Icons.visibility_off_outlined,
+                                color: ColorManager.gray,
+                              ),
                             ),
-                            const SizedBox(height: 25),
-                            const Text(
-                              "Forgot Password?",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
+                            SizedBox(height: 30),
+                            InkWell(
+                              onTap: (){
+                                Navigator.pushNamed(
+                                  context,
+                                  RouteName.forgotPasswordScreen,
+                                );
+                              },
+                              child: CustomText(
+                                text: "Forgot Password?",
+                                size: 18,
                                 fontWeight: FontWeight.w500,
+                                color: Colors.white,
                               ),
                             ),
                           ],
@@ -107,46 +124,22 @@ class LoginScreen extends StatelessWidget {
                 bottom: 40,
                 child: Row(
                   children: const [
-                    Text(
-                      "Don't have an account? ",
-                      style: TextStyle(color: Colors.grey, fontSize: 16),
+                    CustomText(
+                      text: "Don’t have an account?",
+                      size: 16,
+                      fontWeight: FontWeight.w500,
+                      color: ColorManager.gray,
                     ),
-                    Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        color: Color(0xFF00ACEE),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    CustomText(
+                      text: " Sign Up",
+                      size: 16,
+                      fontWeight: FontWeight.w500,
+                      color: ColorManager.lightBlue,
                     ),
                   ],
                 ),
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  // Custom TextField Widget
-  Widget _buildTextField(IconData icon, String hint) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-          hintText: hint,
-          suffixIcon: Icon(icon, color: Colors.grey),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide.none,
-          ),
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 18,
           ),
         ),
       ),
