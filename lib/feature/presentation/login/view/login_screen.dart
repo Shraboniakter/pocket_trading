@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_trading/core/constrants/app_color.dart';
 import 'package:pocket_trading/core/constrants/app_images.dart';
-import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
-import 'package:pocket_trading/feature/presentation/widgets/CustomTextfield.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -35,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       SizedBox(height: screenHeight * 0.05),
-                      // Logo/Icon
+
                       Image.asset(AssetPaths.loginPage, height: 80),
                       const SizedBox(height: 20),
                       const Text(
@@ -52,32 +49,27 @@ class LoginScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 40),
 
-                      // TextFields
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: Column(
                           children: [
-                            CustomTextfield(
-                              hintText: "Email Address",
-                              suffix: Icon(
-                                Icons.email_outlined,
-                                color: ColorManager.gray,
-                              ),
+                            _buildTextField(
+                              Icons.email_outlined,
+                              "Email Address",
                             ),
-                            SizedBox(height: 20),
-                            CustomTextfield(
-                              hintText: "Password",
-                              suffix: Icon(
-                                Icons.visibility_off_outlined,
-                                color: ColorManager.gray,
-                              ),
+                            const SizedBox(height: 20),
+                            _buildTextField(
+                              Icons.visibility_off_outlined,
+                              "Password",
                             ),
-                            const SizedBox(height: 30),
-                            CustomText(
-                              text: "Forgot Password",
-                              size: 18,
-                              color: ColorManager.primary,
-                              fontWeight: FontWeight.w500,
+                            const SizedBox(height: 25),
+                            const Text(
+                              "Forgot Password?",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ],
                         ),
@@ -93,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                   width: 70,
                   height: 70,
                   decoration: BoxDecoration(
-                    color: ColorManager.lightBlue,
+                    color: const Color(0xFF00ACEE),
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
@@ -115,22 +107,46 @@ class LoginScreen extends StatelessWidget {
                 bottom: 40,
                 child: Row(
                   children: const [
-                    CustomText(
-                      text: "Don’t have an account?",
-                      size: 16,
-                      color: ColorManager.gray,
-                      fontWeight: FontWeight.w500,
+                    Text(
+                      "Don't have an account? ",
+                      style: TextStyle(color: Colors.grey, fontSize: 16),
                     ),
-                    CustomText(
-                      text: " Sign Up",
-                      size: 16,
-                      color: ColorManager.lightBlue,
-                      fontWeight: FontWeight.w500,
+                    Text(
+                      "Sign Up",
+                      style: TextStyle(
+                        color: Color(0xFF00ACEE),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Custom TextField Widget
+  Widget _buildTextField(IconData icon, String hint) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: hint,
+          suffixIcon: Icon(icon, color: Colors.grey),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide.none,
+          ),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 18,
           ),
         ),
       ),
