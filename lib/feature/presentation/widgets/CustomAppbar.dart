@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 
 import '../../../core/constrants/app_color.dart';
+import '../../../core/routes/route_name.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
-  const CustomHomeAppBar({super.key});
+  final IconData ? icon;
+
+  const CustomHomeAppBar({super.key, this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +44,14 @@ class CustomHomeAppBar extends StatelessWidget {
             ],
           ),
 
-          const Icon(CupertinoIcons.person_alt_circle, color: Colors.white, size: 30),
+           InkWell(
+             onTap: (){
+               Navigator.pushNamed(
+                 context,
+                 RouteName.profileScreen
+               );
+             },
+               child: Icon(icon, color: Colors.white, size: 30)),
         ],
       ),
     );

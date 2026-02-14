@@ -10,4 +10,6 @@ class RouteName {
   static const String homeScreen = "/ homeScreen";
 
   static const String verifyOptScreen = "/verifyOptScreen";
+
+  static const String profileScreen = "/profileScreen ";
 }

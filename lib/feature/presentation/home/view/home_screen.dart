@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constrants/app_color.dart';
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: ColorManager.bg,
       body: Column(
         children: [
-          CustomHomeAppBar(),
+          CustomHomeAppBar(icon: CupertinoIcons.person_alt_circle),
 
           // Expanded ListView for scrollable cards
           Expanded(
@@ -69,7 +70,6 @@ class HomeScreen extends StatelessWidget {
                     "Price Range": "\$1 - \$50,000",
                   },
                 ),
-
               ],
             ),
           ),

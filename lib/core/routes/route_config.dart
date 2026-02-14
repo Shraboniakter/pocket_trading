@@ -35,6 +35,10 @@ class AppRoute {
         return MaterialPageRoute(
           builder: (_) => HomeScreen(),
         );
+      case RouteName.profileScreen:
+        return MaterialPageRoute(
+          builder: (_) => ProfileScreen(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) =>
