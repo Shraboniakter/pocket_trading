@@ -22,4 +22,6 @@ class RouteName {
 
   static const String ifHotelIsSelectedScreen  = "/ifHotelIsSelectedScreen ";
 
+  static const String deleteAccountScreen  = "/deleteAccountScreen ";
+
 }

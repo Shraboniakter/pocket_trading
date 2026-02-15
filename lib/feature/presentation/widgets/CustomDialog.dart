@@ -43,7 +43,7 @@ class CustomBottomDialog extends StatelessWidget {
           children: [
             Image.asset(imagePath),
 
-            const SizedBox(height: 10),
+             SizedBox(height: 10),
 
             if (text != null)
               CustomText(

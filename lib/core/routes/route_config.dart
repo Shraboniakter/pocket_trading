@@ -59,6 +59,10 @@ class AppRoute {
         return MaterialPageRoute(
           builder: (_) => IfRestaurantIsSelectedScreen(),
         );
+      case RouteName.deleteAccountScreen:
+        return MaterialPageRoute(
+          builder: (_) => DeleteAccountScreen(),
+        );
 
 
       default:
