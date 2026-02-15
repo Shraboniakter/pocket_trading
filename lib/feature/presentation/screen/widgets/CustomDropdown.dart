@@ -36,7 +36,7 @@ class CustomDropdown extends StatelessWidget {
             hintText,
             style: TextStyle(color: color),
           ),
-          icon: const Icon(Icons.keyboard_arrow_down),
+          icon:  Icon(Icons.keyboard_arrow_down,color: ColorManager.gray,),
           isExpanded: true,
           items: items.map((item) {
             return DropdownMenuItem<String>(

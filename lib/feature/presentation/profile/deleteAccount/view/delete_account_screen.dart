@@ -30,7 +30,7 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7F9),
+      backgroundColor: ColorManager.bg,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(90.0),
         child: Container(
@@ -75,94 +75,91 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
 
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-
-            for (int i = 0; i < reasons.length; i++) ...[
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = i;
-                  });
-                },
-                child: CustomInfoBox(
-                  text: reasons[i],
-                  textColor: ColorManager.gray,
-                  isSelected: selectedIndex == i,
-                ),
-              ),
-              const SizedBox(height: 20),
-            ],
-
-
-            if (selectedIndex == 4)
-              CustomTextfield(
-                color: ColorManager.gray,
-                hintText: "I’m leaving because...",
-              ),
-
-            Padding(
-              padding: const EdgeInsets.only(top:230),
-              child: SizedBox(
-                height: 57,
-                width: double.infinity,
-                child: CustomElevatedBottom(
-                  text: "Delete My Account",
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+          
+              for (int i = 0; i < reasons.length; i++) ...[
+                GestureDetector(
                   onTap: () {
-                    showGeneralDialog(
-                      context: context,
-                      barrierDismissible: true,
-                      barrierLabel: "Dismiss",
-                      barrierColor: Colors.black.withOpacity(0.4),
-                      transitionDuration: const Duration(milliseconds: 450),
-                      pageBuilder: (context, animation, secondaryAnimation) {
-                        return const SizedBox();
-                      },
-                      transitionBuilder:
-                          (context, animation, secondaryAnimation, child) {
-                        return SlideTransition(
-                          position: Tween(
-                            begin: const Offset(0, 1),
-                            end: const Offset(0, 0),
-                          ).animate(animation),
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: CustomBottomSheet(
-                                text: "Delete Account",
-                                description: "Are you sure you want to delete your account?",
-                                onLeftPressed: () {
-                                  // Navigator.pushNamed(
-                                  //     context,
-                                  //     RouteName.loginScreen
-                                  // );
-                                },
-
-                                onRightPressed: () {
-                                  Navigator.pop(context, true);
-                                },
-                                imagePath: "assets/images/Groupop.png",
-                                height: 342,
-                                width: 335,
-
+                    setState(() {
+                      selectedIndex = i;
+                    });
+                  },
+                  child: CustomInfoBox(
+                    text: reasons[i],
+                    textColor: ColorManager.gray,
+                    isSelected: selectedIndex == i,
+                  ),
+                ),
+                const SizedBox(height: 20),
+              ],
+          
+          
+              if (selectedIndex == 4)
+                CustomTextfield(
+                  color: ColorManager.gray,
+                  hintText: "I’m leaving because...",
+                ),
+          
+              Padding(
+                padding: const EdgeInsets.only(top:230),
+                child: SizedBox(
+                  height: 57,
+                  width: double.infinity,
+                  child: CustomElevatedBottom(
+                    text: "Delete My Account",
+                    onTap: () {
+                      showGeneralDialog(
+                        context: context,
+                        barrierDismissible: true,
+                        barrierLabel: "Dismiss",
+                        barrierColor: Colors.black.withOpacity(0.4),
+                        transitionDuration: const Duration(milliseconds: 450),
+                        pageBuilder: (context, animation, secondaryAnimation) {
+                          return const SizedBox();
+                        },
+                        transitionBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          return SlideTransition(
+                            position: Tween(
+                              begin: const Offset(0, 1),
+                              end: const Offset(0, 0),
+                            ).animate(animation),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: CustomBottomSheet(
+                                  text: "Delete Account",
+                                  description: "Are you sure you want to delete your account?",
+                                  onLeftPressed: () {},
+          
+                                  onRightPressed: () {
+                                    Navigator.pop(context, true);
+                                  },
+                                  imagePath: "assets/images/Groupop.png",
+                                  height: 342,
+                                  width: 335,
+          
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      },
-                    );
-
-
-                  },
-                  borderRadius: 16,
-                  textColor: Colors.white,
-                  size: 18,
-
+                          );
+                        },
+                      );
+          
+          
+                    },
+                    borderRadius: 16,
+                    textColor: Colors.white,
+                    size: 18,
+          
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

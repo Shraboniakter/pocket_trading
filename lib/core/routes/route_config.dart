@@ -63,6 +63,30 @@ class AppRoute {
         return MaterialPageRoute(
           builder: (_) => DeleteAccountScreen(),
         );
+      case RouteName.editProfileScreen:
+        return MaterialPageRoute(
+          builder: (_) => EditProfileScreen(),
+        );
+      case RouteName.changePasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => ChangePasswordScreen(),
+        );
+      case RouteName.privacyPolicyScreen:
+        return MaterialPageRoute(
+          builder: (_) => PrivacyPolicyScreen(),
+        );
+      case RouteName. termsAndConditionsScreen:
+        return MaterialPageRoute(
+          builder: (_) => TermsAndConditionsScreen(),
+        );
+      case RouteName. feedBackScreen:
+        return MaterialPageRoute(
+          builder: (_) => FeedBackScreen(),
+        );
+      case RouteName. contactScreen:
+        return MaterialPageRoute(
+          builder: (_) => ContactScreen(),
+        );
 
 
       default:

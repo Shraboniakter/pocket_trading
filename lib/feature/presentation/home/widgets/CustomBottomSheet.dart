@@ -62,7 +62,7 @@ class CustomBottomSheet extends StatelessWidget {
 
 
             CustomText(
-              textAlign: textAlign ?? TextAlign.center,
+              textAlign: TextAlign.center,
               text: description,
               color: ColorManager.gray,
               size: 16,

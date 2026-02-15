@@ -24,4 +24,11 @@ class RouteName {
 
   static const String deleteAccountScreen  = "/deleteAccountScreen ";
 
+  static const String editProfileScreen = "/editProfileScreen";
+  static const String changePasswordScreen = "/changePasswordScreen ";
+  static const String privacyPolicyScreen  = "/privacyPolicyScreen";
+  static const String  termsAndConditionsScreen  = "/termsAndConditionsScreen ";
+  static const String  feedBackScreen = "/feedBackScreen ";
+  static const String  contactScreen = "/ contactScreen";
+
 }

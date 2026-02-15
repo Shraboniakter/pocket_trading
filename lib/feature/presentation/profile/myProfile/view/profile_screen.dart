@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../../../core/constrants/app_color.dart';
 import '../../../../../core/routes/route_name.dart';
 import '../../../home/widgets/CustomBottomSheet.dart';
 import '../../../widgets/CustomDialog.dart';
@@ -13,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7F9),
+      backgroundColor: ColorManager.bg,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(90.0),
         child: Container(
@@ -63,28 +64,51 @@ class ProfileScreen extends StatelessWidget {
               title: 'Edit Profile',
               icon: Icons.person_outline_rounded,
               onTap: () {
-                // Edit Profile logic ekhane hobe
+                Navigator.pushNamed(
+                    context,
+                    RouteName.editProfileScreen
+                );
               },
             ),
             ProfileOptionTile(
               title: 'Feedback',
               icon: CupertinoIcons.chat_bubble_2,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                    context,
+                    RouteName.feedBackScreen
+                );
+              },
             ),
             ProfileOptionTile(
               title: 'Contact Us',
               icon:CupertinoIcons.group,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                    context,
+                    RouteName.contactScreen
+                );
+              },
             ),
             ProfileOptionTile(
               title: 'Privacy Policy',
               icon:Icons.privacy_tip_outlined,
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(
+                      context,
+                      RouteName.privacyPolicyScreen
+                  );
+                },
             ),
             ProfileOptionTile(
               title: 'Terms & Conditions',
               icon: Icons.description_outlined,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(
+                    context,
+                    RouteName.termsAndConditionsScreen
+                );
+              },
             ),
             ProfileOptionTile(
               title: 'Delete Account',
