@@ -35,6 +35,7 @@ class _LocationScreenState extends State<LocationScreen> {
             Navigator.pop(context);
           },
         ),
+        surfaceTintColor: ColorManager.bg,
 
         automaticallyImplyLeading: false,
         backgroundColor: ColorManager.bg,

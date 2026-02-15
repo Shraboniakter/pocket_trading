@@ -65,6 +65,7 @@ class _IfRestaurantIsSelectedScreenState extends State<IfRestaurantIsSelectedScr
             Navigator.pop(context);
           },
         ),
+        surfaceTintColor: ColorManager.bg,
 
         automaticallyImplyLeading: false,
         backgroundColor: ColorManager.bg,

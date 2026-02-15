@@ -49,7 +49,9 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+
       backgroundColor: ColorManager.bg,
       appBar: AppBar(
         leading: IconButton(
@@ -58,6 +60,8 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
             Navigator.pop(context);
           },
         ),
+
+        surfaceTintColor: ColorManager.bg,
 
         automaticallyImplyLeading: false,
         backgroundColor: ColorManager.bg,
