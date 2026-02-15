@@ -39,6 +39,28 @@ class AppRoute {
         return MaterialPageRoute(
           builder: (_) => ProfileScreen(),
         );
+      case RouteName.assetTypeScreen:
+        return MaterialPageRoute(
+          builder: (_) => AssetTypeScreen(),
+        );
+      case RouteName.buyOrSellScreen:
+        return MaterialPageRoute(
+          builder: (_) => BuyOrSellScreen(),
+        );
+      case RouteName.locationScreen:
+        return MaterialPageRoute(
+          builder: (_) => LocationScreen(),
+        );
+      case RouteName.ifHotelIsSelectedScreen:
+        return MaterialPageRoute(
+          builder: (_) => IfHotelIsSelectedScreen(),
+        );
+      case RouteName.ifRestaurantIsSelectedScreen:
+        return MaterialPageRoute(
+          builder: (_) => IfRestaurantIsSelectedScreen(),
+        );
+
+
       default:
         return MaterialPageRoute(
           builder: (_) =>

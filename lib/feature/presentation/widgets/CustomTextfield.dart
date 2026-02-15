@@ -13,6 +13,7 @@ class CustomTextfield extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final int? min;
   final int? max;
+  final Color? color;
 
   final Widget? suffix;
   final String? Function(String?)? validator;
@@ -32,7 +33,7 @@ class CustomTextfield extends StatelessWidget {
     this.suffix,
     this.validator,
     this.enable,
-    this.icon,
+    this.icon, this.color,
   });
 
   @override
@@ -44,16 +45,15 @@ class CustomTextfield extends StatelessWidget {
       obscureText: obscureText ?? false,
       maxLines: obscureText == true ? 1 : max,
       cursorColor: Colors.grey,
-      style: const TextStyle(
-        color: Color(0xff0085CA),
+      style: TextStyle(
+        color: ColorManager.lightBlue,
         fontSize: 16,
       ),
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: GoogleFonts.dmSans(
-
           fontSize: 16.sp,
-          color: Colors.grey,
+          color: color,
         ),
         prefixIcon: icon,
         suffixIcon: suffix,

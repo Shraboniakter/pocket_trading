@@ -47,6 +47,7 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 40),
 
                   CustomTextfield(
+                    color: ColorManager.gray,
                     hintText: "Email Address",
                     suffix: Icon(
                       Icons.email_outlined,
@@ -55,6 +56,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   CustomTextfield(
+                    color: ColorManager.gray,
                     hintText: "Password",
                     suffix: Icon(
                       Icons.visibility_off_outlined,

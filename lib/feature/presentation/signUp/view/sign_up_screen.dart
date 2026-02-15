@@ -47,6 +47,7 @@ class SignUpScreen extends StatelessWidget {
                   const SizedBox(height: 30),
 
                   CustomTextfield(
+                    color: ColorManager.gray,
                     hintText: "Full Name",
                     suffix: Icon(
                       Icons.person_2_outlined,
@@ -55,6 +56,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
+                    color: ColorManager.gray,
                     hintText: "Email Address",
                     suffix: Icon(
                       Icons.email_outlined,
@@ -63,11 +65,13 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
+                    color: ColorManager.gray,
                     hintText: "Mobile Number",
                     suffix: Icon(Icons.phone, color: ColorManager.gray),
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
+                    color: ColorManager.gray,
                     hintText: "Company",
                     suffix: Icon(
                       Icons.business_outlined,
@@ -76,6 +80,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
+                    color: ColorManager.gray,
                     hintText: "Title",
                     suffix: Icon(
                       Icons.badge_outlined,
@@ -84,6 +89,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
+                    color: ColorManager.gray,
                     hintText: "Password",
 
                     suffix: Icon(
@@ -93,6 +99,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
+                    color: ColorManager.gray,
                     hintText: "Confirm Password",
 
                     suffix: Icon(
@@ -114,7 +121,8 @@ class SignUpScreen extends StatelessWidget {
                       const SizedBox(width: 5),
                       Flexible(
                         child: CustomText(
-                          text: "I agree to Privacy Policy and \nTerms & Conditions.",
+                          text:
+                              "I agree to Privacy Policy and \nTerms & Conditions.",
                           size: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
@@ -146,18 +154,11 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              child:InkWell(
-                onTap:(){
-                  Navigator.pushNamed(
-                    context,
-                    RouteName.verifyOptScreen,
-                  );
-                } ,
-                child: Icon(
-                  Icons.arrow_forward,
-                  color: Colors.white,
-                  size: 30,
-                ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, RouteName.verifyOptScreen);
+                },
+                child: Icon(Icons.arrow_forward, color: Colors.white, size: 30),
               ),
             ),
           ),
@@ -176,10 +177,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        RouteName.loginScreen,
-                      );
+                      Navigator.pushNamed(context, RouteName.loginScreen);
                     },
                     child: CustomText(
                       text: " Sign In",

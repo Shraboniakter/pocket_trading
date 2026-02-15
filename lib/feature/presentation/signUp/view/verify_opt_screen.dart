@@ -103,7 +103,7 @@ class VerifyOptScreen extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.pushNamed(
                                       context,
-                                      RouteName.loginScreen,
+                                      RouteName.buyOrSellScreen,
                                     );
                                   },
                                   width: 335,

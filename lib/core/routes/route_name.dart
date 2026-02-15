@@ -12,4 +12,14 @@ class RouteName {
   static const String verifyOptScreen = "/verifyOptScreen";
 
   static const String profileScreen = "/profileScreen ";
+
+  static const String assetTypeScreen = "/assetTypeScreen";
+  static const String buyOrSellScreen   = "/ buyOrSellScreen ";
+
+  static const String locationScreen  = "/locationScreen";
+
+  static const String ifRestaurantIsSelectedScreen = "/ ifRestaurantIsSelectedScreen ";
+
+  static const String ifHotelIsSelectedScreen  = "/ifHotelIsSelectedScreen ";
+
 }
