@@ -25,13 +25,24 @@ class CustomDropdown extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color:  ColorManager.primary,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
+          borderRadius:BorderRadius.all(Radius.circular(16)),
+          alignment: AlignmentDirectional.centerStart,
+          menuMaxHeight: 200,
+          menuWidth: 200,
+     
+
 
           dropdownColor: ColorManager.primary,
           value: value,
+          style: const TextStyle(
+            fontSize: 16,
+            color: ColorManager.lightBlue,
+            fontWeight: FontWeight.w500,
+          ),
           hint: Text(
             hintText,
             style: TextStyle(color: color),
@@ -40,6 +51,7 @@ class CustomDropdown extends StatelessWidget {
           isExpanded: true,
           items: items.map((item) {
             return DropdownMenuItem<String>(
+              // alignment: Alignment.centerRight,
               value: item,
               child: Text(item),
             );
