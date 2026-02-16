@@ -14,6 +14,13 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark,
+          statusBarBrightness: Brightness.light,
+        ),
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
@@ -23,76 +30,77 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          children: [
-            const SizedBox(height: 40),
-
-
-            // Subtitle
-            CustomText(
-              text: "Enter the verification code we\njust sent to your email address.",
-              size: 18,
-              color: ColorManager.gray,
-            ),
-            const SizedBox(height: 40),
-
-            // OTP Input Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildOTPBox(context, first: true),
-                _buildOTPBox(context),
-                _buildOTPBox(context),
-                _buildOTPBox(context, last: true),
-              ],
-            ),
-
-            const SizedBox(height: 40),
-            // Email Info
-            CustomText(
-              text: "Code was sent to your email",
-              size: 16,
-              fontWeight: FontWeight.w500,
-              color: ColorManager.gray,
-            ),
-            CustomText(
-              text: "alan34@gmail.com",
-              size: 16,
-              fontWeight: FontWeight.w500,
-              color: ColorManager.lightBlue,
-            ),
-
-            const SizedBox(height: 40),
-            // Verify Button
-            SizedBox(
-              height: 57,
-              width: double.infinity,
-              child: CustomElevatedBottom(
-                text: "Verify Code",
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    RouteName.setNewPasswordScreen,
-                  );
-                },
-                textColor: Colors.white,
-                borderRadius: 16,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 40),
+          
+          
+              // Subtitle
+              CustomText(
+                text: "Enter the verification code we\njust sent to your email address.",
                 size: 18,
+                color: ColorManager.gray,
               ),
-            ),
-            const Spacer(),
-            // Resend Code Link
-            TextButton(
-              onPressed: () {},
-              child: CustomText(
-                text: " Resend Code",
+              const SizedBox(height: 40),
+          
+              // OTP Input Row
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildOTPBox(context, first: true),
+                  _buildOTPBox(context),
+                  _buildOTPBox(context),
+                  _buildOTPBox(context, last: true),
+                ],
+              ),
+          
+              const SizedBox(height: 40),
+              // Email Info
+              CustomText(
+                text: "Code was sent to your email",
                 size: 16,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w500,
+                color: ColorManager.gray,
+              ),
+              CustomText(
+                text: "alan34@gmail.com",
+                size: 16,
+                fontWeight: FontWeight.w500,
                 color: ColorManager.lightBlue,
               ),
-            ),
-            const SizedBox(height: 30),
-          ],
+          
+              const SizedBox(height: 40),
+              // Verify Button
+              SizedBox(
+                height: 57,
+                width: double.infinity,
+                child: CustomElevatedBottom(
+                  text: "Verify Code",
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      RouteName.setNewPasswordScreen,
+                    );
+                  },
+                  textColor: Colors.white,
+                  borderRadius: 16,
+                  size: 18,
+                ),
+              ),
+          SizedBox(height: 280,),
+              TextButton(
+                onPressed: () {},
+                child: CustomText(
+                  text: " Resend Code",
+                  size: 16,
+                  fontWeight: FontWeight.w700,
+                  color: ColorManager.lightBlue,
+                ),
+              ),
+              const SizedBox(height: 30),
+            ],
+          ),
         ),
       ),
     );

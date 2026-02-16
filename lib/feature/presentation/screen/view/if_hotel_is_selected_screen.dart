@@ -49,9 +49,7 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       backgroundColor: ColorManager.bg,
       appBar: AppBar(
         leading: IconButton(
@@ -67,7 +65,7 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
         backgroundColor: ColorManager.bg,
       ),
       body: Padding(
-        padding:  EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +100,7 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
               SizedBox(height: 20),
               CustomText(text: "Price Range", size: 18, color: Colors.black),
               SizedBox(height: 15),
-          
+
               CustomDropdown(
                 color: ColorManager.lightBlue,
                 hintText: "\$1M - \$5M",
@@ -117,7 +115,7 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
               SizedBox(height: 20),
               CustomText(text: "Note", size: 18, color: Colors.black),
               SizedBox(height: 15),
-          
+
               CustomTextfield(
                 color: ColorManager.lightBlue,
                 hintText: "lorem ipsum dummy text",
@@ -126,9 +124,9 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
                   color: ColorManager.gray,
                 ),
               ),
-          
+
               Padding(
-                padding: const EdgeInsets.only(top:230),
+                padding: const EdgeInsets.only(top: 230),
                 child: SizedBox(
                   height: 57,
                   width: double.infinity,
@@ -139,12 +137,10 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
                         context,
                         RouteName.ifRestaurantIsSelectedScreen,
                       );
-          
                     },
                     borderRadius: 16,
                     textColor: Colors.white,
                     size: 18,
-          
                   ),
                 ),
               ),

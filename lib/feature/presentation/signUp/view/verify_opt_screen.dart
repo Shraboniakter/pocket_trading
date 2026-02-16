@@ -15,6 +15,13 @@ class VerifyOptScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark,
+          statusBarBrightness: Brightness.light,
+        ),
+        scrolledUnderElevation: 0,
+        surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
@@ -24,126 +31,125 @@ class VerifyOptScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          children: [
-            const SizedBox(height: 40),
-            // Title
-            CustomText(
-              text: "OTP Verification",
-              size: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 40),
 
-            const SizedBox(height: 5),
-            // Subtitle
-            CustomText(
-              text:
-                  "Enter the verification code we\njust sent to your email address.",
-              size: 18,
-              color: ColorManager.gray,
-            ),
-            const SizedBox(height: 40),
-
-            // OTP Input Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildOTPBox(context, first: true),
-                _buildOTPBox(context),
-                _buildOTPBox(context),
-                _buildOTPBox(context, last: true),
-              ],
-            ),
-
-            const SizedBox(height: 40),
-            // Email Info
-            CustomText(
-              text: "Code was sent to your email",
-              size: 16,
-              fontWeight: FontWeight.w500,
-              color: ColorManager.gray,
-            ),
-            CustomText(
-              text: "alan34@gmail.com",
-              size: 16,
-              fontWeight: FontWeight.w500,
-              color: ColorManager.lightBlue,
-            ),
-
-            const SizedBox(height: 40),
-            // Verify Button
-            SizedBox(
-              height: 57,
-              width: double.infinity,
-              child: CustomElevatedBottom(
-                text: "Verify Code",
-                onTap: () {
-                  showGeneralDialog(
-                    context: context,
-                    barrierDismissible: true,
-                    barrierLabel: "Dismiss",
-                    barrierColor: Colors.black.withOpacity(0.4),
-                    transitionDuration: const Duration(milliseconds: 300),
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return const SizedBox();
-                    },
-                    transitionBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                          return SlideTransition(
-                            position: Tween(
-                              begin: const Offset(0, 1),
-                              end: const Offset(0, 0),
-                            ).animate(animation),
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Padding(
-                                padding: const EdgeInsets.all(20),
-                                child: CustomBottomDialog(
-                                  onPressed: () {
-                                    Navigator.pushNamed(
-                                      context,
-                                      RouteName.buyOrSellScreen,
-                                    );
-                                  },
-                                  width: 335,
-                                  height: 425,
-                                  buttonText: "Continue",
-                                  imagePath: "assets/images/checklist 1.png",
-                                  text: "Congratulation",
-                                  description:
-                                      "Your account has been created successfully.A request has been sent to the admin for verification.You will be able to log in once the admin approves your account.",
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                  );
-                },
-                textColor: Colors.white,
-                borderRadius: 16,
-                size: 18,
+              CustomText(
+                text: "OTP Verification",
+                size: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
-            ),
-            const Spacer(),
-            // Resend Code Link
-            TextButton(
-              onPressed: () {},
-              child: CustomText(
-                text: " Resend Code",
+
+              const SizedBox(height: 5),
+
+              CustomText(
+                text:
+                    "Enter the verification code we\njust sent to your email address.",
+                size: 18,
+                color: ColorManager.gray,
+              ),
+              const SizedBox(height: 40),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildOTPBox(context, first: true),
+                  _buildOTPBox(context),
+                  _buildOTPBox(context),
+                  _buildOTPBox(context, last: true),
+                ],
+              ),
+
+              const SizedBox(height: 40),
+
+              CustomText(
+                text: "Code was sent to your email",
                 size: 16,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w500,
+                color: ColorManager.gray,
+              ),
+              CustomText(
+                text: "alan34@gmail.com",
+                size: 16,
+                fontWeight: FontWeight.w500,
                 color: ColorManager.lightBlue,
               ),
-            ),
-            const SizedBox(height: 30),
-          ],
+
+              const SizedBox(height: 40),
+
+              SizedBox(
+                height: 57,
+                width: double.infinity,
+                child: CustomElevatedBottom(
+                  text: "Verify Code",
+                  onTap: () {
+                    showGeneralDialog(
+                      context: context,
+                      barrierDismissible: true,
+                      barrierLabel: "Dismiss",
+                      barrierColor: Colors.black.withOpacity(0.4),
+                      transitionDuration: const Duration(milliseconds: 300),
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return const SizedBox();
+                      },
+                      transitionBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                            return SlideTransition(
+                              position: Tween(
+                                begin: const Offset(0, 1),
+                                end: const Offset(0, 0),
+                              ).animate(animation),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: CustomBottomDialog(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                        context,
+                                        RouteName.buyOrSellScreen,
+                                      );
+                                    },
+                                    width: 335,
+                                    height: 425,
+                                    buttonText: "Continue",
+                                    imagePath: "assets/images/checklist 1.png",
+                                    text: "Congratulation",
+                                    description:
+                                        "Your account has been created successfully.A request has been sent to the admin for verification.You will be able to log in once the admin approves your account.",
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                    );
+                  },
+                  textColor: Colors.white,
+                  borderRadius: 16,
+                  size: 18,
+                ),
+              ),
+              SizedBox(height: 250),
+              TextButton(
+                onPressed: () {},
+                child: CustomText(
+                  text: " Resend Code",
+                  size: 16,
+                  fontWeight: FontWeight.w700,
+                  color: ColorManager.lightBlue,
+                ),
+              ),
+              const SizedBox(height: 30),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  // OTP Box Widget
   Widget _buildOTPBox(
     BuildContext context, {
     bool first = false,

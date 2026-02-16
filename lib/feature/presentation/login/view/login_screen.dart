@@ -10,8 +10,13 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final bool isKeyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
+
     return Scaffold(
       backgroundColor: ColorManager.bg,
+
+      resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
           Container(
@@ -27,8 +32,7 @@ class LoginScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
-                  SizedBox(height: 80),
-
+                  const SizedBox(height: 80),
                   Image.asset(AssetPaths.loginPage, height: 80),
                   const SizedBox(height: 20),
                   CustomText(
@@ -37,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                     color: Colors.white,
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   CustomText(
                     text: "Let’s Sign In for explore continues",
                     size: 18,
@@ -45,11 +49,10 @@ class LoginScreen extends StatelessWidget {
                     color: Colors.white,
                   ),
                   const SizedBox(height: 40),
-
                   CustomTextfield(
                     color: ColorManager.gray,
                     hintText: "Email Address",
-                    suffix: Icon(
+                    suffix: const Icon(
                       Icons.email_outlined,
                       color: ColorManager.gray,
                     ),
@@ -58,12 +61,12 @@ class LoginScreen extends StatelessWidget {
                   CustomTextfield(
                     color: ColorManager.gray,
                     hintText: "Password",
-                    suffix: Icon(
+                    suffix: const Icon(
                       Icons.visibility_off_outlined,
                       color: ColorManager.gray,
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(
@@ -78,65 +81,69 @@ class LoginScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
+
+                  if (isKeyboardVisible) const SizedBox(height: 100),
                 ],
               ),
             ),
           ),
 
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.7 - 35,
-            left: MediaQuery.of(context).size.width / 2 - 30,
-            // top: (screenHeight * 0.7) - 35,
-            child: Container(
-              width: 70,
-              height: 70,
-              decoration: BoxDecoration(
-                color: const Color(0xFF00ACEE),
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
-              child: InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, RouteName.homeScreen);
-                },
-                child: Icon(Icons.arrow_forward, color: Colors.white, size: 30),
+
+          if (!isKeyboardVisible)
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.7 - 35,
+              left: MediaQuery.of(context).size.width / 2 - 35,
+              child: Container(
+                width: 70,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF00ACEE),
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteName.homeScreen);
+                  },
+                  child: const Icon(Icons.arrow_forward, color: Colors.white, size: 30),
+                ),
               ),
             ),
-          ),
 
-          // Sign In Text at bottom
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomText(
-                    text: "Don’t have an account?",
-                    color: ColorManager.gray,
-                    size: 16,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, RouteName.signUpScreen);
-                    },
-                    child: CustomText(
-                      text: " Sign Up",
-                      color: ColorManager.lightBlue,
+
+          if (!isKeyboardVisible)
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomText(
+                      text: "Don’t have an account?",
+                      color: ColorManager.gray,
                       size: 16,
                     ),
-                  ),
-                ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, RouteName.signUpScreen);
+                      },
+                      child: CustomText(
+                        text: " Sign Up",
+                        color: ColorManager.lightBlue,
+                        size: 16,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
         ],
       ),
     );
