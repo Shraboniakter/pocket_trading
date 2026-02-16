@@ -34,10 +34,6 @@ class CustomDropdown extends StatelessWidget {
           menuMaxHeight: 200,
           menuWidth: 200,
 
-
-
-
-
           dropdownColor: ColorManager.primary,
           value: value,
           style: const TextStyle(
