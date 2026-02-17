@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
 import '../../widgets/CustomText.dart';
 
@@ -20,11 +21,11 @@ class PropertyInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(20),
-      padding: const EdgeInsets.all(16),
+      margin:  EdgeInsets.all(20.r),
+      padding:  EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         color: ColorManager.primary,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
       ),
       child: Column(
         children: [
@@ -35,7 +36,7 @@ class PropertyInfoCard extends StatelessWidget {
               CustomText(
                 text: actionText,
                 color: ColorManager.blue,
-                size: 18,
+                size: 18.sp,
                 fontWeight: FontWeight.w700,
               ),
               Row(
@@ -59,7 +60,7 @@ class PropertyInfoCard extends StatelessWidget {
             ],
           ),
 
-          const Divider(height: 25),
+           Divider(height: 25.h),
 
           ...propertyDetails.entries
               .map((entry) => _infoRow(entry.key, entry.value))
@@ -71,16 +72,16 @@ class PropertyInfoCard extends StatelessWidget {
 
   Widget _infoRow(String title, String value) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
+      padding:  EdgeInsets.symmetric(vertical: 6.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          CustomText(text: title, color: ColorManager.gray, size: 14),
+          CustomText(text: title, color: ColorManager.gray, size: 14.sp),
           Flexible(
             child: CustomText(
               text: value,
               color: ColorManager.lightBlue,
-              size: 14,
+              size: 14.sp,
             ),
           ),
         ],
