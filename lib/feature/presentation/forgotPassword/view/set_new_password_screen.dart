@@ -60,7 +60,6 @@ class SetNewPasswordScreen extends ConsumerWidget {
             const SizedBox(height: 50),
 
             CustomTextfield(
-              textInputAction: TextInputAction.done,
               obscureText: isNewObscure,
               hintText: "New Password",
               suffix: InkWell(
@@ -78,7 +77,6 @@ class SetNewPasswordScreen extends ConsumerWidget {
             ),
             SizedBox(height: 15),
             CustomTextfield(
-              textInputAction: TextInputAction.done,
               obscureText: isConfirmNewObscure,
               hintText: "Confirm Password",
               suffix: InkWell(

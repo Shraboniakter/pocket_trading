@@ -65,7 +65,6 @@ class SignUpScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 30),
                   CustomTextfield(
-                    textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Full Name",
                     suffix: const Icon(
@@ -75,7 +74,6 @@ class SignUpScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
-                    textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Email Address",
                     suffix: const Icon(
@@ -85,14 +83,12 @@ class SignUpScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
-                    textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Mobile Number",
                     suffix: const Icon(Icons.phone, color: ColorManager.gray),
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
-                    textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Company",
                     suffix: const Icon(
@@ -102,7 +98,6 @@ class SignUpScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
-                    textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Title",
                     suffix: const Icon(
@@ -112,7 +107,6 @@ class SignUpScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
-
                     obscureText: isCreateNewObscure,
                     color: ColorManager.gray,
                     hintText: "Password",
@@ -130,11 +124,9 @@ class SignUpScreen extends ConsumerWidget {
                         color: ColorManager.gray,
                       ),
                     ),
-                    textInputAction: TextInputAction.done,
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
-                    textInputAction: TextInputAction.done,
                     obscureText: isCreateReObscure,
                     color: ColorManager.gray,
                     hintText: "Confirm Password",
