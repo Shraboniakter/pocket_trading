@@ -81,6 +81,7 @@ class CustomBottomSheet extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
+                      overlayColor: ColorManager.gray.withOpacity(0.1),
                     ),
                     child: Text(
                       leftButtonText,
@@ -116,6 +117,7 @@ class CustomBottomSheet extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
+                        overlayColor: ColorManager.gray.withOpacity(0.1),
                       ),
                       child: Text(
                         rightButtonText,
