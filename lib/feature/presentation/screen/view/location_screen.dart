@@ -71,12 +71,14 @@ class _LocationScreenState extends State<LocationScreen> {
               ),
               SizedBox(height: 15),
               CustomTextfield(
+                textInputAction: TextInputAction.next,
                 color: ColorManager.gray,
                 hintText: "State",
                 suffix: Icon(Icons.flag_outlined, color: ColorManager.gray),
               ),
               SizedBox(height: 15),
               CustomTextfield(
+                textInputAction: TextInputAction.done,
                 color: ColorManager.gray,
                 hintText: "City",
                 suffix: Icon(

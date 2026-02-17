@@ -1,19 +1,37 @@
 import 'dart:developer';
 
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pocket_trading/core/constrants/app_images.dart';
-import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
-import 'package:pocket_trading/feature/presentation/widgets/CustomTextfield.dart';
+
 import '../../../../core/constrants/app_color.dart';
+import '../../../../core/constrants/app_images.dart';
 import '../../../../core/routes/route_name.dart';
+import '../../widgets/CustomText.dart';
+import '../../widgets/CustomTextfield.dart';
 import '../viewModel/auth_provider.dart';
 
-class LoginScreen extends ConsumerWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends ConsumerState<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _formKey.currentState?.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final isLoginObscure = ref.watch(authProvider).isLoginObscure;
 
     final bool isKeyboardVisible =
@@ -21,7 +39,6 @@ class LoginScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: ColorManager.bg,
-
       resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
@@ -39,39 +56,64 @@ class LoginScreen extends ConsumerWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 80),
+
                   Image.asset(AssetPaths.loginPage, height: 80),
+
                   const SizedBox(height: 20),
+
                   CustomText(
                     text: "Getting Started",
                     size: 24,
                     fontWeight: FontWeight.w700,
                     color: Colors.white,
                   ),
+
                   const SizedBox(height: 5),
+
                   CustomText(
                     text: "Let’s Sign In for explore continues",
                     size: 18,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),
+
                   const SizedBox(height: 40),
+
+                  /// Email
                   CustomTextfield(
+                    controller: _emailController,
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Email Address",
                     suffix: const Icon(
                       Icons.email_outlined,
                       color: ColorManager.gray,
                     ),
+                    validator: (value) {
+                      if (value == null ||
+                          value.isEmpty ||
+                          !EmailValidator.validate(_emailController.text)) {
+                        return "Please enter your email address";
+                      }else{
+                        return null;
+                      }
+                    },
                   ),
+
                   const SizedBox(height: 20),
+
+                  /// Password
                   CustomTextfield(
+                    controller: _passwordController,
+                    textInputAction: TextInputAction.done,
                     obscureText: isLoginObscure,
                     color: ColorManager.gray,
                     hintText: "Password",
                     suffix: InkWell(
                       onTap: () {
                         ref.read(authProvider.notifier).toggleLoginObscure();
-                        log('message');
+                        log('visibility toggled');
                       },
                       child: Icon(
                         isLoginObscure
@@ -80,8 +122,19 @@ class LoginScreen extends ConsumerWidget {
                         color: ColorManager.gray,
                       ),
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your password';
+                      } else if (value.length < 8) {
+                        return 'Password must be at least 8 characters';
+                      } else {
+                        return null;
+                      }
+                    },
                   ),
+
                   const SizedBox(height: 30),
+
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(
@@ -103,6 +156,7 @@ class LoginScreen extends ConsumerWidget {
             ),
           ),
 
+          /// Floating Arrow Button
           if (!isKeyboardVisible)
             Positioned(
               top: MediaQuery.of(context).size.height * 0.7 - 35,
@@ -122,7 +176,8 @@ class LoginScreen extends ConsumerWidget {
                   ],
                 ),
                 child: InkWell(
-                  onTap: () {
+                  onTap: () async {
+
                     Navigator.pushNamed(context, RouteName.homeScreen);
                   },
                   child: const Icon(
@@ -134,6 +189,7 @@ class LoginScreen extends ConsumerWidget {
               ),
             ),
 
+          /// Bottom SignUp Text
           if (!isKeyboardVisible)
             Align(
               alignment: Alignment.bottomCenter,
