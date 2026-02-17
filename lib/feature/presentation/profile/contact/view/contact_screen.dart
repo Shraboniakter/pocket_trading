@@ -76,6 +76,7 @@ class _ContactScreenState extends State<ContactScreen> {
           padding: const EdgeInsets.all(20.0),
           child: Column(children: [
             CustomTextfield(
+              textInputAction: TextInputAction.next,
               color: ColorManager.gray,
               hintText: "Name",
               suffix: Icon(
@@ -85,6 +86,7 @@ class _ContactScreenState extends State<ContactScreen> {
             ),
             const SizedBox(height: 15),
             CustomTextfield(
+              textInputAction: TextInputAction.next,
               color: ColorManager.gray,
               hintText: "Email Address",
               suffix: Icon(
