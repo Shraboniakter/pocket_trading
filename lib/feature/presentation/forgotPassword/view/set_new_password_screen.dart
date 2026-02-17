@@ -61,6 +61,7 @@ class SetNewPasswordScreen extends ConsumerWidget {
             CustomTextfield(
               obscureText: isNewObscure,
               hintText: "New Password",
+              color:ColorManager.gray,
               suffix: InkWell(
                 onTap: () {
                   ref.read(authProvider.notifier).toggleNewObscure();
@@ -78,6 +79,7 @@ class SetNewPasswordScreen extends ConsumerWidget {
             CustomTextfield(
               obscureText: isConfirmNewObscure,
               hintText: "Confirm Password",
+              color:ColorManager.gray,
               suffix: InkWell(
                 onTap: () {
                   ref.read(authProvider.notifier).toggleConfirmNewObscure();

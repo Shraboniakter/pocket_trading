@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 import 'package:pocket_trading/feature/presentation/widgets/pimary_bottom.dart';
@@ -22,23 +23,23 @@ class _BuyOrSellScreenState extends State<BuyOrSellScreen> {
       backgroundColor: ColorManager.bg,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(20.0.r),
           child: Column(
             children: [
-              SizedBox(height: 60),
+              SizedBox(height: 60.h),
               CustomText(
                 text: "Looking to Buy or Sell?",
                 color: Colors.black,
-                size: 24,
+                size: 24.sp,
                 fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 5),
+              SizedBox(height: 5.h),
               CustomText(
                 text: "lorem ipsum dummy text",
                 color: ColorManager.gray,
-                size: 18,
+                size: 18.sp,
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 40.h),
               OptionTile(
                 title: "Buy",
                 groupValue: selectedOption,
@@ -48,7 +49,7 @@ class _BuyOrSellScreenState extends State<BuyOrSellScreen> {
                   });
                 },
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 15.h),
               OptionTile(
                 title: "Sell",
                 groupValue: selectedOption,
@@ -60,7 +61,7 @@ class _BuyOrSellScreenState extends State<BuyOrSellScreen> {
               ),
               Spacer(),
               SizedBox(
-                height: 57,
+                height: 57.h,
                 width: double.infinity,
                 child: CustomElevatedBottom(
                   text: "Next",
@@ -71,9 +72,9 @@ class _BuyOrSellScreenState extends State<BuyOrSellScreen> {
                     );
 
                   },
-                  borderRadius: 16,
+                  borderRadius: 16.r,
                   textColor: Colors.white,
-                  size: 18,
+                  size: 18.sp,
 
                 ),
               ),

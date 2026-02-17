@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 import '../../../../core/constrants/app_color.dart';
 
@@ -21,10 +22,10 @@ class OptionTile extends StatelessWidget {
       onTap: () => onChanged(title),
       child: Container(
 
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
         decoration: BoxDecoration(
           color: ColorManager.primary,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,12 +33,12 @@ class OptionTile extends StatelessWidget {
 
             CustomText(
               text: title,
-              size: 20,
+              size: 20.sp,
               color: Colors.black,
             ),
 
             SizedBox(
-              height: 60,
+              height: 60.h,
 
               child: Radio<String>(
                 visualDensity: VisualDensity.compact,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 
 import '../../../../core/constrants/app_color.dart';
@@ -53,7 +54,7 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
       backgroundColor: ColorManager.bg,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black, size: 28),
+          icon:  Icon(Icons.arrow_back, color: Colors.black, size: 28.sp),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -65,13 +66,13 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
         backgroundColor: ColorManager.bg,
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0.r),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomText(text: "Property Type", size: 18, color: Colors.black),
-              SizedBox(height: 15),
+              CustomText(text: "Property Type", size: 18.sp, color: Colors.black),
+              SizedBox(height: 15.h),
               CustomDropdown(
                 color: ColorManager.lightBlue,
                 hintText: "Full Service",
@@ -83,9 +84,9 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
                   });
                 },
               ),
-              SizedBox(height: 20),
-              CustomText(text: "Room Count", size: 18, color: Colors.black),
-              SizedBox(height: 15),
+              SizedBox(height: 20.h),
+              CustomText(text: "Room Count", size: 18.sp, color: Colors.black),
+              SizedBox(height: 15.h),
               CustomDropdown(
                 color: ColorManager.lightBlue,
                 hintText: "Under 40 Rooms",
@@ -97,9 +98,9 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
                   });
                 },
               ),
-              SizedBox(height: 20),
-              CustomText(text: "Price Range", size: 18, color: Colors.black),
-              SizedBox(height: 15),
+              SizedBox(height: 20.h),
+              CustomText(text: "Price Range", size: 18.sp, color: Colors.black),
+              SizedBox(height: 15.h),
 
               CustomDropdown(
                 color: ColorManager.lightBlue,
@@ -112,9 +113,9 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
                   });
                 },
               ),
-              SizedBox(height: 20),
-              CustomText(text: "Note", size: 18, color: Colors.black),
-              SizedBox(height: 15),
+              SizedBox(height: 20.h),
+              CustomText(text: "Note", size: 18.sp, color: Colors.black),
+              SizedBox(height: 15.h),
 
               CustomTextfield(
                 max: 5,
@@ -125,9 +126,9 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top: 230),
+                padding:  EdgeInsets.only(top: 230.h),
                 child: SizedBox(
-                  height: 57,
+                  height: 57.h,
                   width: double.infinity,
                   child: CustomElevatedBottom(
                     text: "Submit",
@@ -137,9 +138,9 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
                         RouteName.ifRestaurantIsSelectedScreen,
                       );
                     },
-                    borderRadius: 16,
+                    borderRadius: 16.r,
                     textColor: Colors.white,
-                    size: 18,
+                    size: 18.sp,
                   ),
                 ),
               ),

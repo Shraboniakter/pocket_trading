@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
@@ -29,19 +30,19 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        padding:  EdgeInsets.symmetric(horizontal: 24.0.h),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 40),
+               SizedBox(height: 40.h),
 
               CustomText(
                 text:
                     "Enter the verification code we\njust sent to your email address.",
-                size: 18,
+                size: 18.sp,
                 color: ColorManager.gray,
               ),
-              const SizedBox(height: 40),
+               SizedBox(height: 40.h),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,25 +54,25 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 40),
+               SizedBox(height: 40.h),
 
               CustomText(
                 text: "Code was sent to your email",
-                size: 16,
+                size: 16.sp,
                 fontWeight: FontWeight.w500,
                 color: ColorManager.gray,
               ),
               CustomText(
                 text: "alan34@gmail.com",
-                size: 16,
+                size: 16.sp,
                 fontWeight: FontWeight.w500,
                 color: ColorManager.lightBlue,
               ),
 
-              const SizedBox(height: 40),
+               SizedBox(height: 40.h),
 
               SizedBox(
-                height: 57,
+                height: 57.h,
                 width: double.infinity,
                 child: CustomElevatedBottom(
                   text: "Verify Code",
@@ -82,21 +83,21 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                     );
                   },
                   textColor: Colors.white,
-                  borderRadius: 16,
-                  size: 18,
+                  borderRadius: 16.r,
+                  size: 18.sp,
                 ),
               ),
-              SizedBox(height: 280),
+              SizedBox(height: 280.h),
               TextButton(
                 onPressed: () {},
                 child: CustomText(
                   text: " Resend Code",
-                  size: 16,
+                  size: 16.sp,
                   fontWeight: FontWeight.w700,
                   color: ColorManager.lightBlue,
                 ),
               ),
-              const SizedBox(height: 30),
+               SizedBox(height: 30.h),
             ],
           ),
         ),
@@ -110,11 +111,11 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
     bool last = false,
   }) {
     return Container(
-      height: 70,
-      width: 70,
+      height: 70.h,
+      width: 70.w,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.03),
@@ -134,7 +135,7 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
           }
         },
         textAlign: TextAlign.center,
-        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        style:  TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
         keyboardType: TextInputType.number,
         inputFormatters: [
           LengthLimitingTextInputFormatter(1),

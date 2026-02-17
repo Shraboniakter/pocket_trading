@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 import 'package:pocket_trading/feature/presentation/widgets/pimary_bottom.dart';
@@ -20,11 +21,10 @@ class _AssetTypeScreenState extends State<AssetTypeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading:IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black, size: 28),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black, size: 28.sp),
           onPressed: () {
             Navigator.pop(context);
-
           },
         ),
 
@@ -34,22 +34,22 @@ class _AssetTypeScreenState extends State<AssetTypeScreen> {
       backgroundColor: ColorManager.bg,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding:  EdgeInsets.all(20.0.r),
           child: Column(
             children: [
               CustomText(
                 text: "Asset Type",
                 color: Colors.black,
-                size: 24,
+                size: 24.sp,
                 fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 5),
+              SizedBox(height: 5.h),
               CustomText(
                 text: "lorem ipsum dummy text",
                 color: ColorManager.gray,
-                size: 18,
+                size: 18.sp,
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 40.h),
               OptionTile(
                 title: "BuyRestaurant\n(Second Generation)",
                 groupValue: selectedOption,
@@ -59,7 +59,7 @@ class _AssetTypeScreenState extends State<AssetTypeScreen> {
                   });
                 },
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 15.h),
               OptionTile(
                 title: "Hotel",
                 groupValue: selectedOption,
@@ -71,21 +71,16 @@ class _AssetTypeScreenState extends State<AssetTypeScreen> {
               ),
               Spacer(),
               SizedBox(
-                height: 57,
+                height: 57.h,
                 width: double.infinity,
                 child: CustomElevatedBottom(
                   text: "Next",
                   onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      RouteName.locationScreen,
-                    );
-
+                    Navigator.pushNamed(context, RouteName.locationScreen);
                   },
-                  borderRadius: 16,
+                  borderRadius: 16.r,
                   textColor: Colors.white,
-                  size: 18,
-
+                  size: 18.sp,
                 ),
               ),
             ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 
 import '../../../../core/constrants/app_color.dart';
@@ -30,39 +31,39 @@ class ForgotPasswordScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        padding:  EdgeInsets.symmetric(horizontal: 24.0.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 40),
+             SizedBox(height: 40.h),
 
             CustomText(
               text: "Forgot Password?",
-              size: 24,
+              size: 24.sp,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
 
-            const SizedBox(height: 5),
+             SizedBox(height: 5.h),
 
             CustomText(
               text: "No worries, we will help you\n    to reset your password.",
-              size: 18,
+              size: 18.sp,
               color: ColorManager.gray,
             ),
 
-            const SizedBox(height: 50),
+             SizedBox(height: 50.h),
 
             CustomTextfield(
               textInputAction: TextInputAction.next,
-              hintText: "Email Address",
+              hintText: "Email Address",color:ColorManager.gray,
               suffix: Icon(Icons.email_outlined, color: ColorManager.gray),
             ),
 
-            const SizedBox(height: 30),
+             SizedBox(height: 30.h),
 
             SizedBox(
-              height: 57,
+              height: 57.h,
               width: double.infinity,
               child: CustomElevatedBottom(
                 text: "Send Code",
@@ -73,8 +74,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                   );
                 },
                 textColor: Colors.white,
-                borderRadius: 16,
-                size: 18,
+                borderRadius: 16.r,
+                size: 18.sp,
               ),
             ),
             const Spacer(),
@@ -84,7 +85,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               children: [
                 CustomText(
                   text: "Remember your password?",
-                  size: 16,
+                  size: 16.sp,
                   fontWeight: FontWeight.w500,
                   color: ColorManager.gray,
                 ),
@@ -94,14 +95,14 @@ class ForgotPasswordScreen extends StatelessWidget {
                   },
                   child: CustomText(
                     text: " Sign In",
-                    size: 16,
+                    size: 16.sp,
                     fontWeight: FontWeight.w500,
                     color: ColorManager.lightBlue,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: 30.sp),
           ],
         ),
       ),

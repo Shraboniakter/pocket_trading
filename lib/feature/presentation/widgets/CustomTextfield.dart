@@ -52,7 +52,7 @@ class CustomTextfield extends StatelessWidget {
       cursorColor: Colors.grey,
       style: TextStyle(
         color: ColorManager.lightBlue,
-        fontSize: 16,
+        fontSize: 16.sp,
       ),
       decoration: InputDecoration(
         alignLabelWithHint: true,
@@ -68,13 +68,13 @@ class CustomTextfield extends StatelessWidget {
 
 
         isDense: false,
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 20,
-          horizontal: 16,
+        contentPadding:  EdgeInsets.symmetric(
+          vertical: 20.h,
+          horizontal: 16.w,
         ),
         errorStyle: TextStyle(
           color: Color(0xffA40000),
-          fontSize: 12,
+          fontSize: 12.sp,
         ),
 
         errorBorder: OutlineInputBorder(

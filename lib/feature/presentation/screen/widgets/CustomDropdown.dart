@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constrants/app_color.dart';
 
@@ -21,23 +22,23 @@ class CustomDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      height: 60.h,
+      padding:  EdgeInsets.symmetric(horizontal: 16.h),
       decoration: BoxDecoration(
         color:  ColorManager.primary,
         borderRadius: BorderRadius.circular(16),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-          borderRadius:BorderRadius.all(Radius.circular(16)),
+          borderRadius:BorderRadius.all(Radius.circular(16.r)),
           alignment: AlignmentDirectional.centerStart,
-          menuMaxHeight: 200,
-          menuWidth: 200,
+          menuMaxHeight: 200.h,
+          menuWidth: 200.w,
 
           dropdownColor: ColorManager.primary,
           value: value,
-          style: const TextStyle(
-            fontSize: 16,
+          style:  TextStyle(
+            fontSize: 16.sp,
             color: ColorManager.lightBlue,
             fontWeight: FontWeight.w500,
           ),

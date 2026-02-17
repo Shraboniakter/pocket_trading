@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
 import 'CustomText.dart';
 
@@ -26,12 +27,12 @@ class CustomElevatedBottom extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: color ?? ColorManager.lightBlue,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius ?? 30),
+          borderRadius: BorderRadius.circular(borderRadius ?? 30.r),
         ),
       ),
       onPressed: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 14.0),
+        padding:  EdgeInsets.symmetric(vertical: 14.0.h),
         child: CustomText(
           size:size ,
           text: text,
