@@ -93,7 +93,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     validator: (value) {
                       if (value == null ||
                           value.isEmpty ||
-                          !EmailValidator.validate(_emailController.text)) {
+                          !EmailValidator.validate(_emailController.text,)) {
                         return "Please enter your email address";
                       }else{
                         return null;

@@ -130,7 +130,7 @@ class SignUpScreen extends ConsumerWidget {
                         color: ColorManager.gray,
                       ),
                     ),
-                    textInputAction: TextInputAction.done,
+                    textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
