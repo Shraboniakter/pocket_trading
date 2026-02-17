@@ -123,12 +123,10 @@ class _IfRestaurantIsSelectedScreenState extends State<IfRestaurantIsSelectedScr
               SizedBox(height: 15),
 
               CustomTextfield(
+                max: 5,
                 color: ColorManager.lightBlue,
                 hintText: "lorem ipsum dummy text",
-                suffix: Icon(
-                  CupertinoIcons.chat_bubble_text,
-                  color: ColorManager.gray,
-                ),
+
               ),
 
               Padding(

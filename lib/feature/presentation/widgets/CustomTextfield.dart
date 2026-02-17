@@ -47,6 +47,7 @@ class CustomTextfield extends StatelessWidget {
       obscureText: obscureText ?? false,
       autovalidateMode: AutovalidateMode.onUserInteraction,
 
+
       maxLines: obscureText == true ? 1 : max,
       cursorColor: Colors.grey,
       style: TextStyle(
@@ -54,6 +55,7 @@ class CustomTextfield extends StatelessWidget {
         fontSize: 16,
       ),
       decoration: InputDecoration(
+        alignLabelWithHint: true,
         hintText: hintText,
         hintStyle: GoogleFonts.dmSans(
           fontSize: 16.sp,

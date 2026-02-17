@@ -92,9 +92,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     validator: (value) {
                       if (value == null ||
                           value.isEmpty ||
-                          !EmailValidator.validate(_emailController.text)) {
+                          !EmailValidator.validate(_emailController.text,)) {
                         return "Please enter your email address";
-                      } else {
+                      }else{
                         return null;
                       }
                     },
@@ -174,6 +174,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 child: InkWell(
                   onTap: () async {
+
                     Navigator.pushNamed(context, RouteName.homeScreen);
                   },
                   child: const Icon(

@@ -85,6 +85,7 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
               ),
               SizedBox(height: 20),
               CustomTextfield(
+                max: 5,
                 hintText: "Tell us what you think....",
                 color: ColorManager.gray,
               ),

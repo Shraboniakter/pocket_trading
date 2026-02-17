@@ -93,6 +93,8 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
 
               if (selectedIndex == 4)
                 CustomTextfield(
+                  max: 5,
+
                   color: ColorManager.gray,
                   hintText: "I’m leaving because...",
                 ),

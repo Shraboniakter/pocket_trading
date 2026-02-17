@@ -102,12 +102,10 @@ class _ContactScreenState extends State<ContactScreen> {
               SizedBox(height: 15),
 
               CustomTextfield(
+                max: 5,
                 color: ColorManager.gray,
                 hintText: "lorem ipsum dummy text",
-                suffix: Icon(
-                  CupertinoIcons.chat_bubble_text,
-                  color: ColorManager.gray,
-                ),
+
               ),
               SizedBox(height: 30),
               SizedBox(

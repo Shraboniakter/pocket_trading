@@ -117,12 +117,11 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
               SizedBox(height: 15),
 
               CustomTextfield(
+                max: 5,
+
                 color: ColorManager.lightBlue,
                 hintText: "lorem ipsum dummy text",
-                suffix: Icon(
-                  CupertinoIcons.chat_bubble_text,
-                  color: ColorManager.gray,
-                ),
+
               ),
 
               Padding(
