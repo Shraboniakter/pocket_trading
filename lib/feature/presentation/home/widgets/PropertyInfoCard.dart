@@ -4,7 +4,7 @@ import 'package:pocket_trading/core/constrants/app_color.dart';
 import '../../widgets/CustomText.dart';
 
 class PropertyInfoCard extends StatelessWidget {
-  final String actionText; // "Buy" / "Sell"
+  final String actionText;
   final VoidCallback? onEdit;
   final VoidCallback? onDelete;
   final Map<String, String> propertyDetails;
@@ -14,7 +14,7 @@ class PropertyInfoCard extends StatelessWidget {
     this.actionText = "Buy",
     this.onEdit,
     this.onDelete,
-    required this.propertyDetails, // e.g., {"Asset Type": "Hotel", "Location": "New York"}
+    required this.propertyDetails,
   });
 
   @override
@@ -42,11 +42,17 @@ class PropertyInfoCard extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: onEdit,
-                    icon: const Icon(CupertinoIcons.square_pencil , color:  ColorManager.lightBlue,),
+                    icon: const Icon(
+                      CupertinoIcons.square_pencil,
+                      color: ColorManager.lightBlue,
+                    ),
                   ),
                   IconButton(
                     onPressed: onDelete,
-                    icon: const Icon(CupertinoIcons.delete_simple, color: Color(0xffFF3030)),
+                    icon: const Icon(
+                      CupertinoIcons.delete_simple,
+                      color: Color(0xffFF3030),
+                    ),
                   ),
                 ],
               ),
@@ -55,8 +61,9 @@ class PropertyInfoCard extends StatelessWidget {
 
           const Divider(height: 25),
 
-          /// Info Rows dynamically
-          ...propertyDetails.entries.map((entry) => _infoRow(entry.key, entry.value)).toList(),
+          ...propertyDetails.entries
+              .map((entry) => _infoRow(entry.key, entry.value))
+              .toList(),
         ],
       ),
     );

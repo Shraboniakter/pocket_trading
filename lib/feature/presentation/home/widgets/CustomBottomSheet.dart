@@ -46,7 +46,7 @@ class CustomBottomSheet extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.asset(imagePath!,width: 93.75,height: 93.75,),
+            Image.asset(imagePath!, width: 93.75, height: 93.75),
 
             SizedBox(height: 20),
 
@@ -59,7 +59,6 @@ class CustomBottomSheet extends StatelessWidget {
               ),
 
             const SizedBox(height: 10),
-
 
             CustomText(
               textAlign: TextAlign.center,
@@ -78,7 +77,7 @@ class CustomBottomSheet extends StatelessWidget {
                     onPressed: onLeftPressed,
                     style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 16),
-                      side: BorderSide(color: ColorManager.gray,),
+                      side: BorderSide(color: ColorManager.gray),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),

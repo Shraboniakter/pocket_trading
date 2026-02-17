@@ -10,13 +10,13 @@ class CustomElevatedBottom extends StatelessWidget {
     this.color,
     this.textColor,
     this.borderRadius,
-    this.size, // 👈 user input
+    this.size,
   });
 
   final String text;
   final Color? color;
   final Color? textColor;
-  final double? borderRadius; // 👈 borderRadius input
+  final double? borderRadius;
   final VoidCallback onTap;
   final double? size;
 
@@ -26,7 +26,7 @@ class CustomElevatedBottom extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: color ?? ColorManager.lightBlue,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius ?? 30), // default 30
+          borderRadius: BorderRadius.circular(borderRadius ?? 30),
         ),
       ),
       onPressed: onTap,

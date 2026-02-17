@@ -4,90 +4,49 @@ class AppRoute {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case RouteName.splashScreen:
-        return MaterialPageRoute(
-          builder: (_) => const SplashScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case RouteName.loginScreen:
-        return MaterialPageRoute(
-          builder: (_) => LoginScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => LoginScreen());
       case RouteName.signUpScreen:
-        return MaterialPageRoute(
-          builder: (_) => SignUpScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => SignUpScreen());
       case RouteName.verifyOptScreen:
-        return MaterialPageRoute(
-          builder: (_) =>  VerifyOptScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => VerifyOptScreen());
       case RouteName.forgotPasswordScreen:
-        return MaterialPageRoute(
-          builder: (_) => ForgotPasswordScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
       case RouteName.forgotPasswordOTPScreen:
-        return MaterialPageRoute(
-          builder: (_) => ForgotPasswordOtpScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => ForgotPasswordOtpScreen());
       case RouteName.setNewPasswordScreen:
-        return MaterialPageRoute(
-          builder: (_) => SetNewPasswordScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => SetNewPasswordScreen());
       case RouteName.homeScreen:
-        return MaterialPageRoute(
-          builder: (_) => HomeScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => HomeScreen());
       case RouteName.profileScreen:
-        return MaterialPageRoute(
-          builder: (_) => ProfileScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => ProfileScreen());
       case RouteName.assetTypeScreen:
-        return MaterialPageRoute(
-          builder: (_) => AssetTypeScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => AssetTypeScreen());
       case RouteName.buyOrSellScreen:
-        return MaterialPageRoute(
-          builder: (_) => BuyOrSellScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => BuyOrSellScreen());
       case RouteName.locationScreen:
-        return MaterialPageRoute(
-          builder: (_) => LocationScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => LocationScreen());
       case RouteName.ifHotelIsSelectedScreen:
-        return MaterialPageRoute(
-          builder: (_) => IfHotelIsSelectedScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => IfHotelIsSelectedScreen());
       case RouteName.ifRestaurantIsSelectedScreen:
         return MaterialPageRoute(
           builder: (_) => IfRestaurantIsSelectedScreen(),
         );
       case RouteName.deleteAccountScreen:
-        return MaterialPageRoute(
-          builder: (_) => DeleteAccountScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => DeleteAccountScreen());
       case RouteName.editProfileScreen:
-        return MaterialPageRoute(
-          builder: (_) => EditProfileScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => EditProfileScreen());
       case RouteName.changePasswordScreen:
-        return MaterialPageRoute(
-          builder: (_) => ChangePasswordScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => ChangePasswordScreen());
       case RouteName.privacyPolicyScreen:
-        return MaterialPageRoute(
-          builder: (_) => PrivacyPolicyScreen(),
-        );
-      case RouteName. termsAndConditionsScreen:
-        return MaterialPageRoute(
-          builder: (_) => TermsAndConditionsScreen(),
-        );
-      case RouteName. feedBackScreen:
-        return MaterialPageRoute(
-          builder: (_) => FeedBackScreen(),
-        );
-      case RouteName. contactScreen:
-        return MaterialPageRoute(
-          builder: (_) => ContactScreen(),
-        );
-
+        return MaterialPageRoute(builder: (_) => PrivacyPolicyScreen());
+      case RouteName.termsAndConditionsScreen:
+        return MaterialPageRoute(builder: (_) => TermsAndConditionsScreen());
+      case RouteName.feedBackScreen:
+        return MaterialPageRoute(builder: (_) => FeedBackScreen());
+      case RouteName.contactScreen:
+        return MaterialPageRoute(builder: (_) => ContactScreen());
 
       default:
         return MaterialPageRoute(

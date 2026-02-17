@@ -99,7 +99,7 @@ class _LocationScreenState extends State<LocationScreen> {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top:318),
+                padding: const EdgeInsets.only(top: 318),
                 child: SizedBox(
                   height: 57,
                   width: double.infinity,
@@ -110,12 +110,10 @@ class _LocationScreenState extends State<LocationScreen> {
                         context,
                         RouteName.ifHotelIsSelectedScreen,
                       );
-
                     },
                     borderRadius: 16,
                     textColor: Colors.white,
                     size: 18,
-
                   ),
                 ),
               ),

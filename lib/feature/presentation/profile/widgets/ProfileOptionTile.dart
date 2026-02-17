@@ -36,11 +36,11 @@ class ProfileOptionTile extends StatelessWidget {
           ),
           child: Row(
             children: [
-              // Left Icon with Light Blue Background
+
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: ColorManager.bg, // Light background
+                  color: ColorManager.bg,
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -51,12 +51,12 @@ class ProfileOptionTile extends StatelessWidget {
               ),
               const SizedBox(width: 16),
 
-              // Title Text
+
               Expanded(
                 child:CustomText(text: title,size: 16,color: Colors.black,)
               ),
 
-              // Right Arrow Icon
+
               const Icon(
                 Icons.arrow_forward_ios_rounded,
                 color: Color(0xFF333333),

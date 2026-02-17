@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pocket_trading/feature/presentation/home/widgets/CustomBottomSheet.dart';
-
 import '../../../../core/constrants/app_color.dart';
-import '../../../../core/routes/route_name.dart';
 import '../../widgets/CustomAppbar.dart';
-import '../../widgets/CustomDialog.dart';
 import '../../widgets/pimary_bottom.dart';
 import '../widgets/PropertyInfoCard.dart';
 
@@ -15,13 +12,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: ColorManager.bg,
       body: Column(
         children: [
           CustomHomeAppBar(icon: CupertinoIcons.person_alt_circle),
 
-          // Expanded ListView for scrollable cards
           Expanded(
             child: ListView(
               padding: const EdgeInsets.symmetric(vertical: 2),
@@ -41,31 +36,31 @@ class HomeScreen extends StatelessWidget {
                       },
                       transitionBuilder:
                           (context, animation, secondaryAnimation, child) {
-                        return SlideTransition(
-                          position: Tween(
-                            begin: const Offset(0, 1),
-                            end: const Offset(0, 0),
-                          ).animate(animation),
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: CustomBottomSheet(
-                                text: "Delete Card",
-                                description: "Are you sure you want to delete this card?",
-                                onLeftPressed: () {},
-                                onRightPressed: () {
-                                  Navigator.pop(context, true);
-                                },
-                                imagePath: "assets/images/checklisttt.png",
-                                height: 342,
-                                width: 335,
-
+                            return SlideTransition(
+                              position: Tween(
+                                begin: const Offset(0, 1),
+                                end: const Offset(0, 0),
+                              ).animate(animation),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: CustomBottomSheet(
+                                    text: "Delete Card",
+                                    description:
+                                        "Are you sure you want to delete this card?",
+                                    onLeftPressed: () {},
+                                    onRightPressed: () {
+                                      Navigator.pop(context, true);
+                                    },
+                                    imagePath: "assets/images/checklisttt.png",
+                                    height: 342,
+                                    width: 335,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        );
-                      },
+                            );
+                          },
                     );
                   },
                   propertyDetails: {
@@ -79,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                 PropertyInfoCard(
                   actionText: "Sell",
                   onEdit: () => print("Edit tapped!"),
-                  onDelete: (){
+                  onDelete: () {
                     showGeneralDialog(
                       context: context,
                       barrierDismissible: true,
@@ -91,31 +86,31 @@ class HomeScreen extends StatelessWidget {
                       },
                       transitionBuilder:
                           (context, animation, secondaryAnimation, child) {
-                        return SlideTransition(
-                          position: Tween(
-                            begin: const Offset(0, 1),
-                            end: const Offset(0, 0),
-                          ).animate(animation),
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: CustomBottomSheet(
-                                text: "Delete Card",
-                                description: "Are you sure you want to delete this card?",
-                                onLeftPressed: () {},
-                                onRightPressed: () {
-                                  Navigator.pop(context, true);
-                                },
-                                imagePath: "assets/images/checklisttt.png",
-                                height: 342,
-                                width: 335,
-
+                            return SlideTransition(
+                              position: Tween(
+                                begin: const Offset(0, 1),
+                                end: const Offset(0, 0),
+                              ).animate(animation),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: CustomBottomSheet(
+                                    text: "Delete Card",
+                                    description:
+                                        "Are you sure you want to delete this card?",
+                                    onLeftPressed: () {},
+                                    onRightPressed: () {
+                                      Navigator.pop(context, true);
+                                    },
+                                    imagePath: "assets/images/checklisttt.png",
+                                    height: 342,
+                                    width: 335,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        );
-                      },
+                            );
+                          },
                     );
                   },
                   propertyDetails: {
@@ -141,31 +136,31 @@ class HomeScreen extends StatelessWidget {
                       },
                       transitionBuilder:
                           (context, animation, secondaryAnimation, child) {
-                        return SlideTransition(
-                          position: Tween(
-                            begin: const Offset(0, 1),
-                            end: const Offset(0, 0),
-                          ).animate(animation),
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: CustomBottomSheet(
-                                text: "Delete Card",
-                                description: "Are you sure you want to delete this card?",
-                                onLeftPressed: () {},
-                                onRightPressed: () {
-                                  Navigator.pop(context, true);
-                                },
-                                imagePath: "assets/images/checklisttt.png",
-                                height: 342,
-                                width: 335,
-
+                            return SlideTransition(
+                              position: Tween(
+                                begin: const Offset(0, 1),
+                                end: const Offset(0, 0),
+                              ).animate(animation),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: CustomBottomSheet(
+                                    text: "Delete Card",
+                                    description:
+                                        "Are you sure you want to delete this card?",
+                                    onLeftPressed: () {},
+                                    onRightPressed: () {
+                                      Navigator.pop(context, true);
+                                    },
+                                    imagePath: "assets/images/checklisttt.png",
+                                    height: 342,
+                                    width: 335,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        );
-                      },
+                            );
+                          },
                     );
                   },
                   propertyDetails: {
@@ -191,33 +186,32 @@ class HomeScreen extends StatelessWidget {
                       },
                       transitionBuilder:
                           (context, animation, secondaryAnimation, child) {
-                        return SlideTransition(
-                          position: Tween(
-                            begin: const Offset(0, 1),
-                            end: const Offset(0, 0),
-                          ).animate(animation),
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: CustomBottomSheet(
-                                text: "Delete Card",
-                                description: "Are you sure you want to delete this card?",
-                                onLeftPressed: () {},
-                                onRightPressed: () {
-                                  Navigator.pop(context, true);
-                                },
-                                imagePath: "assets/images/checklisttt.png",
-                                height: 342,
-                                width: 335,
-
+                            return SlideTransition(
+                              position: Tween(
+                                begin: const Offset(0, 1),
+                                end: const Offset(0, 0),
+                              ).animate(animation),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: CustomBottomSheet(
+                                    text: "Delete Card",
+                                    description:
+                                        "Are you sure you want to delete this card?",
+                                    onLeftPressed: () {},
+                                    onRightPressed: () {
+                                      Navigator.pop(context, true);
+                                    },
+                                    imagePath: "assets/images/checklisttt.png",
+                                    height: 342,
+                                    width: 335,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        );
-                      },
+                            );
+                          },
                     );
-
                   },
                   propertyDetails: {
                     "Asset Type": "Hotel",
@@ -231,7 +225,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          // Fixed bottom button
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -240,9 +233,7 @@ class HomeScreen extends StatelessWidget {
                 width: double.infinity,
                 child: CustomElevatedBottom(
                   text: "Add New",
-                  onTap: () {
-
-                  },
+                  onTap: () {},
                   textColor: Colors.white,
                   borderRadius: 16,
                   size: 18,

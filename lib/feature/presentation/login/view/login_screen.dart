@@ -79,7 +79,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
                   const SizedBox(height: 40),
 
-                  /// Email
                   CustomTextfield(
                     controller: _emailController,
                     keyboardType: TextInputType.text,
@@ -93,9 +92,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     validator: (value) {
                       if (value == null ||
                           value.isEmpty ||
-                          !EmailValidator.validate(_emailController.text,)) {
+                          !EmailValidator.validate(_emailController.text)) {
                         return "Please enter your email address";
-                      }else{
+                      } else {
                         return null;
                       }
                     },
@@ -103,7 +102,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
                   const SizedBox(height: 20),
 
-                  /// Password
                   CustomTextfield(
                     controller: _passwordController,
                     textInputAction: TextInputAction.done,
@@ -156,7 +154,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             ),
           ),
 
-          /// Floating Arrow Button
           if (!isKeyboardVisible)
             Positioned(
               top: MediaQuery.of(context).size.height * 0.7 - 35,
@@ -177,7 +174,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 child: InkWell(
                   onTap: () async {
-
                     Navigator.pushNamed(context, RouteName.homeScreen);
                   },
                   child: const Icon(
@@ -189,7 +185,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               ),
             ),
 
-          /// Bottom SignUp Text
           if (!isKeyboardVisible)
             Align(
               alignment: Alignment.bottomCenter,

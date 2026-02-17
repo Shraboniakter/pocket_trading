@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/constrants/app_color.dart';
 import '../../../screen/widgets/CustomDropdown.dart';
 import '../../../widgets/CustomDialog.dart';
@@ -71,102 +70,97 @@ class _ContactScreenState extends State<ContactScreen> {
         ),
       ),
       body: SingleChildScrollView(
-
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(children: [
-            CustomTextfield(
-              textInputAction: TextInputAction.next,
-              color: ColorManager.gray,
-              hintText: "Name",
-              suffix: Icon(
-                Icons.person_2_outlined,
+          child: Column(
+            children: [
+              CustomTextfield(
+                textInputAction: TextInputAction.next,
                 color: ColorManager.gray,
+                hintText: "Name",
+                suffix: Icon(Icons.person_2_outlined, color: ColorManager.gray),
               ),
-            ),
-            const SizedBox(height: 15),
-            CustomTextfield(
-              textInputAction: TextInputAction.next,
-              color: ColorManager.gray,
-              hintText: "Email Address",
-              suffix: Icon(
-                Icons.email_outlined,
+              const SizedBox(height: 15),
+              CustomTextfield(
+                textInputAction: TextInputAction.next,
                 color: ColorManager.gray,
+                hintText: "Email Address",
+                suffix: Icon(Icons.email_outlined, color: ColorManager.gray),
               ),
-            ),
-            SizedBox(height: 15),
-            CustomDropdown(
-              color: ColorManager.gray,
-              hintText: "Subject",
-              value: selectedSubject,
-              items: subject,
-              onChanged: (value) {
-                setState(() {
-                  selectedSubject = value;
-                });
-              },
-            ),
-            SizedBox(height: 15),
-
-            CustomTextfield(
-              color: ColorManager.gray,
-              hintText: "lorem ipsum dummy text",
-              suffix: Icon(
-                CupertinoIcons.chat_bubble_text,
+              SizedBox(height: 15),
+              CustomDropdown(
                 color: ColorManager.gray,
-              ),
-            ),
-            SizedBox(height: 30),
-            SizedBox(
-              height: 57,
-              width: double.infinity,
-              child: CustomElevatedBottom(
-                text: "Submit",
-                onTap: () {
-                  showGeneralDialog(
-                    context: context,
-                    barrierDismissible: true,
-                    barrierLabel: "Dismiss",
-                    barrierColor: Colors.black.withOpacity(0.4),
-                    transitionDuration: const Duration(milliseconds: 300),
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return const SizedBox();
-                    },
-                    transitionBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                      return SlideTransition(
-                        position: Tween(
-                          begin: const Offset(0, 1),
-                          end: const Offset(0, 0),
-                        ).animate(animation),
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: CustomBottomDialog(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              width: 335,
-                              height: 342,
-                              buttonText: "Ok",
-                              imagePath: "assets/images/checklist 1.png",
-                              text: "Request Sent",
-                              description:
-                              "You have successfully sent your contact us request.",
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  );
+                hintText: "Subject",
+                value: selectedSubject,
+                items: subject,
+                onChanged: (value) {
+                  setState(() {
+                    selectedSubject = value;
+                  });
                 },
-                borderRadius: 16,
-                textColor: Colors.white,
-                size: 18,
               ),
-            ),
-          ],),
+              SizedBox(height: 15),
+
+              CustomTextfield(
+                color: ColorManager.gray,
+                hintText: "lorem ipsum dummy text",
+                suffix: Icon(
+                  CupertinoIcons.chat_bubble_text,
+                  color: ColorManager.gray,
+                ),
+              ),
+              SizedBox(height: 30),
+              SizedBox(
+                height: 57,
+                width: double.infinity,
+                child: CustomElevatedBottom(
+                  text: "Submit",
+                  onTap: () {
+                    showGeneralDialog(
+                      context: context,
+                      barrierDismissible: true,
+                      barrierLabel: "Dismiss",
+                      barrierColor: Colors.black.withOpacity(0.4),
+                      transitionDuration: const Duration(milliseconds: 300),
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return const SizedBox();
+                      },
+                      transitionBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                            return SlideTransition(
+                              position: Tween(
+                                begin: const Offset(0, 1),
+                                end: const Offset(0, 0),
+                              ).animate(animation),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: CustomBottomDialog(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    width: 335,
+                                    height: 342,
+                                    buttonText: "Ok",
+                                    imagePath: "assets/images/checklist 1.png",
+                                    text: "Request Sent",
+                                    description:
+                                        "You have successfully sent your contact us request.",
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                    );
+                  },
+                  borderRadius: 16,
+                  textColor: Colors.white,
+                  size: 18,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

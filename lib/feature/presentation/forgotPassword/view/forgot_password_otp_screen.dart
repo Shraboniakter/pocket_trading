@@ -34,17 +34,15 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 40),
-          
-          
-              // Subtitle
+
               CustomText(
-                text: "Enter the verification code we\njust sent to your email address.",
+                text:
+                    "Enter the verification code we\njust sent to your email address.",
                 size: 18,
                 color: ColorManager.gray,
               ),
               const SizedBox(height: 40),
-          
-              // OTP Input Row
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -54,9 +52,9 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                   _buildOTPBox(context, last: true),
                 ],
               ),
-          
+
               const SizedBox(height: 40),
-              // Email Info
+
               CustomText(
                 text: "Code was sent to your email",
                 size: 16,
@@ -69,9 +67,9 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 color: ColorManager.lightBlue,
               ),
-          
+
               const SizedBox(height: 40),
-              // Verify Button
+
               SizedBox(
                 height: 57,
                 width: double.infinity,
@@ -88,7 +86,7 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
                   size: 18,
                 ),
               ),
-          SizedBox(height: 280,),
+              SizedBox(height: 280),
               TextButton(
                 onPressed: () {},
                 child: CustomText(
@@ -106,8 +104,11 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
     );
   }
 
-  // OTP Box Widget
-  Widget _buildOTPBox(BuildContext context, {bool first = false, bool last = false}) {
+  Widget _buildOTPBox(
+    BuildContext context, {
+    bool first = false,
+    bool last = false,
+  }) {
     return Container(
       height: 70,
       width: 70,
@@ -139,9 +140,7 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
           LengthLimitingTextInputFormatter(1),
           FilteringTextInputFormatter.digitsOnly,
         ],
-        decoration: const InputDecoration(
-          border: InputBorder.none,
-        ),
+        decoration: const InputDecoration(border: InputBorder.none),
       ),
     );
   }

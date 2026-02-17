@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/constrants/app_color.dart';
 import '../../../../../core/routes/route_name.dart';
 import '../../../home/widgets/CustomBottomSheet.dart';
-import '../../../widgets/CustomDialog.dart';
 import '../../../widgets/CustomText.dart';
 import '../../widgets/ProfileOptionTile.dart';
-
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -65,49 +63,37 @@ class ProfileScreen extends StatelessWidget {
                 title: 'Edit Profile',
                 icon: Icons.person_outline_rounded,
                 onTap: () {
-                  Navigator.pushNamed(
-                      context,
-                      RouteName.editProfileScreen
-                  );
+                  Navigator.pushNamed(context, RouteName.editProfileScreen);
                 },
               ),
               ProfileOptionTile(
                 title: 'Feedback',
                 icon: CupertinoIcons.chat_bubble_2,
                 onTap: () {
-                  Navigator.pushNamed(
-                      context,
-                      RouteName.feedBackScreen
-                  );
+                  Navigator.pushNamed(context, RouteName.feedBackScreen);
                 },
               ),
               ProfileOptionTile(
                 title: 'Contact Us',
-                icon:CupertinoIcons.group,
+                icon: CupertinoIcons.group,
                 onTap: () {
-                  Navigator.pushNamed(
-                      context,
-                      RouteName.contactScreen
-                  );
+                  Navigator.pushNamed(context, RouteName.contactScreen);
                 },
               ),
               ProfileOptionTile(
                 title: 'Privacy Policy',
-                icon:Icons.privacy_tip_outlined,
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context,
-                        RouteName.privacyPolicyScreen
-                    );
-                  },
+                icon: Icons.privacy_tip_outlined,
+                onTap: () {
+                  Navigator.pushNamed(context, RouteName.privacyPolicyScreen);
+                },
               ),
               ProfileOptionTile(
                 title: 'Terms & Conditions',
                 icon: Icons.description_outlined,
                 onTap: () {
                   Navigator.pushNamed(
-                      context,
-                      RouteName.termsAndConditionsScreen
+                    context,
+                    RouteName.termsAndConditionsScreen,
                   );
                 },
               ),
@@ -115,10 +101,7 @@ class ProfileScreen extends StatelessWidget {
                 title: 'Delete Account',
                 icon: Icons.delete_outline,
                 onTap: () {
-                  Navigator.pushNamed(
-                      context,
-                      RouteName.deleteAccountScreen
-                  );
+                  Navigator.pushNamed(context, RouteName.deleteAccountScreen);
                 },
               ),
               ProfileOptionTile(
@@ -136,41 +119,38 @@ class ProfileScreen extends StatelessWidget {
                     },
                     transitionBuilder:
                         (context, animation, secondaryAnimation, child) {
-                      return SlideTransition(
-                        position: Tween(
-                          begin: const Offset(0, 1),
-                          end: const Offset(0, 0),
-                        ).animate(animation),
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: CustomBottomSheet(
-                              text: "Are You Leaving?",
-                              description: "Are you sure you want to Sign Out from app?",
-                              onLeftPressed: () {
-                                Navigator.pushNamed(
-                                    context,
-                                    RouteName.loginScreen
-                                );
-                              },
-          
-                              onRightPressed: () {
-                                Navigator.pop(context, true);
-                              },
-                              imagePath: "assets/images/Groupp.png",
-                              height: 342,
-                              width: 335,
-          
+                          return SlideTransition(
+                            position: Tween(
+                              begin: const Offset(0, 1),
+                              end: const Offset(0, 0),
+                            ).animate(animation),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: CustomBottomSheet(
+                                  text: "Are You Leaving?",
+                                  description:
+                                      "Are you sure you want to Sign Out from app?",
+                                  onLeftPressed: () {
+                                    Navigator.pushNamed(
+                                      context,
+                                      RouteName.loginScreen,
+                                    );
+                                  },
+
+                                  onRightPressed: () {
+                                    Navigator.pop(context, true);
+                                  },
+                                  imagePath: "assets/images/Groupp.png",
+                                  height: 342,
+                                  width: 335,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                      );
-                    },
+                          );
+                        },
                   );
-          
-          
-          
                 },
               ),
             ],

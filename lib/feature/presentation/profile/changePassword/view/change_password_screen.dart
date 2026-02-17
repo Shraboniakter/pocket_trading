@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
-
 import '../../../login/viewModel/auth_provider.dart';
 import '../../../widgets/CustomDialog.dart';
 import '../../../widgets/CustomText.dart';

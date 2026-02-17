@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../core/constrants/app_color.dart';
-import '../../../../../core/routes/route_name.dart';
 import '../../../home/widgets/CustomBottomSheet.dart';
 import '../../../widgets/CustomText.dart';
 import '../../../widgets/CustomTextfield.dart';
@@ -16,7 +14,6 @@ class DeleteAccountScreen extends StatefulWidget {
 }
 
 class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
-
   int? selectedIndex;
 
   final List<String> reasons = [
@@ -78,7 +75,6 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-          
               for (int i = 0; i < reasons.length; i++) ...[
                 GestureDetector(
                   onTap: () {
@@ -94,16 +90,15 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                 ),
                 const SizedBox(height: 20),
               ],
-          
-          
+
               if (selectedIndex == 4)
                 CustomTextfield(
                   color: ColorManager.gray,
                   hintText: "I’m leaving because...",
                 ),
-          
+
               Padding(
-                padding: const EdgeInsets.only(top:230),
+                padding: const EdgeInsets.only(top: 230),
                 child: SizedBox(
                   height: 57,
                   width: double.infinity,
@@ -121,40 +116,37 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                         },
                         transitionBuilder:
                             (context, animation, secondaryAnimation, child) {
-                          return SlideTransition(
-                            position: Tween(
-                              begin: const Offset(0, 1),
-                              end: const Offset(0, 0),
-                            ).animate(animation),
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Padding(
-                                padding: const EdgeInsets.all(20),
-                                child: CustomBottomSheet(
-                                  text: "Delete Account",
-                                  description: "Are you sure you want to delete your account?",
-                                  onLeftPressed: () {},
-          
-                                  onRightPressed: () {
-                                    Navigator.pop(context, true);
-                                  },
-                                  imagePath: "assets/images/Groupop.png",
-                                  height: 342,
-                                  width: 335,
-          
+                              return SlideTransition(
+                                position: Tween(
+                                  begin: const Offset(0, 1),
+                                  end: const Offset(0, 0),
+                                ).animate(animation),
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(20),
+                                    child: CustomBottomSheet(
+                                      text: "Delete Account",
+                                      description:
+                                          "Are you sure you want to delete your account?",
+                                      onLeftPressed: () {},
+
+                                      onRightPressed: () {
+                                        Navigator.pop(context, true);
+                                      },
+                                      imagePath: "assets/images/Groupop.png",
+                                      height: 342,
+                                      width: 335,
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                          );
-                        },
+                              );
+                            },
                       );
-          
-          
                     },
                     borderRadius: 16,
                     textColor: Colors.white,
                     size: 18,
-          
                   ),
                 ),
               ),

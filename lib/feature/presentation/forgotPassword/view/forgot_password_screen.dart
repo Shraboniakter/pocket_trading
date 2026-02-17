@@ -35,7 +35,7 @@ class ForgotPasswordScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 40),
-            // Title
+
             CustomText(
               text: "Forgot Password?",
               size: 24,
@@ -44,7 +44,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 5),
-            // Subtitle
+
             CustomText(
               text: "No worries, we will help you\n    to reset your password.",
               size: 18,
@@ -52,7 +52,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 50),
-            // Email Input Field
+
             CustomTextfield(
               textInputAction: TextInputAction.next,
               hintText: "Email Address",
@@ -60,7 +60,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 30),
-            // Send Code Button
+
             SizedBox(
               height: 57,
               width: double.infinity,
@@ -78,7 +78,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            // Bottom Sign In Text
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -90,10 +90,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      RouteName.loginScreen,
-                    );
+                    Navigator.pushNamed(context, RouteName.loginScreen);
                   },
                   child: CustomText(
                     text: " Sign In",
