@@ -72,6 +72,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         child: SingleChildScrollView(
           child: Column(children: [
             CustomTextfield(
+              textInputAction: TextInputAction.next,
               color: ColorManager.gray,
               hintText: "Name",
               suffix: Icon(
@@ -81,6 +82,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             const SizedBox(height: 15),
             CustomTextfield(
+              textInputAction: TextInputAction.next,
               color: ColorManager.gray,
               hintText: "Email Address",
               suffix: Icon(
@@ -90,12 +92,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             const SizedBox(height: 15),
             CustomTextfield(
+              textInputAction: TextInputAction.next,
               color: ColorManager.gray,
               hintText: "Mobile Number",
               suffix: Icon(Icons.phone, color: ColorManager.gray),
             ),
             const SizedBox(height: 15),
             CustomTextfield(
+              textInputAction: TextInputAction.next,
               color: ColorManager.gray,
               hintText: "Company",
               suffix: Icon(
@@ -105,6 +109,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             const SizedBox(height: 15),
             CustomTextfield(
+              textInputAction: TextInputAction.done,
               color: ColorManager.gray,
               hintText: "Title",
               suffix: Icon(

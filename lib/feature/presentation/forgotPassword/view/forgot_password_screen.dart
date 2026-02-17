@@ -54,6 +54,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             const SizedBox(height: 50),
             // Email Input Field
             CustomTextfield(
+              textInputAction: TextInputAction.next,
               hintText: "Email Address",
               suffix: Icon(Icons.email_outlined, color: ColorManager.gray),
             ),

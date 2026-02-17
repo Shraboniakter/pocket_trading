@@ -39,10 +39,14 @@ class CustomTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+
+      textInputAction: textInputAction,
       controller: controller,
       keyboardType: keyboardType,
       validator: validator,
       obscureText: obscureText ?? false,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+
       maxLines: obscureText == true ? 1 : max,
       cursorColor: Colors.grey,
       style: TextStyle(

@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: ColorManager.bg,
       body: Column(
         children: [
@@ -23,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           // Expanded ListView for scrollable cards
           Expanded(
             child: ListView(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+              padding: const EdgeInsets.symmetric(vertical: 2),
               children: [
                 PropertyInfoCard(
                   actionText: "Buy",
@@ -233,7 +234,7 @@ class HomeScreen extends StatelessWidget {
           // Fixed bottom button
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               child: SizedBox(
                 height: 57,
                 width: double.infinity,
