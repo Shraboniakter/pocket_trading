@@ -1,17 +1,23 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/constrants/app_images.dart';
 import '../../../../core/routes/route_name.dart';
+import '../../login/viewModel/auth_provider.dart';
 import '../../widgets/CustomText.dart';
 import '../../widgets/CustomTextfield.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends ConsumerWidget {
   const SignUpScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isCreateNewObscure = ref.watch(authProvider).isCreateNewObscure;
+    final isCreateReObscure = ref.watch(authProvider).isCreateReObscure;
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: ColorManager.blue,
@@ -101,20 +107,40 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
+                    obscureText: isCreateNewObscure,
                     color: ColorManager.gray,
                     hintText: "Password",
-                    suffix: const Icon(
-                      Icons.visibility_off_outlined,
-                      color: ColorManager.gray,
+                    suffix: InkWell(
+                      onTap: () {
+                        ref
+                            .read(authProvider.notifier)
+                            .toggleCreateNewObscure();
+                        log('message');
+                      },
+                      child: Icon(
+                        isCreateNewObscure
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility_outlined,
+                        color: ColorManager.gray,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 15),
                   CustomTextfield(
+                    obscureText: isCreateReObscure,
                     color: ColorManager.gray,
                     hintText: "Confirm Password",
-                    suffix: const Icon(
-                      Icons.visibility_off_outlined,
-                      color: ColorManager.gray,
+                    suffix: InkWell(
+                      onTap: () {
+                        ref.read(authProvider.notifier).toggleCreateReObscure();
+                        log('message');
+                      },
+                      child: Icon(
+                        isCreateReObscure
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility_outlined,
+                        color: ColorManager.gray,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 15),
@@ -131,7 +157,7 @@ class SignUpScreen extends StatelessWidget {
                       Flexible(
                         child: CustomText(
                           text:
-                          "I agree to Privacy Policy and \nTerms & Conditions.",
+                              "I agree to Privacy Policy and \nTerms & Conditions.",
                           size: 16,
                           fontWeight: FontWeight.w500,
                           color: Colors.white,

@@ -1,19 +1,23 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constrants/app_color.dart';
-import '../../../../core/constrants/app_images.dart';
 import '../../../../core/routes/route_name.dart';
+import '../../login/viewModel/auth_provider.dart';
 import '../../widgets/CustomDialog.dart';
 import '../../widgets/CustomText.dart';
 import '../../widgets/CustomTextfield.dart';
 import '../../widgets/pimary_bottom.dart';
 
-class SetNewPasswordScreen extends StatelessWidget {
+class SetNewPasswordScreen extends ConsumerWidget {
   const SetNewPasswordScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isNewObscure = ref.watch(authProvider).isNewObscure;
+    final isConfirmNewObscure = ref.watch(authProvider).isConfirmNewObscure;
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FA),
       appBar: AppBar(
@@ -37,7 +41,7 @@ class SetNewPasswordScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 40),
-            // Title
+
             CustomText(
               text: "Set New Password",
               size: 24,
@@ -46,7 +50,7 @@ class SetNewPasswordScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 5),
-            // Subtitle
+
             CustomText(
               text: "Must be at least 8 characters.",
               size: 18,
@@ -54,24 +58,42 @@ class SetNewPasswordScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 50),
-            // Email Input Field
+
             CustomTextfield(
+              obscureText: isNewObscure,
               hintText: "New Password",
-              suffix: Icon(
-                Icons.visibility_off_outlined,
-                color: ColorManager.gray,
+              suffix: InkWell(
+                onTap: () {
+                  ref.read(authProvider.notifier).toggleNewObscure();
+                  log('message');
+                },
+                child: Icon(
+                  isNewObscure
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
+                  color: ColorManager.gray,
+                ),
               ),
             ),
             SizedBox(height: 15),
             CustomTextfield(
+              obscureText: isConfirmNewObscure,
               hintText: "Confirm Password",
-              suffix: Icon(
-                Icons.visibility_off_outlined,
-                color: ColorManager.gray,
+              suffix: InkWell(
+                onTap: () {
+                  ref.read(authProvider.notifier).toggleConfirmNewObscure();
+                  log('message');
+                },
+                child: Icon(
+                  isConfirmNewObscure
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
+                  color: ColorManager.gray,
+                ),
               ),
             ),
             const SizedBox(height: 30),
-            // Send Code Button
+
             SizedBox(
               height: 57,
               width: double.infinity,
@@ -99,12 +121,11 @@ class SetNewPasswordScreen extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(20),
                                 child: CustomBottomDialog(
-                                  onPressed: (){
+                                  onPressed: () {
                                     Navigator.pushNamed(
                                       context,
                                       RouteName.loginScreen,
                                     );
-
                                   },
 
                                   width: 335,
@@ -112,8 +133,9 @@ class SetNewPasswordScreen extends StatelessWidget {
                                   buttonText: "Ok",
                                   imagePath: "assets/images/checklist 1.png",
                                   text: "All Done",
-                                  description: "Your password has been reset successfully.",
-                                )
+                                  description:
+                                      "Your password has been reset successfully.",
+                                ),
                               ),
                             ),
                           );

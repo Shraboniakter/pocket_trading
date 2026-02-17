@@ -46,7 +46,7 @@ class CustomBottomSheet extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.asset(imagePath!),
+            Image.asset(imagePath!,width: 93.75,height: 93.75,),
 
             SizedBox(height: 20),
 

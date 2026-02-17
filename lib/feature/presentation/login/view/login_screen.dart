@@ -1,17 +1,23 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pocket_trading/core/constrants/app_images.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomTextfield.dart';
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
+import '../viewModel/auth_provider.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends ConsumerWidget {
   const LoginScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isLoginObscure = ref.watch(authProvider).isLoginObscure;
 
-    final bool isKeyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
+    final bool isKeyboardVisible =
+        MediaQuery.of(context).viewInsets.bottom != 0;
 
     return Scaffold(
       backgroundColor: ColorManager.bg,
@@ -59,11 +65,20 @@ class LoginScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   CustomTextfield(
+                    obscureText: isLoginObscure,
                     color: ColorManager.gray,
                     hintText: "Password",
-                    suffix: const Icon(
-                      Icons.visibility_off_outlined,
-                      color: ColorManager.gray,
+                    suffix: InkWell(
+                      onTap: () {
+                        ref.read(authProvider.notifier).toggleLoginObscure();
+                        log('message');
+                      },
+                      child: Icon(
+                        isLoginObscure
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility_outlined,
+                        color: ColorManager.gray,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 30),
@@ -88,7 +103,6 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
 
-
           if (!isKeyboardVisible)
             Positioned(
               top: MediaQuery.of(context).size.height * 0.7 - 35,
@@ -111,11 +125,14 @@ class LoginScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(context, RouteName.homeScreen);
                   },
-                  child: const Icon(Icons.arrow_forward, color: Colors.white, size: 30),
+                  child: const Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                    size: 30,
+                  ),
                 ),
               ),
             ),
-
 
           if (!isKeyboardVisible)
             Align(
