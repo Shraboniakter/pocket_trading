@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/constrants/app_images.dart';
@@ -44,40 +45,40 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.7,
-            decoration: const BoxDecoration(
+            decoration:  BoxDecoration(
               color: ColorManager.blue,
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(40),
-                bottomRight: Radius.circular(40),
+                bottomLeft: Radius.circular(40.w),
+                bottomRight: Radius.circular(40.w),
               ),
             ),
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: Column(
                 children: [
-                  const SizedBox(height: 80),
+                   SizedBox(height: 80.h),
 
-                  Image.asset(AssetPaths.loginPage, height: 80),
+                  Image.asset(AssetPaths.loginPage, height: 80.h),
 
-                  const SizedBox(height: 20),
+                   SizedBox(height: 20.h),
 
                   CustomText(
                     text: "Getting Started",
-                    size: 24,
+                    size: 24.sp,
                     fontWeight: FontWeight.w700,
                     color: Colors.white,
                   ),
 
-                  const SizedBox(height: 5),
+                  SizedBox(height: 5.h),
 
                   CustomText(
                     text: "Let’s Sign In for explore continues",
-                    size: 18,
+                    size: 18.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),
 
-                  const SizedBox(height: 40),
+                   SizedBox(height: 40.h),
 
                   CustomTextfield(
                     controller: _emailController,
@@ -85,22 +86,24 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Email Address",
-                    suffix: const Icon(
+                    suffix: Icon(
+                      size: 20.sp,
                       Icons.email_outlined,
                       color: ColorManager.gray,
                     ),
                     validator: (value) {
                       if (value == null ||
                           value.isEmpty ||
-                          !EmailValidator.validate(_emailController.text,)) {
+                          !EmailValidator.validate(_emailController.text)) {
                         return "Please enter your email address";
-                      }else{
+                      } else {
                         return null;
                       }
                     },
                   ),
 
-                  const SizedBox(height: 20),
+                   SizedBox(height: 20.h),
+
 
                   CustomTextfield(
                     controller: _passwordController,
@@ -117,6 +120,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         isLoginObscure
                             ? Icons.visibility_off_outlined
                             : Icons.visibility_outlined,
+                        size: 20.sp,
                         color: ColorManager.gray,
                       ),
                     ),
@@ -131,7 +135,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     },
                   ),
 
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
 
                   InkWell(
                     onTap: () {
@@ -142,13 +146,13 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     },
                     child: CustomText(
                       text: "Forgot Password?",
-                      size: 18,
+                      size: 18.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),
                   ),
 
-                  if (isKeyboardVisible) const SizedBox(height: 100),
+                  if (isKeyboardVisible)  SizedBox(height: 100.h),
                 ],
               ),
             ),
@@ -159,28 +163,27 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               top: MediaQuery.of(context).size.height * 0.7 - 35,
               left: MediaQuery.of(context).size.width / 2 - 35,
               child: Container(
-                width: 70,
-                height: 70,
+                width: 70.w,
+                height: 70.h,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF00ACEE),
-                  borderRadius: BorderRadius.circular(20),
+                  color: Color(0xFF00ACEE),
+                  borderRadius: BorderRadius.circular(20.r),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),
-                      blurRadius: 10,
+                      blurRadius: 10.r,
                       offset: const Offset(0, 5),
                     ),
                   ],
                 ),
                 child: InkWell(
                   onTap: () async {
-
                     Navigator.pushNamed(context, RouteName.homeScreen);
                   },
-                  child: const Icon(
+                  child: Icon(
                     Icons.arrow_forward,
                     color: Colors.white,
-                    size: 30,
+                    size: 30.sp,
                   ),
                 ),
               ),
@@ -190,14 +193,14 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 20),
+                padding:  EdgeInsets.only(bottom: 20.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomText(
                       text: "Don’t have an account?",
                       color: ColorManager.gray,
-                      size: 16,
+                      size: 16.sp,
                     ),
                     GestureDetector(
                       onTap: () {
@@ -206,7 +209,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       child: CustomText(
                         text: " Sign Up",
                         color: ColorManager.lightBlue,
-                        size: 16,
+                        size: 16.sp,
                       ),
                     ),
                   ],

@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/constrants/app_images.dart';
@@ -52,52 +53,59 @@ class SignUpScreen extends ConsumerWidget {
                   const SizedBox(height: 20),
                   CustomText(
                     text: "Hi Welcome!",
-                    size: 24,
+                    size: 24.h,
                     fontWeight: FontWeight.w700,
                     color: Colors.white,
                   ),
-                  const SizedBox(height: 5),
+                  SizedBox(height: 5.h),
                   CustomText(
                     text: "Create a New Account",
-                    size: 18,
+                    size: 18.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),
-                  const SizedBox(height: 30),
+                   SizedBox(height: 30.h),
                   CustomTextfield(
                     textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Full Name",
-                    suffix: const Icon(
+                    suffix: Icon(
                       Icons.person_2_outlined,
                       color: ColorManager.gray,
+                      size: 20.sp,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15.h),
                   CustomTextfield(
                     textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Email Address",
-                    suffix: const Icon(
+                    suffix: Icon(
                       Icons.email_outlined,
                       color: ColorManager.gray,
+                      size: 20.sp,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                   SizedBox(height: 15.h),
                   CustomTextfield(
                     textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Mobile Number",
-                    suffix: const Icon(Icons.phone, color: ColorManager.gray),
+                    suffix: Icon(
+                      Icons.phone,
+                      color: ColorManager.gray,
+                      size: 20.sp,
+                    ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15.h),
                   CustomTextfield(
                     textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Company",
-                    suffix: const Icon(
+                    suffix: Icon(
                       Icons.business_outlined,
                       color: ColorManager.gray,
+                      size: 20.sp,
                     ),
                   ),
                   const SizedBox(height: 15),
@@ -105,14 +113,14 @@ class SignUpScreen extends ConsumerWidget {
                     textInputAction: TextInputAction.next,
                     color: ColorManager.gray,
                     hintText: "Title",
-                    suffix: const Icon(
+                    suffix: Icon(
                       Icons.badge_outlined,
                       color: ColorManager.gray,
+                      size: 20.sp,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15.h),
                   CustomTextfield(
-
                     obscureText: isCreateNewObscure,
                     color: ColorManager.gray,
                     hintText: "Password",
@@ -128,11 +136,12 @@ class SignUpScreen extends ConsumerWidget {
                             ? Icons.visibility_off_outlined
                             : Icons.visibility_outlined,
                         color: ColorManager.gray,
+                        size: 20.sp,
                       ),
                     ),
                     textInputAction: TextInputAction.next,
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15.h),
                   CustomTextfield(
                     textInputAction: TextInputAction.done,
                     obscureText: isCreateReObscure,
@@ -148,10 +157,11 @@ class SignUpScreen extends ConsumerWidget {
                             ? Icons.visibility_off_outlined
                             : Icons.visibility_outlined,
                         color: ColorManager.gray,
+                        size: 20.sp,
                       ),
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(height: 15.h),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -160,13 +170,14 @@ class SignUpScreen extends ConsumerWidget {
                         onChanged: (val) {},
                         fillColor: MaterialStateProperty.all(Colors.white),
                         checkColor: Colors.blue,
+
                       ),
-                      const SizedBox(width: 5),
+                      SizedBox(width: 5.h),
                       Flexible(
                         child: CustomText(
                           text:
                               "I agree to Privacy Policy and \nTerms & Conditions.",
-                          size: 16,
+                          size: 16.sp,
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
                         ),
@@ -185,15 +196,15 @@ class SignUpScreen extends ConsumerWidget {
               top: MediaQuery.of(context).size.height * 0.85 - 30,
               left: MediaQuery.of(context).size.width / 2 - 30,
               child: Container(
-                width: 60,
-                height: 60,
+                width: 60.w,
+                height: 60.h,
                 decoration: BoxDecoration(
                   color: ColorManager.lightBlue,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: const [
+                  borderRadius: BorderRadius.circular(15.r),
+                  boxShadow:  [
                     BoxShadow(
                       color: Colors.black26,
-                      blurRadius: 10,
+                      blurRadius: 10.r,
                       offset: Offset(0, 5),
                     ),
                   ],
@@ -202,10 +213,10 @@ class SignUpScreen extends ConsumerWidget {
                   onTap: () {
                     Navigator.pushNamed(context, RouteName.verifyOptScreen);
                   },
-                  child: const Icon(
+                  child:  Icon(
                     Icons.arrow_forward,
                     color: Colors.white,
-                    size: 30,
+                    size: 30.sp,
                   ),
                 ),
               ),
@@ -214,14 +225,14 @@ class SignUpScreen extends ConsumerWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 20),
+                padding:  EdgeInsets.only(bottom: 20.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomText(
                       text: "Already have an account?",
                       color: ColorManager.gray,
-                      size: 16,
+                      size: 16.sp,
                     ),
                     GestureDetector(
                       onTap: () {
@@ -230,7 +241,7 @@ class SignUpScreen extends ConsumerWidget {
                       child: CustomText(
                         text: " Sign In",
                         color: ColorManager.lightBlue,
-                        size: 16,
+                        size: 16.sp,
                       ),
                     ),
                   ],

@@ -26,7 +26,7 @@ class CustomDropdown extends StatelessWidget {
       padding:  EdgeInsets.symmetric(horizontal: 16.h),
       decoration: BoxDecoration(
         color:  ColorManager.primary,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
@@ -46,7 +46,7 @@ class CustomDropdown extends StatelessWidget {
             hintText,
             style: TextStyle(color: color),
           ),
-          icon:  Icon(Icons.keyboard_arrow_down,color: ColorManager.gray,),
+          icon:  Icon(Icons.keyboard_arrow_down,color: ColorManager.gray,size: 20.sp,),
           isExpanded: true,
           items: items.map((item) {
             return DropdownMenuItem<String>(

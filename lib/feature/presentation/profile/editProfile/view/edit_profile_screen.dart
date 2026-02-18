@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/constrants/app_color.dart';
 import '../../../../../core/routes/route_name.dart';
 import '../../../widgets/CustomDialog.dart';
 import '../../../widgets/CustomText.dart';
 import '../../../widgets/CustomTextfield.dart';
+import '../../../widgets/bottom.dart';
 import '../../../widgets/pimary_bottom.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -45,10 +47,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back,
                         color: Colors.white,
-                        size: 28,
+                        size: 28.sp,
                       ),
                       onPressed: () {
                         Navigator.pop(context);
@@ -58,7 +60,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   CustomText(
                     text: "Edit Profile",
                     color: Colors.white,
-                    size: 22,
+                    size: 22.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ],
@@ -68,7 +70,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding:  EdgeInsets.all(20.0.r),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -76,37 +78,37 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 textInputAction: TextInputAction.next,
                 color: ColorManager.gray,
                 hintText: "Name",
-                suffix: Icon(Icons.person_2_outlined, color: ColorManager.gray),
+                suffix: Icon(Icons.person_2_outlined, color: ColorManager.gray,size: 20.sp,),
               ),
-              const SizedBox(height: 15),
+               SizedBox(height: 15.h),
               CustomTextfield(
                 textInputAction: TextInputAction.next,
                 color: ColorManager.gray,
                 hintText: "Email Address",
-                suffix: Icon(Icons.email_outlined, color: ColorManager.gray),
+                suffix: Icon(Icons.email_outlined, color: ColorManager.gray,size: 20.sp,),
               ),
-              const SizedBox(height: 15),
+              SizedBox(height: 15.h),
               CustomTextfield(
                 textInputAction: TextInputAction.next,
                 color: ColorManager.gray,
                 hintText: "Mobile Number",
-                suffix: Icon(Icons.phone, color: ColorManager.gray),
+                suffix: Icon(Icons.phone, color: ColorManager.gray,size: 20.sp),
               ),
-              const SizedBox(height: 15),
+               SizedBox(height: 15.h),
               CustomTextfield(
                 textInputAction: TextInputAction.next,
                 color: ColorManager.gray,
                 hintText: "Company",
-                suffix: Icon(Icons.business_outlined, color: ColorManager.gray),
+                suffix: Icon(Icons.business_outlined, color: ColorManager.gray,size: 20.sp),
               ),
-              const SizedBox(height: 15),
+               SizedBox(height: 15.h),
               CustomTextfield(
                 textInputAction: TextInputAction.done,
                 color: ColorManager.gray,
                 hintText: "Title",
-                suffix: Icon(Icons.badge_outlined, color: ColorManager.gray),
+                suffix: Icon(Icons.badge_outlined, color: ColorManager.gray,size: 20.sp),
               ),
-              const SizedBox(height: 40),
+               SizedBox(height: 40.h),
               InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, RouteName.changePasswordScreen);
@@ -116,59 +118,58 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   color: ColorManager.lightBlue,
                   decoration: TextDecoration.underline,
                   decorationColor: ColorManager.lightBlue,
-                  size: 16,
+                  size: 16.sp,
                 ),
               ),
-              const SizedBox(height: 40),
-              SizedBox(
-                height: 57,
-                width: double.infinity,
-                child: CustomElevatedBottom(
-                  text: "Save",
-                  onTap: () {
-                    showGeneralDialog(
-                      context: context,
-                      barrierDismissible: true,
-                      barrierLabel: "Dismiss",
-                      barrierColor: Colors.black.withOpacity(0.4),
-                      transitionDuration: const Duration(milliseconds: 450),
-                      pageBuilder: (context, animation, secondaryAnimation) {
-                        return const SizedBox();
-                      },
-                      transitionBuilder:
-                          (context, animation, secondaryAnimation, child) {
-                            return SlideTransition(
-                              position: Tween(
-                                begin: const Offset(0, 1),
-                                end: const Offset(0, 0),
-                              ).animate(animation),
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(20),
-                                  child: CustomBottomDialog(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    width: 335,
-                                    height: 342,
-                                    buttonText: "Ok",
-                                    imagePath: "assets/images/checklist 1.png",
-                                    text: "Profile Updated",
-                                    description:
-                                        "You have successfully updated your profile information.",
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                    );
-                  },
-                  textColor: Colors.white,
-                  borderRadius: 16,
-                  size: 18,
-                ),
+              SizedBox(height: 40.h),
+              PrimaryButton(
+                onTap: () {
+                  showGeneralDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    barrierLabel: "Dismiss",
+                    barrierColor: Colors.black.withOpacity(0.4),
+                    transitionDuration: const Duration(milliseconds: 450),
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return const SizedBox();
+                    },
+                    transitionBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      return SlideTransition(
+                        position: Tween(
+                          begin: const Offset(0, 1),
+                          end: const Offset(0, 0),
+                        ).animate(animation),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: CustomBottomDialog(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+
+                              buttonText: "Ok",
+                              imagePath: "assets/images/checklist 1.png",
+                              text: "Profile Updated",
+                              description:
+                              "You have successfully updated your profile information.",
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+                height: 57.h,
+                title: "Send Code",
+                size: 18.sp,
+                width: double.infinity.w,
+                textColor: Colors.white,
+
               ),
+
+
             ],
           ),
         ),

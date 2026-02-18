@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/constrants/app_color.dart';
 import '../../../../../core/routes/route_name.dart';
 import '../../../home/widgets/CustomBottomSheet.dart';
@@ -127,7 +128,7 @@ class ProfileScreen extends StatelessWidget {
                             child: Align(
                               alignment: Alignment.bottomCenter,
                               child: Padding(
-                                padding: const EdgeInsets.all(20),
+                                padding:  EdgeInsets.all(20.r),
                                 child: CustomBottomSheet(
                                   text: "Are You Leaving?",
                                   description:
@@ -143,8 +144,7 @@ class ProfileScreen extends StatelessWidget {
                                     Navigator.pop(context, true);
                                   },
                                   imagePath: "assets/images/Groupp.png",
-                                  height: 342,
-                                  width: 335,
+                                
                                 ),
                               ),
                             ),

@@ -2,12 +2,14 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
 import '../../login/viewModel/auth_provider.dart';
 import '../../widgets/CustomDialog.dart';
 import '../../widgets/CustomText.dart';
 import '../../widgets/CustomTextfield.dart';
+import '../../widgets/bottom.dart';
 import '../../widgets/pimary_bottom.dart';
 
 class SetNewPasswordScreen extends ConsumerWidget {
@@ -30,7 +32,7 @@ class SetNewPasswordScreen extends ConsumerWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon:  Icon(Icons.arrow_back, color: Colors.black,size: 20.sp,),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -39,24 +41,24 @@ class SetNewPasswordScreen extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 40),
+            SizedBox(height: 40.h),
 
             CustomText(
               text: "Set New Password",
-              size: 24,
+              size: 24.sp,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
 
-            const SizedBox(height: 5),
+             SizedBox(height: 5.h),
 
             CustomText(
               text: "Must be at least 8 characters.",
-              size: 18,
+              size: 18.sp,
               color: ColorManager.gray,
             ),
 
-            const SizedBox(height: 50),
+             SizedBox(height: 50.h),
 
             CustomTextfield(
               obscureText: isNewObscure,
@@ -72,10 +74,11 @@ class SetNewPasswordScreen extends ConsumerWidget {
                       ? Icons.visibility_off_outlined
                       : Icons.visibility_outlined,
                   color: ColorManager.gray,
+                  size: 20.sp,
                 ),
               ),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 15.h),
             CustomTextfield(
               obscureText: isConfirmNewObscure,
               hintText: "Confirm Password",
@@ -90,65 +93,120 @@ class SetNewPasswordScreen extends ConsumerWidget {
                       ? Icons.visibility_off_outlined
                       : Icons.visibility_outlined,
                   color: ColorManager.gray,
+                  size: 20.sp,
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+            SizedBox(height: 30.h),
 
-            SizedBox(
-              height: 57,
-              width: double.infinity,
-              child: CustomElevatedBottom(
-                text: "Reset Password",
-                onTap: () {
-                  showGeneralDialog(
-                    context: context,
-                    barrierDismissible: true,
-                    barrierLabel: "Dismiss",
-                    barrierColor: Colors.black.withOpacity(0.4),
-                    transitionDuration: const Duration(milliseconds: 300),
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return const SizedBox();
-                    },
-                    transitionBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                          return SlideTransition(
-                            position: Tween(
-                              begin: const Offset(0, 1),
-                              end: const Offset(0, 0),
-                            ).animate(animation),
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Padding(
-                                padding: const EdgeInsets.all(20),
-                                child: CustomBottomDialog(
-                                  onPressed: () {
-                                    Navigator.pushNamed(
-                                      context,
-                                      RouteName.loginScreen,
-                                    );
-                                  },
 
-                                  width: 335,
-                                  height: 342,
-                                  buttonText: "Ok",
-                                  imagePath: "assets/images/checklist 1.png",
-                                  text: "All Done",
-                                  description:
-                                      "Your password has been reset successfully.",
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                  );
-                },
+            PrimaryButton(
+              onTap: () {
+                showGeneralDialog(
 
-                textColor: Colors.white,
-                borderRadius: 16,
-                size: 18,
-              ),
+                  context: context,
+                  barrierDismissible: true,
+                  barrierLabel: "Dismiss",
+                  barrierColor: Colors.black.withOpacity(0.4),
+                  transitionDuration: const Duration(milliseconds: 300),
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return const SizedBox();
+                  },
+                  transitionBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    return SlideTransition(
+                      position: Tween(
+                        begin: const Offset(0, 1),
+                        end: const Offset(0, 0),
+                      ).animate(animation),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: CustomBottomDialog(
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                RouteName.loginScreen,
+                              );
+                            },
+
+                            width: 335.w,
+                            height: 342.h,
+                            buttonText: "Ok",
+                            imagePath: "assets/images/checklist 1.png",
+                            text: "All Done",
+                            description:
+                            "Your password has been reset successfully.",
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+              height: 57.h,
+              title: "Send Code",
+              size: 18.sp,
+              width: double.infinity.w,
+              textColor: Colors.white,
+
             ),
+
+            // SizedBox(
+            //   height: 57,
+            //   width: double.infinity,
+            //   child: CustomElevatedBottom(
+            //     text: "Reset Password",
+            //     onTap: () {
+            //       showGeneralDialog(
+            //         context: context,
+            //         barrierDismissible: true,
+            //         barrierLabel: "Dismiss",
+            //         barrierColor: Colors.black.withOpacity(0.4),
+            //         transitionDuration: const Duration(milliseconds: 300),
+            //         pageBuilder: (context, animation, secondaryAnimation) {
+            //           return const SizedBox();
+            //         },
+            //         transitionBuilder:
+            //             (context, animation, secondaryAnimation, child) {
+            //               return SlideTransition(
+            //                 position: Tween(
+            //                   begin: const Offset(0, 1),
+            //                   end: const Offset(0, 0),
+            //                 ).animate(animation),
+            //                 child: Align(
+            //                   alignment: Alignment.bottomCenter,
+            //                   child: Padding(
+            //                     padding: const EdgeInsets.all(20),
+            //                     child: CustomBottomDialog(
+            //                       onPressed: () {
+            //                         Navigator.pushNamed(
+            //                           context,
+            //                           RouteName.loginScreen,
+            //                         );
+            //                       },
+            //
+            //                       width: 335,
+            //                       height: 342,
+            //                       buttonText: "Ok",
+            //                       imagePath: "assets/images/checklist 1.png",
+            //                       text: "All Done",
+            //                       description:
+            //                           "Your password has been reset successfully.",
+            //                     ),
+            //                   ),
+            //                 ),
+            //               );
+            //             },
+            //       );
+            //     },
+            //
+            //     textColor: Colors.white,
+            //     borderRadius: 16,
+            //     size: 18,
+            //   ),
+            // ),
           ],
         ),
       ),

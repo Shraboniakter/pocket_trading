@@ -6,6 +6,7 @@ import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
 import '../../widgets/CustomTextfield.dart';
+import '../../widgets/bottom.dart';
 import '../../widgets/pimary_bottom.dart';
 import '../widgets/CustomDropdown.dart';
 
@@ -54,7 +55,7 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
       backgroundColor: ColorManager.bg,
       appBar: AppBar(
         leading: IconButton(
-          icon:  Icon(Icons.arrow_back, color: Colors.black, size: 28.sp),
+          icon: Icon(Icons.arrow_back, color: Colors.black, size: 28.sp),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -71,7 +72,11 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomText(text: "Property Type", size: 18.sp, color: Colors.black),
+              CustomText(
+                text: "Property Type",
+                size: 18.sp,
+                color: Colors.black,
+              ),
               SizedBox(height: 15.h),
               CustomDropdown(
                 color: ColorManager.lightBlue,
@@ -122,26 +127,22 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
 
                 color: ColorManager.lightBlue,
                 hintText: "lorem ipsum dummy text",
-
               ),
 
               Padding(
-                padding:  EdgeInsets.only(top: 230.h),
-                child: SizedBox(
+                padding: EdgeInsets.only(top: 230.h),
+                child: PrimaryButton(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      RouteName.ifRestaurantIsSelectedScreen
+                    );
+                  },
                   height: 57.h,
-                  width: double.infinity,
-                  child: CustomElevatedBottom(
-                    text: "Submit",
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        RouteName.ifRestaurantIsSelectedScreen,
-                      );
-                    },
-                    borderRadius: 16.r,
-                    textColor: Colors.white,
-                    size: 18.sp,
-                  ),
+                  title: "Submit",
+                  size: 18.sp,
+                  width: double.infinity.w,
+                  textColor: Colors.white,
                 ),
               ),
             ],

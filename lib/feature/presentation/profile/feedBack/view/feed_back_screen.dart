@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomTextfield.dart';
 import 'package:pocket_trading/feature/presentation/widgets/pimary_bottom.dart';
 import '../../../../../core/constrants/app_color.dart';
 import '../../../screen/widgets/CustomDropdown.dart';
 import '../../../widgets/CustomText.dart';
+import '../../../widgets/bottom.dart';
 
 class FeedBackScreen extends StatefulWidget {
   const FeedBackScreen({super.key});
@@ -38,17 +40,17 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
           ),
           child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
                     child: IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back,
                         color: Colors.white,
-                        size: 28,
+                        size: 28.sp,
                       ),
                       onPressed: () {
                         Navigator.pop(context);
@@ -58,7 +60,7 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
                   CustomText(
                     text: "Feedback",
                     color: Colors.white,
-                    size: 22,
+                    size: 22.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ],
@@ -68,7 +70,7 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0.r),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -83,23 +85,23 @@ class _FeedBackScreenState extends State<FeedBackScreen> {
                   });
                 },
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               CustomTextfield(
                 max: 5,
                 hintText: "Tell us what you think....",
                 color: ColorManager.gray,
               ),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 57,
-                width: double.infinity,
-                child: CustomElevatedBottom(
-                  text: "Submit",
-                  onTap: () {},
-                  borderRadius: 16,
-                  textColor: Colors.white,
-                  size: 18,
-                ),
+              SizedBox(height: 20.h),
+              PrimaryButton(
+                onTap: () {
+
+                },
+                height: 57.h,
+                title: "Submit",
+                size: 18.sp,
+                width: double.infinity.w,
+                textColor: Colors.white,
+
               ),
             ],
           ),

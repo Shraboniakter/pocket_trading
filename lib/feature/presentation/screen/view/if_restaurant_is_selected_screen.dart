@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
 import '../../widgets/CustomText.dart';
 import '../../widgets/CustomTextfield.dart';
+import '../../widgets/bottom.dart';
 import '../../widgets/pimary_bottom.dart';
 import '../widgets/CustomDropdown.dart';
 
@@ -12,10 +14,12 @@ class IfRestaurantIsSelectedScreen extends StatefulWidget {
   const IfRestaurantIsSelectedScreen({super.key});
 
   @override
-  State<IfRestaurantIsSelectedScreen> createState() => _IfRestaurantIsSelectedScreenState();
+  State<IfRestaurantIsSelectedScreen> createState() =>
+      _IfRestaurantIsSelectedScreenState();
 }
 
-class _IfRestaurantIsSelectedScreenState extends State<IfRestaurantIsSelectedScreen> {
+class _IfRestaurantIsSelectedScreenState
+    extends State<IfRestaurantIsSelectedScreen> {
   String? selectedSquareFootage;
   String? selectedSeatCount;
   String? selectedPriceRange;
@@ -34,7 +38,7 @@ class _IfRestaurantIsSelectedScreenState extends State<IfRestaurantIsSelectedScr
     "1500 sq ft",
     "2000 sq ft",
     "2500 sq ft",
-    "3000+ sq ft"
+    "3000+ sq ft",
   ];
 
   List<String> seatCounts = [
@@ -42,9 +46,8 @@ class _IfRestaurantIsSelectedScreenState extends State<IfRestaurantIsSelectedScr
     "Double",
     "Triple",
     "Quad / Family",
-    "Extra Bed"
+    "Extra Bed",
   ];
-
 
   List<String> price = [
     "\$1M_\$3M",
@@ -71,7 +74,7 @@ class _IfRestaurantIsSelectedScreenState extends State<IfRestaurantIsSelectedScr
         backgroundColor: ColorManager.bg,
       ),
       body: Padding(
-        padding:  EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +88,7 @@ class _IfRestaurantIsSelectedScreenState extends State<IfRestaurantIsSelectedScr
                 items: squareFootage,
                 onChanged: (value) {
                   setState(() {
-                    selectedSquareFootage= value;
+                    selectedSquareFootage = value;
                   });
                 },
               ),
@@ -99,13 +102,17 @@ class _IfRestaurantIsSelectedScreenState extends State<IfRestaurantIsSelectedScr
                 items: seatCounts,
                 onChanged: (value) {
                   setState(() {
-                    selectedSeatCount= value;
+                    selectedSeatCount = value;
                   });
                 },
               ),
-              SizedBox(height: 20),
-              CustomText(text: "Asking Price/Key Money", size: 18, color: Colors.black),
-              SizedBox(height: 15),
+              SizedBox(height: 20.h),
+              CustomText(
+                text: "Asking Price/Key Money",
+                size: 18.sp,
+                color: Colors.black,
+              ),
+              SizedBox(height: 15.h),
 
               CustomDropdown(
                 color: ColorManager.lightBlue,
@@ -118,36 +125,27 @@ class _IfRestaurantIsSelectedScreenState extends State<IfRestaurantIsSelectedScr
                   });
                 },
               ),
-              SizedBox(height: 20),
-              CustomText(text: "Note", size: 18, color: Colors.black),
-              SizedBox(height: 15),
+              SizedBox(height: 20.h),
+              CustomText(text: "Note", size: 18.sp, color: Colors.black),
+              SizedBox(height: 15.h),
 
               CustomTextfield(
                 max: 5,
                 color: ColorManager.lightBlue,
                 hintText: "lorem ipsum dummy text",
-
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top:230),
-                child: SizedBox(
-                  height: 57,
-                  width: double.infinity,
-                  child: CustomElevatedBottom(
-                    text: "Submit",
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        RouteName.homeScreen,
-                      );
-
-                    },
-                    borderRadius: 16,
-                    textColor: Colors.white,
-                    size: 18,
-
-                  ),
+                padding: EdgeInsets.only(top: 230.h),
+                child: PrimaryButton(
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteName.homeScreen);
+                  },
+                  height: 57.h,
+                  title: "Submit",
+                  size: 18.sp,
+                  width: double.infinity.w,
+                  textColor: Colors.white,
                 ),
               ),
             ],
@@ -157,4 +155,3 @@ class _IfRestaurantIsSelectedScreenState extends State<IfRestaurantIsSelectedScr
     );
   }
 }
-

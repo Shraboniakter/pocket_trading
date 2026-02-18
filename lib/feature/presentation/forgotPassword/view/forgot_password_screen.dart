@@ -6,7 +6,8 @@ import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
 import '../../widgets/CustomTextfield.dart';
-import '../../widgets/pimary_bottom.dart';
+import '../../widgets/bottom.dart';
+
 
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
@@ -31,11 +32,11 @@ class ForgotPasswordScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 24.0.h),
+        padding: EdgeInsets.symmetric(horizontal: 24.0.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-             SizedBox(height: 40.h),
+            SizedBox(height: 40.h),
 
             CustomText(
               text: "Forgot Password?",
@@ -44,7 +45,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               color: Colors.black,
             ),
 
-             SizedBox(height: 5.h),
+            SizedBox(height: 5.h),
 
             CustomText(
               text: "No worries, we will help you\n    to reset your password.",
@@ -52,31 +53,47 @@ class ForgotPasswordScreen extends StatelessWidget {
               color: ColorManager.gray,
             ),
 
-             SizedBox(height: 50.h),
+            SizedBox(height: 50.h),
 
             CustomTextfield(
               textInputAction: TextInputAction.next,
-              hintText: "Email Address",color:ColorManager.gray,
+              hintText: "Email Address",
+              color: ColorManager.gray,
               suffix: Icon(Icons.email_outlined, color: ColorManager.gray),
             ),
 
-             SizedBox(height: 30.h),
+            SizedBox(height: 30.h),
 
-            SizedBox(
+            //
+            // SizedBox(
+            //   height: 57.h,
+            //   width: double.infinity,
+            //   child: CustomElevatedBottom(
+            //     text: "Send Code",
+            //     onTap: () {
+            //       Navigator.pushNamed(
+            //         context,
+            //         RouteName.forgotPasswordOTPScreen,
+            //       );
+            //     },
+            //     textColor: Colors.white,
+            //     borderRadius: 16.r,
+            //     size: 18.sp,
+            //   ),
+            // ),
+            PrimaryButton(
+              onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        RouteName.forgotPasswordOTPScreen,
+                      );
+              },
               height: 57.h,
-              width: double.infinity,
-              child: CustomElevatedBottom(
-                text: "Send Code",
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    RouteName.forgotPasswordOTPScreen,
-                  );
-                },
-                textColor: Colors.white,
-                borderRadius: 16.r,
-                size: 18.sp,
-              ),
+              title: "Send Code",
+              size: 18.sp,
+              width: double.infinity.w,
+              textColor: Colors.white,
+
             ),
             const Spacer(),
 

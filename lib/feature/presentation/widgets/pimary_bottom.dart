@@ -12,6 +12,7 @@ class CustomElevatedBottom extends StatelessWidget {
     this.textColor,
     this.borderRadius,
     this.size,
+
   });
 
   final String text;

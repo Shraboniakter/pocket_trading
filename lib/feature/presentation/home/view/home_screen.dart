@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/feature/presentation/home/widgets/CustomBottomSheet.dart';
 import '../../../../core/constrants/app_color.dart';
+
 import '../../widgets/CustomAppbar.dart';
-import '../../widgets/pimary_bottom.dart';
+import '../../widgets/bottom.dart';
+
 import '../widgets/PropertyInfoCard.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,17 +20,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _onRefresh() async {
     await Future.delayed(const Duration(seconds: 1));
 
-    setState(() {
-
-    });
+    setState(() {});
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.bg,
       body: Column(
         children: [
-          CustomHomeAppBar(icon: CupertinoIcons.person_alt_circle),
+          CustomHomeAppBar(icon: CupertinoIcons.person_alt_circle,),
 
           Expanded(
             child: RefreshIndicator(
@@ -61,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Align(
                                   alignment: Alignment.bottomCenter,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(20),
+                                    padding:  EdgeInsets.all(20.r),
                                     child: CustomBottomSheet(
                                       text: "Delete Card",
                                       description:
@@ -70,9 +72,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                       onRightPressed: () {
                                         Navigator.pop(context, true);
                                       },
-                                      imagePath: "assets/images/checklisttt.png",
-                                      height: 342,
-                                      width: 335,
+                                      imagePath:
+                                          "assets/images/checklisttt.png",
+                                      // height: 342.h,
+                                      // width: 335.w,
                                     ),
                                   ),
                                 ),
@@ -111,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Align(
                                   alignment: Alignment.bottomCenter,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(20),
+                                    padding: EdgeInsets.all(20.r),
                                     child: CustomBottomSheet(
                                       text: "Delete Card",
                                       description:
@@ -120,9 +123,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       onRightPressed: () {
                                         Navigator.pop(context, true);
                                       },
-                                      imagePath: "assets/images/checklisttt.png",
-                                      height: 342,
-                                      width: 335,
+                                      imagePath:
+                                          "assets/images/checklisttt.png",
+
                                     ),
                                   ),
                                 ),
@@ -161,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Align(
                                   alignment: Alignment.bottomCenter,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(20),
+                                    padding:  EdgeInsets.all(20.r),
                                     child: CustomBottomSheet(
                                       text: "Delete Card",
                                       description:
@@ -170,9 +173,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       onRightPressed: () {
                                         Navigator.pop(context, true);
                                       },
-                                      imagePath: "assets/images/checklisttt.png",
-                                      height: 342,
-                                      width: 335,
+                                      imagePath:
+                                          "assets/images/checklisttt.png",
+
                                     ),
                                   ),
                                 ),
@@ -211,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Align(
                                   alignment: Alignment.bottomCenter,
                                   child: Padding(
-                                    padding: const EdgeInsets.all(20),
+                                    padding:  EdgeInsets.all(20.r),
                                     child: CustomBottomSheet(
                                       text: "Delete Card",
                                       description:
@@ -220,9 +223,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       onRightPressed: () {
                                         Navigator.pop(context, true);
                                       },
-                                      imagePath: "assets/images/checklisttt.png",
-                                      height: 342,
-                                      width: 335,
+                                      imagePath:
+                                          "assets/images/checklisttt.png",
+
                                     ),
                                   ),
                                 ),
@@ -245,17 +248,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              child: SizedBox(
-                height: 57,
-                width: double.infinity,
-                child: CustomElevatedBottom(
-                  text: "Add New",
-                  onTap: () {},
-                  textColor: Colors.white,
-                  borderRadius: 16,
-                  size: 18,
-                ),
+              padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
+              child: PrimaryButton(
+                onTap: () {
+                  print("on");
+                },
+                height: 57.h,
+                title: "Add New",
+                size: 18.sp,
+                width: double.infinity.w,
+                textColor: Colors.white,
               ),
             ),
           ),

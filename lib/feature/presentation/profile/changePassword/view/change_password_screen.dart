@@ -2,11 +2,13 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
 import '../../../login/viewModel/auth_provider.dart';
 import '../../../widgets/CustomDialog.dart';
 import '../../../widgets/CustomText.dart';
 import '../../../widgets/CustomTextfield.dart';
+import '../../../widgets/bottom.dart';
 import '../../../widgets/pimary_bottom.dart';
 
 class ChangePasswordScreen extends ConsumerWidget {
@@ -32,17 +34,17 @@ class ChangePasswordScreen extends ConsumerWidget {
           ),
           child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
                     child: IconButton(
-                      icon: const Icon(
+                      icon:  Icon(
                         Icons.arrow_back,
                         color: Colors.white,
-                        size: 28,
+                        size: 28.sp,
                       ),
                       onPressed: () {
                         Navigator.pop(context);
@@ -52,7 +54,7 @@ class ChangePasswordScreen extends ConsumerWidget {
                   CustomText(
                     text: "Change Password",
                     color: Colors.white,
-                    size: 22,
+                    size: 22.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ],
@@ -62,7 +64,7 @@ class ChangePasswordScreen extends ConsumerWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding:  EdgeInsets.all(20.0.r),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -81,10 +83,11 @@ class ChangePasswordScreen extends ConsumerWidget {
                         ? Icons.visibility_off_outlined
                         : Icons.visibility_outlined,
                     color: ColorManager.gray,
+                    size: 20.sp,
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
+              SizedBox(height: 15.h),
               CustomTextfield(
                 obscureText: isNewObscure,
                 color: ColorManager.gray,
@@ -100,10 +103,11 @@ class ChangePasswordScreen extends ConsumerWidget {
                         ? Icons.visibility_off_outlined
                         : Icons.visibility_outlined,
                     color: ColorManager.gray,
+                    size: 20.sp,
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
+               SizedBox(height: 15.h),
               CustomTextfield(
                 obscureText: isConfirmNewObscure,
                 color: ColorManager.gray,
@@ -119,59 +123,60 @@ class ChangePasswordScreen extends ConsumerWidget {
                         ? Icons.visibility_off_outlined
                         : Icons.visibility_outlined,
                     color: ColorManager.gray,
+                    size: 20.sp,
                   ),
                 ),
               ),
-              SizedBox(height: 30),
-              SizedBox(
-                height: 57,
-                width: double.infinity,
-                child: CustomElevatedBottom(
-                  text: "Update",
-                  onTap: () {
-                    showGeneralDialog(
-                      context: context,
-                      barrierDismissible: true,
-                      barrierLabel: "Dismiss",
-                      barrierColor: Colors.black.withOpacity(0.4),
-                      transitionDuration: const Duration(milliseconds: 450),
-                      pageBuilder: (context, animation, secondaryAnimation) {
-                        return const SizedBox();
-                      },
-                      transitionBuilder:
-                          (context, animation, secondaryAnimation, child) {
-                            return SlideTransition(
-                              position: Tween(
-                                begin: const Offset(0, 1),
-                                end: const Offset(0, 0),
-                              ).animate(animation),
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(20),
-                                  child: CustomBottomDialog(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    width: 335,
-                                    height: 342,
-                                    buttonText: "Ok",
-                                    imagePath: "assets/images/checklist 1.png",
-                                    text: "Password Changed!",
-                                    description:
-                                        "Your password has been changed successfully.",
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                    );
-                  },
-                  textColor: Colors.white,
-                  borderRadius: 16,
-                  size: 18,
-                ),
+              SizedBox(height: 30.h),
+
+              PrimaryButton(
+                onTap: () {
+                  showGeneralDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    barrierLabel: "Dismiss",
+                    barrierColor: Colors.black.withOpacity(0.4),
+                    transitionDuration: const Duration(milliseconds: 450),
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return const SizedBox();
+                    },
+                    transitionBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      return SlideTransition(
+                        position: Tween(
+                          begin: const Offset(0, 1),
+                          end: const Offset(0, 0),
+                        ).animate(animation),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding:  EdgeInsets.all(20.r),
+                            child: CustomBottomDialog(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              width: 335.w,
+                              height: 342.h,
+                              buttonText: "Ok",
+                              imagePath: "assets/images/checklist 1.png",
+                              text: "Password Changed!",
+                              description:
+                              "Your password has been changed successfully.",
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+                height: 57.h,
+                title: "Send Code",
+                size: 18.sp,
+                width: double.infinity.w,
+                textColor: Colors.white,
+
               ),
+
             ],
           ),
         ),

@@ -5,6 +5,7 @@ import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 import 'package:pocket_trading/feature/presentation/widgets/pimary_bottom.dart';
 
 import '../../../../core/routes/route_name.dart';
+import '../../widgets/bottom.dart';
 import '../widgets/OptionTile.dart';
 
 class BuyOrSellScreen extends StatefulWidget {
@@ -60,24 +61,40 @@ class _BuyOrSellScreenState extends State<BuyOrSellScreen> {
                 },
               ),
               Spacer(),
-              SizedBox(
+
+              PrimaryButton(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    RouteName.assetTypeScreen,
+                  );
+                },
                 height: 57.h,
-                width: double.infinity,
-                child: CustomElevatedBottom(
-                  text: "Next",
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      RouteName.assetTypeScreen,
-                    );
+                title: "Next",
+                size: 18.sp,
+                width: double.infinity.w,
+                textColor: Colors.white,
 
-                  },
-                  borderRadius: 16.r,
-                  textColor: Colors.white,
-                  size: 18.sp,
-
-                ),
               ),
+
+              // SizedBox(
+              //   height: 57.h,
+              //   width: double.infinity,
+              //   child: CustomElevatedBottom(
+              //     text: "Next",
+              //     onTap: () {
+              //       Navigator.pushNamed(
+              //         context,
+              //         RouteName.assetTypeScreen,
+              //       );
+              //
+              //     },
+              //     borderRadius: 16.r,
+              //     textColor: Colors.white,
+              //     size: 18.sp,
+              //
+              //   ),
+              // ),
             ],
           ),
         ),

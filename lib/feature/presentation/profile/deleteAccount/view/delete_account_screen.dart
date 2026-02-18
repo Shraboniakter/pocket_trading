@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/constrants/app_color.dart';
 import '../../../home/widgets/CustomBottomSheet.dart';
 import '../../../widgets/CustomText.dart';
 import '../../../widgets/CustomTextfield.dart';
+import '../../../widgets/bottom.dart';
 import '../../../widgets/pimary_bottom.dart';
 import '../widgets/CustomInfoBox.dart';
 
@@ -40,17 +42,17 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
           ),
           child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding:  EdgeInsets.symmetric(horizontal: 10.w),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
                     child: IconButton(
-                      icon: const Icon(
+                      icon:  Icon(
                         Icons.arrow_back,
                         color: Colors.white,
-                        size: 28,
+                        size: 28.sp,
                       ),
                       onPressed: () {
                         Navigator.pop(context);
@@ -60,7 +62,7 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                   CustomText(
                     text: "Delete Account",
                     color: Colors.white,
-                    size: 22,
+                    size: 22.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ],
@@ -71,7 +73,7 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
       ),
 
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding:  EdgeInsets.all(20.0.r),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -88,7 +90,7 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                     isSelected: selectedIndex == i,
                   ),
                 ),
-                const SizedBox(height: 20),
+                 SizedBox(height: 20.h),
               ],
 
               if (selectedIndex == 4)
@@ -100,57 +102,55 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
                 ),
 
               Padding(
-                padding: const EdgeInsets.only(top: 230),
-                child: SizedBox(
-                  height: 57,
-                  width: double.infinity,
-                  child: CustomElevatedBottom(
-                    text: "Delete My Account",
-                    onTap: () {
-                      showGeneralDialog(
-                        context: context,
-                        barrierDismissible: true,
-                        barrierLabel: "Dismiss",
-                        barrierColor: Colors.black.withOpacity(0.4),
-                        transitionDuration: const Duration(milliseconds: 450),
-                        pageBuilder: (context, animation, secondaryAnimation) {
-                          return const SizedBox();
-                        },
-                        transitionBuilder:
-                            (context, animation, secondaryAnimation, child) {
-                              return SlideTransition(
-                                position: Tween(
-                                  begin: const Offset(0, 1),
-                                  end: const Offset(0, 0),
-                                ).animate(animation),
-                                child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(20),
-                                    child: CustomBottomSheet(
-                                      text: "Delete Account",
-                                      description:
-                                          "Are you sure you want to delete your account?",
-                                      onLeftPressed: () {},
+                padding: EdgeInsets.only(top: 230.h),
 
-                                      onRightPressed: () {
-                                        Navigator.pop(context, true);
-                                      },
-                                      imagePath: "assets/images/Groupop.png",
-                                      height: 342,
-                                      width: 335,
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                      );
-                    },
-                    borderRadius: 16,
-                    textColor: Colors.white,
-                    size: 18,
-                  ),
+                child: PrimaryButton(
+                  onTap: () {
+                    showGeneralDialog(
+                      context: context,
+                      barrierDismissible: true,
+                      barrierLabel: "Dismiss",
+                      barrierColor: Colors.black.withOpacity(0.4),
+                      transitionDuration: const Duration(milliseconds: 450),
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return const SizedBox();
+                      },
+                      transitionBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return SlideTransition(
+                          position: Tween(
+                            begin: const Offset(0, 1),
+                            end: const Offset(0, 0),
+                          ).animate(animation),
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: CustomBottomSheet(
+                                text: "Delete Account",
+                                description:
+                                "Are you sure you want to delete your account?",
+                                onLeftPressed: () {},
+
+                                onRightPressed: () {
+                                  Navigator.pop(context, true);
+                                },
+                                imagePath: "assets/images/Groupop.png",
+
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  height: 57.h,
+                  title: "Delete My Account",
+                  size: 18.sp,
+                  width: double.infinity.w,
+                  textColor: Colors.white,
                 ),
+
               ),
             ],
           ),

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
+import 'bottom.dart';
 
 class CustomBottomDialog extends StatelessWidget {
   final String? text;
@@ -12,7 +14,6 @@ class CustomBottomDialog extends StatelessWidget {
   final VoidCallback onPressed;
   final double? width;
   final double? height;
-
   const CustomBottomDialog({
     super.key,
 
@@ -29,61 +30,52 @@ class CustomBottomDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      borderRadius: BorderRadius.circular(25),
+      borderRadius: BorderRadius.circular(25.r),
       child: Container(
         width: width,
-        height: height,
-        padding: const EdgeInsets.all(24),
+
+        padding: EdgeInsets.all(24.r),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(25.r),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(imagePath),
 
-             SizedBox(height: 10),
+             SizedBox(height: 10.h),
 
             if (text != null)
               CustomText(
 
                 text: text!,
                 color: Colors.black,
-                size: 24,
+                size: 24.sp,
                 fontWeight: FontWeight.bold,
               ),
-            const SizedBox(height: 5),
+             SizedBox(height: 5.h),
 
             CustomText(
               textAlign: textAlign ?? TextAlign.center,
               text: description,
               color: ColorManager.gray,
-              size: 18,
+              size: 18.sp,
               fontWeight: FontWeight.w500,
             ),
 
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
 
-            SizedBox(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: onPressed,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: ColorManager.lightBlue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-                child: CustomText(
-                  text: buttonText,
-                  color: Colors.white,
-                  size: 18,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+            PrimaryButton(
+             onTap:  onPressed,
+              height: 57.h,
+              title: buttonText,
+              size: 18.sp,
+              width: double.infinity.w,
+              textColor: Colors.white,
+
             ),
+
           ],
         ),
       ),
