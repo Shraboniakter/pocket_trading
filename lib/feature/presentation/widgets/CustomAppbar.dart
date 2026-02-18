@@ -14,8 +14,8 @@ class CustomHomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 158,
-      padding:  EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 25),
+
+      padding:  EdgeInsets.only(top: 50.h, left: 20.w, right: 20.w, bottom: 25.h),
       decoration: BoxDecoration(
         color: ColorManager.blue,
         borderRadius: BorderRadius.only(
@@ -41,6 +41,7 @@ class CustomHomeAppBar extends StatelessWidget {
                 text: "Imran Hassen",
                 color: Colors.white,
                 size: 18.sp,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),

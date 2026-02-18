@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constrants/app_images.dart';
 import '../../../../core/routes/route_name.dart';
 import '../viewModel/riverpod_provider.dart';
@@ -33,8 +34,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       body: Center(
         child: Image.asset(
           AssetPaths.splash,
-          width: 187,
-          height: 196,
+          width: 187.w,
+          height: 196.h,
         ),
       ),
     );

@@ -21,7 +21,7 @@ class PropertyInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:  EdgeInsets.all(20.r),
+      margin:  EdgeInsets.all(10.r),
       padding:  EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         color: ColorManager.primary,

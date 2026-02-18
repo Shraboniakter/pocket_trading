@@ -246,22 +246,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
 
-          SafeArea(
-            child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
-              child: PrimaryButton(
-                onTap: () {
-                  print("on");
-                },
-                height: 57.h,
-                title: "Add New",
-                size: 18.sp,
-                width: double.infinity.w,
-                textColor: Colors.white,
-              ),
-            ),
-          ),
+
         ],
+
+      ),
+      bottomNavigationBar: Padding(
+        padding:  EdgeInsets.only(left: 12,right: 12,top: 5,bottom: 20),
+        child: PrimaryButton(
+          onTap: () {
+            print("on");
+          },
+          height: 57.h,
+          title: "Add New",
+          size: 18.sp,
+          width: double.infinity.w,
+          textColor: Colors.white,
+        ),
       ),
     );
   }
