@@ -33,10 +33,10 @@ class ProfileScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: IconButton(
-                      icon: const Icon(
+                      icon:  Icon(
                         Icons.arrow_back,
                         color: Colors.white,
-                        size: 28,
+                        size: 28.sp,
                       ),
                       onPressed: () {
                         Navigator.pop(context);
@@ -46,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
                   CustomText(
                     text: "My Profile",
                     color: Colors.white,
-                    size: 22,
+                    size: 22.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ],
@@ -56,7 +56,7 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding:  EdgeInsets.all(20.0.r),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -144,7 +144,7 @@ class ProfileScreen extends StatelessWidget {
                                     Navigator.pop(context, true);
                                   },
                                   imagePath: "assets/images/Groupp.png",
-                                
+
                                 ),
                               ),
                             ),
