@@ -10,7 +10,7 @@ import '../../widgets/CustomDialog.dart';
 import '../../widgets/CustomText.dart';
 import '../../widgets/CustomTextfield.dart';
 import '../../widgets/bottom.dart';
-import '../../widgets/pimary_bottom.dart';
+
 
 class SetNewPasswordScreen extends ConsumerWidget {
   const SetNewPasswordScreen({super.key});
@@ -131,10 +131,9 @@ class SetNewPasswordScreen extends ConsumerWidget {
                               );
                             },
 
-                            width: 335.w,
-                            height: 342.h,
                             buttonText: "Ok",
-                            imagePath: "assets/images/checklist 1.png",
+                            imagePath: "assets/images/Group.png",
+                            height: 93.75.h,
                             text: "All Done",
                             description:
                             "Your password has been reset successfully.",
@@ -153,60 +152,7 @@ class SetNewPasswordScreen extends ConsumerWidget {
 
             ),
 
-            // SizedBox(
-            //   height: 57,
-            //   width: double.infinity,
-            //   child: CustomElevatedBottom(
-            //     text: "Reset Password",
-            //     onTap: () {
-            //       showGeneralDialog(
-            //         context: context,
-            //         barrierDismissible: true,
-            //         barrierLabel: "Dismiss",
-            //         barrierColor: Colors.black.withOpacity(0.4),
-            //         transitionDuration: const Duration(milliseconds: 300),
-            //         pageBuilder: (context, animation, secondaryAnimation) {
-            //           return const SizedBox();
-            //         },
-            //         transitionBuilder:
-            //             (context, animation, secondaryAnimation, child) {
-            //               return SlideTransition(
-            //                 position: Tween(
-            //                   begin: const Offset(0, 1),
-            //                   end: const Offset(0, 0),
-            //                 ).animate(animation),
-            //                 child: Align(
-            //                   alignment: Alignment.bottomCenter,
-            //                   child: Padding(
-            //                     padding: const EdgeInsets.all(20),
-            //                     child: CustomBottomDialog(
-            //                       onPressed: () {
-            //                         Navigator.pushNamed(
-            //                           context,
-            //                           RouteName.loginScreen,
-            //                         );
-            //                       },
-            //
-            //                       width: 335,
-            //                       height: 342,
-            //                       buttonText: "Ok",
-            //                       imagePath: "assets/images/checklist 1.png",
-            //                       text: "All Done",
-            //                       description:
-            //                           "Your password has been reset successfully.",
-            //                     ),
-            //                   ),
-            //                 ),
-            //               );
-            //             },
-            //       );
-            //     },
-            //
-            //     textColor: Colors.white,
-            //     borderRadius: 16,
-            //     size: 18,
-            //   ),
-            // ),
+
           ],
         ),
       ),

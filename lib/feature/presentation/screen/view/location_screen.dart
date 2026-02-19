@@ -120,22 +120,7 @@ class _LocationScreenState extends State<LocationScreen> {
                   width: double.infinity.w,
                   textColor: Colors.white,
                 ),
-                // SizedBox(
-                //   height: 57,
-                //   width: double.infinity,
-                //   child: CustomElevatedBottom(
-                //     text: "Next",
-                //     onTap: () {
-                //       Navigator.pushNamed(
-                //         context,
-                //         RouteName.ifHotelIsSelectedScreen,
-                //       );
-                //     },
-                //     borderRadius: 16,
-                //     textColor: Colors.white,
-                //     size: 18,
-                //   ),
-                // ),
+
               ),
             ],
           ),

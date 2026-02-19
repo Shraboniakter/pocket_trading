@@ -77,24 +77,7 @@ class _BuyOrSellScreenState extends State<BuyOrSellScreen> {
 
               ),
 
-              // SizedBox(
-              //   height: 57.h,
-              //   width: double.infinity,
-              //   child: CustomElevatedBottom(
-              //     text: "Next",
-              //     onTap: () {
-              //       Navigator.pushNamed(
-              //         context,
-              //         RouteName.assetTypeScreen,
-              //       );
-              //
-              //     },
-              //     borderRadius: 16.r,
-              //     textColor: Colors.white,
-              //     size: 18.sp,
-              //
-              //   ),
-              // ),
+
             ],
           ),
         ),

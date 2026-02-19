@@ -42,7 +42,7 @@ class CustomBottomDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(imagePath),
+            Image.asset(imagePath,height: height,),
 
              SizedBox(height: 10.h),
 

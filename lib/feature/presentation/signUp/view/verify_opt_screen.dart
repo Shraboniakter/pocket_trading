@@ -111,10 +111,10 @@ class VerifyOptScreen extends StatelessWidget {
                                   RouteName.buyOrSellScreen,
                                 );
                               },
-                              width: 335.w,
-                              height: 425.h,
+
+                              height: 93.75.h,
                               buttonText: "Continue",
-                              imagePath: "assets/images/checklist 1.png",
+                              imagePath: "assets/images/Group.png",
                               text: "Congratulation",
                               description:
                               "Your account has been created successfully.A request has been sent to the admin for verification.You will be able to log in once the admin approves your account.",

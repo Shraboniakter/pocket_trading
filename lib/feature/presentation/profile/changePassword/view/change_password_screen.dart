@@ -155,10 +155,10 @@ class ChangePasswordScreen extends ConsumerWidget {
                               onPressed: () {
                                 Navigator.pop(context);
                               },
-                              width: 335.w,
-                              height: 342.h,
+                              height: 93.75.h,
+
                               buttonText: "Ok",
-                              imagePath: "assets/images/checklist 1.png",
+                              imagePath: "assets/images/Group.png",
                               text: "Password Changed!",
                               description:
                               "Your password has been changed successfully.",

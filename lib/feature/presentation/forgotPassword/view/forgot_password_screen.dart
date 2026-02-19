@@ -64,23 +64,7 @@ class ForgotPasswordScreen extends StatelessWidget {
 
             SizedBox(height: 30.h),
 
-            //
-            // SizedBox(
-            //   height: 57.h,
-            //   width: double.infinity,
-            //   child: CustomElevatedBottom(
-            //     text: "Send Code",
-            //     onTap: () {
-            //       Navigator.pushNamed(
-            //         context,
-            //         RouteName.forgotPasswordOTPScreen,
-            //       );
-            //     },
-            //     textColor: Colors.white,
-            //     borderRadius: 16.r,
-            //     size: 18.sp,
-            //   ),
-            // ),
+
             PrimaryButton(
               onTap: () {
                       Navigator.pushNamed(

@@ -74,8 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       },
                                       imagePath:
                                           "assets/images/checklisttt.png",
-                                      // height: 342.h,
-                                      // width: 335.w,
+
                                     ),
                                   ),
                                 ),

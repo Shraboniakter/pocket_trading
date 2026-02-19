@@ -7,7 +7,7 @@ import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
 import '../../widgets/CustomTextfield.dart';
 import '../../widgets/bottom.dart';
-import '../../widgets/pimary_bottom.dart';
+
 import '../widgets/CustomDropdown.dart';
 
 class IfHotelIsSelectedScreen extends StatefulWidget {

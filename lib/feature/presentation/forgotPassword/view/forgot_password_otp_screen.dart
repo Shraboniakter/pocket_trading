@@ -6,7 +6,7 @@ import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
 import '../../widgets/CustomText.dart';
 import '../../widgets/bottom.dart';
-import '../../widgets/pimary_bottom.dart';
+
 
 class ForgotPasswordOtpScreen extends StatelessWidget {
   const ForgotPasswordOtpScreen({super.key});
@@ -87,22 +87,6 @@ class ForgotPasswordOtpScreen extends StatelessWidget {
 
               ),
 
-              // SizedBox(
-              //   height: 57.h,
-              //   width: double.infinity,
-              //   child: CustomElevatedBottom(
-              //     text: "Verify Code",
-              //     onTap: () {
-              //       Navigator.pushNamed(
-              //         context,
-              //         RouteName.setNewPasswordScreen,
-              //       );
-              //     },
-              //     textColor: Colors.white,
-              //     borderRadius: 16.r,
-              //     size: 18.sp,
-              //   ),
-              // ),
               SizedBox(height: 280.h),
               TextButton(
                 onPressed: () {},
