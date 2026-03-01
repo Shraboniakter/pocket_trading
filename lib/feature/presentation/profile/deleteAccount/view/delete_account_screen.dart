@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/constrants/app_color.dart';
 import '../../../home/widgets/CustomBottomSheet.dart';
+
 import '../../../widgets/CustomText.dart';
 import '../../../widgets/CustomTextfield.dart';
 import '../../../widgets/bottom.dart';
-import '../../../widgets/pimary_bottom.dart';
+
 import '../widgets/CustomInfoBox.dart';
 
 class DeleteAccountScreen extends StatefulWidget {

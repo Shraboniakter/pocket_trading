@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
-import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
-import 'package:pocket_trading/feature/presentation/widgets/pimary_bottom.dart';
+
 
 import '../../../../core/routes/route_name.dart';
+import '../../widgets/CustomText.dart';
 import '../../widgets/bottom.dart';
+import '../viewModel/form_provider.dart';
 import '../widgets/OptionTile.dart';
 
-class BuyOrSellScreen extends StatefulWidget {
+class BuyOrSellScreen extends ConsumerStatefulWidget {
   const BuyOrSellScreen({super.key});
 
   @override
-  State<BuyOrSellScreen> createState() => _BuyOrSellScreenState();
+  ConsumerState<BuyOrSellScreen> createState() => _BuyOrSellScreenState();
 }
 
-class _BuyOrSellScreenState extends State<BuyOrSellScreen> {
+class _BuyOrSellScreenState extends ConsumerState<BuyOrSellScreen> {
   String selectedOption = "Buy";
 
   @override
@@ -64,10 +66,8 @@ class _BuyOrSellScreenState extends State<BuyOrSellScreen> {
 
               PrimaryButton(
                 onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    RouteName.assetTypeScreen,
-                  );
+                  ref.read(propertyFormProvider).actionType = selectedOption;
+                  Navigator.pushNamed(context,RouteName.assetTypeScreen);
                 },
                 height: 57.h,
                 title: "Next",

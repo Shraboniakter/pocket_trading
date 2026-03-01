@@ -12,6 +12,7 @@ import '../../login/viewModel/auth_provider.dart';
 import '../../widgets/CustomText.dart';
 import '../../widgets/CustomTextfield.dart';
 
+
 class SignUpScreen extends ConsumerWidget {
   const SignUpScreen({super.key});
 

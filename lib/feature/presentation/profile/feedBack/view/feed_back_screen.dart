@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomTextfield.dart';
-import 'package:pocket_trading/feature/presentation/widgets/pimary_bottom.dart';
+
 import '../../../../../core/constrants/app_color.dart';
 import '../../../screen/widgets/CustomDropdown.dart';
+
 import '../../../widgets/CustomText.dart';
 import '../../../widgets/bottom.dart';
 

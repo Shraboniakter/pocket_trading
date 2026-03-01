@@ -6,10 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
 import '../../../login/viewModel/auth_provider.dart';
 import '../../../widgets/CustomDialog.dart';
+
 import '../../../widgets/CustomText.dart';
 import '../../../widgets/CustomTextfield.dart';
 import '../../../widgets/bottom.dart';
-import '../../../widgets/pimary_bottom.dart';
+
 
 class ChangePasswordScreen extends ConsumerWidget {
   const ChangePasswordScreen({super.key});

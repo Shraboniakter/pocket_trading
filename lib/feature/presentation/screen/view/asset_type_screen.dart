@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
-import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
+
 import '../../../../core/routes/route_name.dart';
+import '../../widgets/CustomText.dart';
 import '../../widgets/bottom.dart';
+import '../viewModel/form_provider.dart';
 import '../widgets/OptionTile.dart';
 
-class AssetTypeScreen extends StatefulWidget {
+class AssetTypeScreen extends ConsumerStatefulWidget {
   const AssetTypeScreen({super.key});
 
   @override
-  State<AssetTypeScreen> createState() => _AssetTypeScreenState();
+  ConsumerState<AssetTypeScreen> createState() =>
+      _AssetTypeScreenState();
 }
 
-class _AssetTypeScreenState extends State<AssetTypeScreen> {
-  String selectedOption = "Buy";
+class _AssetTypeScreenState
+    extends ConsumerState<AssetTypeScreen> {
+
+  String selectedOption = "Hotel";
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +77,7 @@ class _AssetTypeScreenState extends State<AssetTypeScreen> {
               Spacer(),
               PrimaryButton(
                 onTap: () {
+                  ref.read(propertyFormProvider).assetType = selectedOption;
                   Navigator.pushNamed(context, RouteName.locationScreen);
                 },
                 height: 57.h,

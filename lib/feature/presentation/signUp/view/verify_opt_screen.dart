@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
 import '../../widgets/CustomDialog.dart';
+
 import '../../widgets/CustomText.dart';
 import '../../widgets/bottom.dart';
 
@@ -108,7 +109,7 @@ class VerifyOptScreen extends StatelessWidget {
                               onPressed: () {
                                 Navigator.pushNamed(
                                   context,
-                                  RouteName.buyOrSellScreen,
+                                  RouteName.loginScreen,
                                 );
                               },
 

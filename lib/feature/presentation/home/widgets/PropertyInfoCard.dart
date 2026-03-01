@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
+
 import '../../widgets/CustomText.dart';
+
 
 class PropertyInfoCard extends StatelessWidget {
   final String actionText;

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
+
 
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
+import '../../widgets/CustomText.dart';
 import '../../widgets/CustomTextfield.dart';
 import '../../widgets/bottom.dart';
 

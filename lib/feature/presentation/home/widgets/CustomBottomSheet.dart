@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
-import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
+
+import '../../widgets/CustomText.dart';
+
 
 class CustomBottomSheet extends StatelessWidget {
   final String? text;

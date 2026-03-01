@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/constrants/app_color.dart';
+
 import '../../../widgets/CustomText.dart';
 
 class TermsAndConditionsScreen extends StatelessWidget {

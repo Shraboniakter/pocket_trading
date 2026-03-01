@@ -1,27 +1,33 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
 
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
+import '../../../../data/property_model.dart';
+
+import '../../widgets/CustomText.dart';
 import '../../widgets/CustomTextfield.dart';
 import '../../widgets/bottom.dart';
-
+import '../viewModel/form_provider.dart';
+import '../viewModel/property_provider.dart';
 import '../widgets/CustomDropdown.dart';
 
-class IfHotelIsSelectedScreen extends StatefulWidget {
+class IfHotelIsSelectedScreen extends ConsumerStatefulWidget {
   const IfHotelIsSelectedScreen({super.key});
 
   @override
-  State<IfHotelIsSelectedScreen> createState() =>
+  ConsumerState<IfHotelIsSelectedScreen> createState() =>
       _IfHotelIsSelectedScreenState();
 }
 
-class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
+class _IfHotelIsSelectedScreenState
+    extends ConsumerState<IfHotelIsSelectedScreen> {
   String? selectedPropertyType;
   String? selectedRoomCount;
   String? selectedPriceRange;
+
+  final TextEditingController noteController = TextEditingController();
 
   final List<String> property = [
     "Hotel",
@@ -31,7 +37,7 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
     "Luxury Hotel",
   ];
 
-  List<String> roomCounts = [
+  final List<String> roomCounts = [
     "1-5 rooms",
     "6-10 rooms",
     "11-20 rooms",
@@ -40,31 +46,29 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
     "100+ rooms",
   ];
 
-  List<String> price = [
-    "\$1M_\$3M",
-    "\$4M_\$6M",
-    "\$7M_\$9M",
-    "\$10M_\$12M",
-    "\$13M_\$15M",
-    "\$16M_\$18B",
+  final List<String> price = [
+    "\$1M - \$3M",
+    "\$4M - \$6M",
+    "\$7M - \$9M",
+    "\$10M - \$12M",
+    "\$13M - \$15M",
+    "\$16M - \$18M",
   ];
 
   @override
   Widget build(BuildContext context) {
+    final form = ref.read(propertyFormProvider);
+
     return Scaffold(
       backgroundColor: ColorManager.bg,
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black, size: 28.sp),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => Navigator.pop(context),
         ),
-
-        surfaceTintColor: ColorManager.bg,
-
-        automaticallyImplyLeading: false,
         backgroundColor: ColorManager.bg,
+        surfaceTintColor: ColorManager.bg,
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: EdgeInsets.all(20.0.r),
@@ -72,6 +76,7 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              /// Property Type
               CustomText(
                 text: "Property Type",
                 size: 18.sp,
@@ -89,7 +94,10 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
                   });
                 },
               ),
+
               SizedBox(height: 20.h),
+
+              /// Room Count
               CustomText(text: "Room Count", size: 18.sp, color: Colors.black),
               SizedBox(height: 15.h),
               CustomDropdown(
@@ -103,10 +111,12 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
                   });
                 },
               ),
+
               SizedBox(height: 20.h),
+
+              /// Price Range
               CustomText(text: "Price Range", size: 18.sp, color: Colors.black),
               SizedBox(height: 15.h),
-
               CustomDropdown(
                 color: ColorManager.lightBlue,
                 hintText: "\$1M - \$5M",
@@ -118,32 +128,63 @@ class _IfHotelIsSelectedScreenState extends State<IfHotelIsSelectedScreen> {
                   });
                 },
               ),
+
               SizedBox(height: 20.h),
+
+              /// Note
               CustomText(text: "Note", size: 18.sp, color: Colors.black),
               SizedBox(height: 15.h),
 
               CustomTextfield(
+                controller: noteController,
                 max: 5,
-
                 color: ColorManager.lightBlue,
-                hintText: "lorem ipsum dummy text",
+                hintText: "Enter note here",
               ),
 
-              Padding(
-                padding: EdgeInsets.only(top: 230.h),
-                child: PrimaryButton(
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      RouteName.ifRestaurantIsSelectedScreen
-                    );
-                  },
-                  height: 57.h,
-                  title: "Submit",
-                  size: 18.sp,
-                  width: double.infinity.w,
-                  textColor: Colors.white,
-                ),
+              SizedBox(height: 40.h),
+
+              /// SUBMIT BUTTON
+              PrimaryButton(
+                onTap: () {
+                  /// Save to form state
+                  form.propertyType = selectedPropertyType;
+                  form.roomCount = selectedRoomCount;
+                  form.priceRange = selectedPriceRange;
+                  form.note = noteController.text;
+
+                  /// Create PropertyModel
+                  final property = PropertyModel(
+                    actionType: form.actionType,
+                    assetType: form.assetType,
+                    country: form.country,
+                    state: form.state,
+                    city: form.city,
+                    propertyType: form.propertyType,
+                    roomCount: form.roomCount,
+                    priceRange: form.priceRange ?? "",
+                    note: form.note,
+                  );
+
+                  /// Add to list
+                  ref.read(propertyProvider.notifier).addProperty(property);
+
+                  /// Reset form
+                  ref.read(propertyFormProvider.notifier).state =
+                      PropertyFormState();
+
+                  /// Go back to Home
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    RouteName.homeScreen,
+                    (route) => false,
+                  );
+                },
+                height: 57.h,
+                title: "Submit",
+                size: 18.sp,
+                width: double.infinity.w,
+                textColor: Colors.white,
               ),
             ],
           ),

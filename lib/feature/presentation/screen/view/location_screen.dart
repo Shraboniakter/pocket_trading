@@ -1,46 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/feature/presentation/widgets/CustomTextfield.dart';
 
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
+
+
 import '../../widgets/CustomText.dart';
 import '../../widgets/bottom.dart';
-import '../../widgets/pimary_bottom.dart';
+import '../viewModel/form_provider.dart';
 import '../widgets/CustomDropdown.dart';
 
-class LocationScreen extends StatefulWidget {
+class LocationScreen extends ConsumerStatefulWidget {
   const LocationScreen({super.key});
 
   @override
-  State<LocationScreen> createState() => _LocationScreenState();
+  ConsumerState<LocationScreen> createState() =>
+      _LocationScreenState();
 }
 
-class _LocationScreenState extends State<LocationScreen> {
+class _LocationScreenState
+    extends ConsumerState<LocationScreen> {
+
   String? selectedCountry;
+
+  final TextEditingController stateController =
+  TextEditingController();
+  final TextEditingController cityController =
+  TextEditingController();
 
   final List<String> countries = [
     "Bangladesh",
-    "korea",
+    "Korea",
     "USA",
     "Canada",
     "Thailand",
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.bg,
       appBar: AppBar(
         leading: IconButton(
-          icon:Icon(Icons.arrow_back, color: Colors.black, size: 28.sp),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          icon: Icon(Icons.arrow_back,
+              color: Colors.black, size: 28.sp),
+          onPressed: () => Navigator.pop(context),
         ),
-        surfaceTintColor: ColorManager.bg,
-
-        automaticallyImplyLeading: false,
         backgroundColor: ColorManager.bg,
+        surfaceTintColor: ColorManager.bg,
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: EdgeInsets.all(20.0.r),
@@ -60,6 +70,8 @@ class _LocationScreenState extends State<LocationScreen> {
                 size: 18.sp,
               ),
               SizedBox(height: 40.h),
+
+              /// Country Dropdown
               CustomDropdown(
                 color: ColorManager.gray,
                 hintText: "Country",
@@ -71,8 +83,12 @@ class _LocationScreenState extends State<LocationScreen> {
                   });
                 },
               ),
+
               SizedBox(height: 15.h),
+
+              /// State Field
               CustomTextfield(
+                controller: stateController,
                 textInputAction: TextInputAction.next,
                 color: ColorManager.gray,
                 hintText: "State",
@@ -82,8 +98,12 @@ class _LocationScreenState extends State<LocationScreen> {
                   size: 20.sp,
                 ),
               ),
+
               SizedBox(height: 15.h),
+
+              /// City Field
               CustomTextfield(
+                controller: cityController,
                 textInputAction: TextInputAction.done,
                 color: ColorManager.gray,
                 hintText: "City",
@@ -93,7 +113,9 @@ class _LocationScreenState extends State<LocationScreen> {
                   size: 20.sp,
                 ),
               ),
+
               SizedBox(height: 30.h),
+
               InkWell(
                 onTap: () {},
                 child: CustomText(
@@ -105,22 +127,35 @@ class _LocationScreenState extends State<LocationScreen> {
                 ),
               ),
 
-              Padding(
-                padding: EdgeInsets.only(top: 318.h),
-                child: PrimaryButton(
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      RouteName.ifHotelIsSelectedScreen,
-                    );
-                  },
-                  height: 57.h,
-                  title: "Next",
-                  size: 18.sp,
-                  width: double.infinity.w,
-                  textColor: Colors.white,
-                ),
+              SizedBox(height: 200.h),
 
+              /// NEXT BUTTON
+              PrimaryButton(
+                onTap: () {
+
+                  final form = ref.read(propertyFormProvider);
+
+                  /// Save Location Data
+                  form.country = selectedCountry ?? "";
+                  form.state = stateController.text;
+                  form.city = cityController.text;
+
+                  /// Navigate based on Asset Type
+                  if (form.assetType == "Hotel") {
+                    Navigator.pushNamed(
+                        context,
+                        RouteName.ifHotelIsSelectedScreen);
+                  } else {
+                    Navigator.pushNamed(
+                        context,
+                        RouteName.ifRestaurantIsSelectedScreen);
+                  }
+                },
+                height: 57.h,
+                title: "Next",
+                size: 18.sp,
+                width: double.infinity.w,
+                textColor: Colors.white,
               ),
             ],
           ),

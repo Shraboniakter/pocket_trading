@@ -1,264 +1,140 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pocket_trading/feature/presentation/home/widgets/CustomBottomSheet.dart';
-import '../../../../core/constrants/app_color.dart';
 
+import '../../../../core/constrants/app_color.dart';
+import '../../../../core/routes/route_name.dart';
+import '../../screen/viewModel/property_provider.dart';
 import '../../widgets/CustomAppbar.dart';
 import '../../widgets/bottom.dart';
-
 import '../widgets/PropertyInfoCard.dart';
+import '../widgets/CustomBottomSheet.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final properties = ref.watch(propertyProvider);
 
-class _HomeScreenState extends State<HomeScreen> {
-  Future<void> _onRefresh() async {
-    await Future.delayed(const Duration(seconds: 1));
-
-    setState(() {});
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.bg,
       body: Column(
         children: [
-          CustomHomeAppBar(icon: CupertinoIcons.person_alt_circle,),
-
-          Expanded(
-            child: RefreshIndicator(
-              backgroundColor: Colors.white,
-              color: ColorManager.lightBlue,
-              onRefresh: _onRefresh,
-              child: ListView(
-                physics: const AlwaysScrollableScrollPhysics(),
-                padding: const EdgeInsets.symmetric(vertical: 2),
-                children: [
-                  PropertyInfoCard(
-                    actionText: "Buy",
-                    onEdit: () => print("Edit tapped!"),
-                    onDelete: () {
-                      showGeneralDialog(
-                        context: context,
-                        barrierDismissible: true,
-                        barrierLabel: "Dismiss",
-                        barrierColor: Colors.black.withOpacity(0.4),
-                        transitionDuration: const Duration(milliseconds: 300),
-                        pageBuilder: (context, animation, secondaryAnimation) {
-                          return const SizedBox();
-                        },
-                        transitionBuilder:
-                            (context, animation, secondaryAnimation, child) {
-                              return SlideTransition(
-                                position: Tween(
-                                  begin: const Offset(0, 1),
-                                  end: const Offset(0, 0),
-                                ).animate(animation),
-                                child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Padding(
-                                    padding:  EdgeInsets.all(20.r),
-                                    child: CustomBottomSheet(
-                                      text: "Delete Card",
-                                      description:
-                                          "Are you sure you want to delete this card?",
-                                      onLeftPressed: () {},
-                                      onRightPressed: () {
-                                        Navigator.pop(context, true);
-                                      },
-                                      imagePath:
-                                          "assets/images/checklisttt.png",
-
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                      );
-                    },
-                    propertyDetails: {
-                      "Asset Type": "Hotel",
-                      "Location": "13th St, New York, NY 10011, USA",
-                      "Property Type": "Select Service/Motel",
-                      "Room Count": "40 – 75 Rooms",
-                      "Price Range": "\$20M – \$100M",
-                    },
-                  ),
-                  PropertyInfoCard(
-                    actionText: "Sell",
-                    onEdit: () => print("Edit tapped!"),
-                    onDelete: () {
-                      showGeneralDialog(
-                        context: context,
-                        barrierDismissible: true,
-                        barrierLabel: "Dismiss",
-                        barrierColor: Colors.black.withOpacity(0.4),
-                        transitionDuration: const Duration(milliseconds: 300),
-                        pageBuilder: (context, animation, secondaryAnimation) {
-                          return const SizedBox();
-                        },
-                        transitionBuilder:
-                            (context, animation, secondaryAnimation, child) {
-                              return SlideTransition(
-                                position: Tween(
-                                  begin: const Offset(0, 1),
-                                  end: const Offset(0, 0),
-                                ).animate(animation),
-                                child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Padding(
-                                    padding: EdgeInsets.all(20.r),
-                                    child: CustomBottomSheet(
-                                      text: "Delete Card",
-                                      description:
-                                          "Are you sure you want to delete this card?",
-                                      onLeftPressed: () {},
-                                      onRightPressed: () {
-                                        Navigator.pop(context, true);
-                                      },
-                                      imagePath:
-                                          "assets/images/checklisttt.png",
-
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                      );
-                    },
-                    propertyDetails: {
-                      "Asset Type": "Hotel",
-                      "Location": "13th St, New York, NY 10011, USA",
-                      "Property Type": "Select Service/Motel",
-                      "Room Count": "40 – 75 Rooms",
-                      "Price Range": "\$20M – \$100M",
-                    },
-                  ),
-                  PropertyInfoCard(
-                    actionText: "Buy",
-                    onEdit: () => print("Edit tapped!"),
-                    onDelete: () {
-                      showGeneralDialog(
-                        context: context,
-                        barrierDismissible: true,
-                        barrierLabel: "Dismiss",
-                        barrierColor: Colors.black.withOpacity(0.4),
-                        transitionDuration: const Duration(milliseconds: 300),
-                        pageBuilder: (context, animation, secondaryAnimation) {
-                          return const SizedBox();
-                        },
-                        transitionBuilder:
-                            (context, animation, secondaryAnimation, child) {
-                              return SlideTransition(
-                                position: Tween(
-                                  begin: const Offset(0, 1),
-                                  end: const Offset(0, 0),
-                                ).animate(animation),
-                                child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Padding(
-                                    padding:  EdgeInsets.all(20.r),
-                                    child: CustomBottomSheet(
-                                      text: "Delete Card",
-                                      description:
-                                          "Are you sure you want to delete this card?",
-                                      onLeftPressed: () {},
-                                      onRightPressed: () {
-                                        Navigator.pop(context, true);
-                                      },
-                                      imagePath:
-                                          "assets/images/checklisttt.png",
-
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                      );
-                    },
-                    propertyDetails: {
-                      "Asset Type": "Restaurant",
-                      "Location": "13th St, New York, NY 10011, USA",
-                      "Property Type": "Select Service/Motel",
-                      "Room Count": "40 – 75 Rooms",
-                      "Price Range": "\$20M – \$100M",
-                    },
-                  ),
-                  PropertyInfoCard(
-                    actionText: "Buy",
-                    onEdit: () => print("Edit tapped!"),
-                    onDelete: () {
-                      showGeneralDialog(
-                        context: context,
-                        barrierDismissible: true,
-                        barrierLabel: "Dismiss",
-                        barrierColor: Colors.black.withOpacity(0.4),
-                        transitionDuration: const Duration(milliseconds: 300),
-                        pageBuilder: (context, animation, secondaryAnimation) {
-                          return const SizedBox();
-                        },
-                        transitionBuilder:
-                            (context, animation, secondaryAnimation, child) {
-                              return SlideTransition(
-                                position: Tween(
-                                  begin: const Offset(0, 1),
-                                  end: const Offset(0, 0),
-                                ).animate(animation),
-                                child: Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Padding(
-                                    padding:  EdgeInsets.all(20.r),
-                                    child: CustomBottomSheet(
-                                      text: "Delete Card",
-                                      description:
-                                          "Are you sure you want to delete this card?",
-                                      onLeftPressed: () {},
-                                      onRightPressed: () {
-                                        Navigator.pop(context, true);
-                                      },
-                                      imagePath:
-                                          "assets/images/checklisttt.png",
-
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                      );
-                    },
-                    propertyDetails: {
-                      "Asset Type": "Hotel",
-                      "Location": "13th St, New York, NY 10011, USA",
-                      "Property Type": "Select Service/Motel",
-                      "Room Count": "40 – 75 Rooms",
-                      "Price Range": "\$1 - \$50,000",
-                    },
-                  ),
-                ],
-              ),
-            ),
+          CustomHomeAppBar(
+            icon: CupertinoIcons.person_alt_circle,
           ),
 
+          /// PROPERTY LIST
+          Expanded(
+            child: properties.isEmpty
+                ? const Center(
+              child: Text(
+                "No Properties Added Yet",
+                style: TextStyle(fontSize: 16),
+              ),
+            )
+                : ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              itemCount: properties.length,
+              itemBuilder: (context, index) {
+                final property = properties[index];
 
+                /// Dynamic property map
+                final Map<String, String> details = {
+                  "Asset Type": property.assetType ?? "",
+                  "Location":
+                  "${property.city ?? ""}, ${property.state ?? ""}, ${property.country ?? ""}",
+                  if (property.propertyType != null)
+                    "Property Type": property.propertyType!,
+                  if (property.roomCount != null)
+                    "Room Count": property.roomCount!,
+                  if (property.squareFootage != null)
+                    "Square Footage": property.squareFootage!,
+                  if (property.seatCount != null)
+                    "Seat Count": property.seatCount!,
+                  "Price Range": property.priceRange ?? "",
+                };
+
+                return PropertyInfoCard(
+                  actionText: property.actionType ?? "",
+                  propertyDetails: details,
+
+                  onEdit: () {
+                    print("Edit tapped index $index");
+                  },
+
+                  onDelete: () {
+                    showGeneralDialog(
+                      context: context,
+                      barrierDismissible: true,
+                      barrierLabel: "Dismiss",
+                      barrierColor:
+                      Colors.black.withOpacity(0.4),
+                      transitionDuration:
+                      const Duration(milliseconds: 300),
+                      pageBuilder: (_, __, ___) =>
+                      const SizedBox(),
+                      transitionBuilder:
+                          (context, animation, _, child) {
+                        return SlideTransition(
+                          position: Tween(
+                            begin: const Offset(0, 1),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: Align(
+                            alignment:
+                            Alignment.bottomCenter,
+                            child: Padding(
+                              padding:
+                              EdgeInsets.all(20.r),
+                              child: CustomBottomSheet(
+                                text: "Delete Card",
+                                description:
+                                "Are you sure you want to delete this card?",
+                                imagePath:
+                                "assets/images/checklisttt.png",
+
+                                onLeftPressed: () {
+                                  ref.read(propertyProvider.notifier).deleteProperty(index);
+                                  Navigator.pop(
+                                      context);
+                                },
+
+                                onRightPressed: () {
+
+
+                                  Navigator.pop(
+                                      context);
+                                },
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                );
+              },
+            ),
+          ),
         ],
-
       ),
+
+      /// ADD NEW BUTTON
       bottomNavigationBar: Padding(
-        padding:  EdgeInsets.only(left: 12,right: 12,top: 5,bottom: 20),
+        padding: const EdgeInsets.only(
+            left: 15, right: 15, bottom: 30),
         child: PrimaryButton(
           onTap: () {
-            print("on");
+            Navigator.pushNamed(
+                context, RouteName.buyOrSellScreen);
           },
           height: 57.h,
           title: "Add New",
           size: 18.sp,
-          width: double.infinity.w,
+          width: double.infinity,
           textColor: Colors.white,
         ),
       ),

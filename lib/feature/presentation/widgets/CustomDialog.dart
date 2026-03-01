@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
-import 'package:pocket_trading/feature/presentation/widgets/CustomText.dart';
+import 'CustomText.dart';
 import 'bottom.dart';
 
 class CustomBottomDialog extends StatelessWidget {

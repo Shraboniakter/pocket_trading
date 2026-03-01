@@ -1,29 +1,38 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
+
+
+import '../../../../data/property_model.dart';
 import '../../widgets/CustomText.dart';
 import '../../widgets/CustomTextfield.dart';
 import '../../widgets/bottom.dart';
+import '../viewModel/form_provider.dart';
+import '../viewModel/property_provider.dart';
 import '../widgets/CustomDropdown.dart';
 
-class IfRestaurantIsSelectedScreen extends StatefulWidget {
+class IfRestaurantIsSelectedScreen extends ConsumerStatefulWidget {
   const IfRestaurantIsSelectedScreen({super.key});
 
   @override
-  State<IfRestaurantIsSelectedScreen> createState() =>
+  ConsumerState<IfRestaurantIsSelectedScreen> createState() =>
       _IfRestaurantIsSelectedScreenState();
 }
 
 class _IfRestaurantIsSelectedScreenState
-    extends State<IfRestaurantIsSelectedScreen> {
+    extends ConsumerState<IfRestaurantIsSelectedScreen> {
+
   String? selectedSquareFootage;
   String? selectedSeatCount;
   String? selectedPriceRange;
 
-  List<String> squareFootage = [
+  final TextEditingController noteController =
+  TextEditingController();
+
+  final List<String> squareFootage = [
     "100 sq ft",
     "200 sq ft",
     "300 sq ft",
@@ -40,7 +49,7 @@ class _IfRestaurantIsSelectedScreenState
     "3000+ sq ft",
   ];
 
-  List<String> seatCounts = [
+  final List<String> seatCounts = [
     "Single",
     "Double",
     "Triple",
@@ -48,38 +57,45 @@ class _IfRestaurantIsSelectedScreenState
     "Extra Bed",
   ];
 
-  List<String> price = [
-    "\$1M_\$3M",
-    "\$4M_\$6M",
-    "\$7M_\$9M",
-    "\$10M_\$12M",
-    "\$13M_\$15M",
-    "\$16M_\$18B",
+  final List<String> price = [
+    "\$1M - \$3M",
+    "\$4M - \$6M",
+    "\$7M - \$9M",
+    "\$10M - \$12M",
+    "\$13M - \$15M",
+    "\$16M - \$18M",
   ];
+
   @override
   Widget build(BuildContext context) {
+
+    final form = ref.read(propertyFormProvider);
+
     return Scaffold(
       backgroundColor: ColorManager.bg,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black, size: 28),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          icon: const Icon(Icons.arrow_back,
+              color: Colors.black, size: 28),
+          onPressed: () => Navigator.pop(context),
         ),
-        surfaceTintColor: ColorManager.bg,
-
-        automaticallyImplyLeading: false,
         backgroundColor: ColorManager.bg,
+        surfaceTintColor: ColorManager.bg,
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0.r),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomText(text: "Square Footage", size: 18, color: Colors.black),
-              SizedBox(height: 15),
+
+              /// Square Footage
+              CustomText(
+                  text: "Square Footage",
+                  size: 18.sp,
+                  color: Colors.black),
+              SizedBox(height: 15.h),
               CustomDropdown(
                 color: ColorManager.lightBlue,
                 hintText: "Under 1,000 sf",
@@ -91,9 +107,15 @@ class _IfRestaurantIsSelectedScreenState
                   });
                 },
               ),
-              SizedBox(height: 20),
-              CustomText(text: "Seat Count", size: 18, color: Colors.black),
-              SizedBox(height: 15),
+
+              SizedBox(height: 20.h),
+
+              /// Seat Count
+              CustomText(
+                  text: "Seat Count",
+                  size: 18.sp,
+                  color: Colors.black),
+              SizedBox(height: 15.h),
               CustomDropdown(
                 color: ColorManager.lightBlue,
                 hintText: "40 - 100",
@@ -105,17 +127,19 @@ class _IfRestaurantIsSelectedScreenState
                   });
                 },
               ),
+
               SizedBox(height: 20.h),
+
+              /// Asking Price
               CustomText(
-                text: "Asking Price/Key Money",
+                text: "Asking Price / Key Money",
                 size: 18.sp,
                 color: Colors.black,
               ),
               SizedBox(height: 15.h),
-
               CustomDropdown(
                 color: ColorManager.lightBlue,
-                hintText: "\$1 - \$50,000",
+                hintText: "\$1M - \$5M",
                 value: selectedPriceRange,
                 items: price,
                 onChanged: (value) {
@@ -124,28 +148,68 @@ class _IfRestaurantIsSelectedScreenState
                   });
                 },
               ),
-              SizedBox(height: 20.h),
-              CustomText(text: "Note", size: 18.sp, color: Colors.black),
-              SizedBox(height: 15.h),
 
+              SizedBox(height: 20.h),
+
+              /// Note
+              CustomText(
+                  text: "Note",
+                  size: 18.sp,
+                  color: Colors.black),
+              SizedBox(height: 15.h),
               CustomTextfield(
+                controller: noteController,
                 max: 5,
                 color: ColorManager.lightBlue,
-                hintText: "lorem ipsum dummy text",
+                hintText: "Enter note here",
               ),
 
-              Padding(
-                padding: EdgeInsets.only(top: 230.h),
-                child: PrimaryButton(
-                  onTap: () {
-                    Navigator.pushNamed(context, RouteName.homeScreen);
-                  },
-                  height: 57.h,
-                  title: "Submit",
-                  size: 18.sp,
-                  width: double.infinity.w,
-                  textColor: Colors.white,
-                ),
+              SizedBox(height: 40.h),
+
+              /// SUBMIT
+              PrimaryButton(
+                onTap: () {
+
+                  /// Save to form state
+                  form.squareFootage = selectedSquareFootage;
+                  form.seatCount = selectedSeatCount;
+                  form.priceRange = selectedPriceRange;
+                  form.note = noteController.text;
+
+                  /// Create PropertyModel
+                  final property = PropertyModel(
+                    actionType: form.actionType,
+                    assetType: form.assetType,
+                    country: form.country,
+                    state: form.state,
+                    city: form.city,
+                    squareFootage: form.squareFootage,
+                    seatCount: form.seatCount,
+                    priceRange: form.priceRange ?? "",
+                    note: form.note,
+                  );
+
+                  /// Add to list
+                  ref
+                      .read(propertyProvider.notifier)
+                      .addProperty(property);
+
+                  /// Reset form
+                  ref
+                      .read(propertyFormProvider.notifier)
+                      .state = PropertyFormState();
+
+                  /// Go back to Home
+                  Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      RouteName.homeScreen,
+                          (route) => false);
+                },
+                height: 57.h,
+                title: "Submit",
+                size: 18.sp,
+                width: double.infinity.w,
+                textColor: Colors.white,
               ),
             ],
           ),
