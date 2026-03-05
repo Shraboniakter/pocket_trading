@@ -25,34 +25,66 @@ class _IfHotelIsSelectedScreenState
     extends ConsumerState<IfHotelIsSelectedScreen> {
   String? selectedPropertyType;
   String? selectedRoomCount;
-  String? selectedPriceRange;
+  String? selectedHotelFeatures;
+  String? selectedAssetProfile;
+  String? selectedMarketSegment;
+  String? selectedUrgency;
+  String? selectedLotSize;
 
   final TextEditingController noteController = TextEditingController();
 
   final List<String> property = [
-    "Hotel",
+    "Boutique	",
+    "Full Service	",
     "Resort",
-    "Motel",
-    "Boutique Hotel",
-    "Luxury Hotel",
+    "Extended Stay 	",
+    "Limited –Economy",
+    "Development Site",
   ];
 
   final List<String> roomCounts = [
-    "1-5 rooms",
-    "6-10 rooms",
-    "11-20 rooms",
-    "21-50 rooms",
+    "Under 40 rooms",
+    "40 – 75 Rooms",
+    "75 – 150 Rooms",
+    "50 – 300 Rooms",
     "51-100 rooms",
-    "100+ rooms",
+    "Over 300 Rooms",
   ];
 
-  final List<String> price = [
-    "\$1M - \$3M",
-    "\$4M - \$6M",
-    "\$7M - \$9M",
-    "\$10M - \$12M",
-    "\$13M - \$15M",
-    "\$16M - \$18M",
+  final List<String> hotelFeatures = [
+    "Beach",
+    "Ski",
+    "Golf",
+    "Spa",
+    "Marina",
+    "All-Inclusive ",
+    "Casino",
+    "Meetings focused ",
+  ];
+  final List<String> assetProfile = [
+    "Operating (stabilized)",
+    "Operating (value-add)",
+    "Repositioning ",
+    "Ground-up Development Site",
+  ];
+
+  final List<String> marketSegment = [
+    "Luxury",
+    "Upper Upscale",
+    "Upscale",
+    "Midscale",
+    "Economy",
+    "Not sure",
+  ];
+
+  final List<String> urgency = ["High", "Medium", " Low"];
+
+  final List<String> lotSize = [
+    "Under 1 acre",
+    "1 to 2 acres",
+    " 2 to 5 acres",
+    " 5 to 10 acres",
+    "Over 10 acres",
   ];
 
   @override
@@ -84,8 +116,8 @@ class _IfHotelIsSelectedScreenState
               ),
               SizedBox(height: 15.h),
               CustomDropdown(
-                color: ColorManager.lightBlue,
-                hintText: "Full Service",
+                color: Colors.grey,
+                hintText: "Select Service",
                 value: selectedPropertyType,
                 items: property,
                 onChanged: (value) {
@@ -101,8 +133,8 @@ class _IfHotelIsSelectedScreenState
               CustomText(text: "Room Count", size: 18.sp, color: Colors.black),
               SizedBox(height: 15.h),
               CustomDropdown(
-                color: ColorManager.lightBlue,
-                hintText: "Under 40 Rooms",
+                color: Colors.grey,
+                hintText: "Select Menu",
                 value: selectedRoomCount,
                 items: roomCounts,
                 onChanged: (value) {
@@ -114,32 +146,109 @@ class _IfHotelIsSelectedScreenState
 
               SizedBox(height: 20.h),
 
-              /// Price Range
-              CustomText(text: "Price Range", size: 18.sp, color: Colors.black),
+              CustomText(
+                text: "Hotel Features",
+                size: 18.sp,
+                color: Colors.black,
+              ),
               SizedBox(height: 15.h),
               CustomDropdown(
-                color: ColorManager.lightBlue,
-                hintText: "\$1M - \$5M",
-                value: selectedPriceRange,
-                items: price,
+                color: Colors.grey,
+                hintText: "Select Menu",
+                value: selectedHotelFeatures,
+                items: hotelFeatures,
                 onChanged: (value) {
                   setState(() {
-                    selectedPriceRange = value;
+                    selectedHotelFeatures = value;
                   });
                 },
               ),
 
               SizedBox(height: 20.h),
 
+              CustomText(
+                text: " Asset Profile",
+                size: 18.sp,
+                color: Colors.black,
+              ),
+              SizedBox(height: 15.h),
+              CustomDropdown(
+                color: Colors.grey,
+                hintText: "Select Menu",
+                value: selectedAssetProfile,
+                items: assetProfile,
+                onChanged: (value) {
+                  setState(() {
+                    selectedAssetProfile = value;
+                  });
+                },
+              ),
+
+              SizedBox(height: 20.h),
+
+              CustomText(
+                text: " Market Segment",
+                size: 18.sp,
+                color: Colors.black,
+              ),
+              SizedBox(height: 15.h),
+              CustomDropdown(
+                color: Colors.grey,
+                hintText: "Select Menu",
+                value: selectedMarketSegment,
+                items: marketSegment,
+                onChanged: (value) {
+                  setState(() {
+                    selectedMarketSegment = value;
+                  });
+                },
+              ),
+
+              SizedBox(height: 20.h),
+
+              CustomText(text: "Urgency", size: 18.sp, color: Colors.black),
+              SizedBox(height: 15.h),
+              CustomDropdown(
+                color: Colors.grey,
+                hintText: "Select Menu",
+                value: selectedUrgency,
+                items: urgency,
+                onChanged: (value) {
+                  setState(() {
+                    selectedUrgency = value;
+                  });
+                },
+              ),
+              SizedBox(height: 20.h),
+
+              CustomText(text: "Lot Size", size: 18.sp, color: Colors.black),
+              SizedBox(height: 15.h),
+              CustomDropdown(
+                color: Colors.grey,
+                hintText: "Select Menu",
+                value: selectedLotSize,
+                items: lotSize,
+                onChanged: (value) {
+                  setState(() {
+                    selectedLotSize = value;
+                  });
+                },
+              ),
+              SizedBox(height: 20.h),
+
               /// Note
-              CustomText(text: "Note", size: 18.sp, color: Colors.black),
+              CustomText(
+                text: "Note",
+                size: 18.sp,
+                color: Colors.black,
+              ),
               SizedBox(height: 15.h),
 
               CustomTextfield(
                 controller: noteController,
                 max: 5,
-                color: ColorManager.lightBlue,
-                hintText: "Enter note here",
+                color: Colors.grey,
+                hintText: "",
               ),
 
               SizedBox(height: 40.h),
@@ -150,7 +259,12 @@ class _IfHotelIsSelectedScreenState
                   /// Save to form state
                   form.propertyType = selectedPropertyType;
                   form.roomCount = selectedRoomCount;
-                  form.priceRange = selectedPriceRange;
+                  form.assetProfile = selectedAssetProfile;
+                  form.urgency = selectedUrgency;
+                  form.marketSegment = selectedMarketSegment;
+                  form.hotelFeature = selectedHotelFeatures;
+                  form.lotSize = selectedLotSize;
+
                   form.note = noteController.text;
 
                   /// Create PropertyModel
@@ -164,6 +278,11 @@ class _IfHotelIsSelectedScreenState
                     roomCount: form.roomCount,
                     priceRange: form.priceRange ?? "",
                     note: form.note,
+                    assetProfile: form.assetProfile,
+                    hotelFeature: form.hotelFeature,
+                    marketSegment: form.marketSegment,
+                    urgency: form.urgency,
+                    lotSize: form.lotSize,
                   );
 
                   /// Add to list

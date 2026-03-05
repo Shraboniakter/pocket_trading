@@ -4,6 +4,11 @@ class PropertyModel {
   final String country;
   final String state;
   final String city;
+  final String ?assetProfile;
+  final String ?hotelFeature;
+  final String ?marketSegment;
+  final String ?urgency;
+  final String ?lotSize;
 
   final String? propertyType;
   final String? roomCount;
@@ -11,7 +16,7 @@ class PropertyModel {
   final String? seatCount;
 
   final String priceRange;
-  final String note;
+  final String? note;
 
   PropertyModel({
     required this.actionType,
@@ -24,6 +29,11 @@ class PropertyModel {
     this.squareFootage,
     this.seatCount,
     required this.priceRange,
-    required this.note,
+     this.note,
+     this.assetProfile,
+     this.hotelFeature,
+     this.marketSegment,
+     this.urgency,
+     this.lotSize,
   });
 }

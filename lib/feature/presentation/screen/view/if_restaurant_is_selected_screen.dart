@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constrants/app_color.dart';
 import '../../../../core/routes/route_name.dart';
 
-
 import '../../../../data/property_model.dart';
 import '../../widgets/CustomText.dart';
 import '../../widgets/CustomTextfield.dart';
@@ -24,13 +23,11 @@ class IfRestaurantIsSelectedScreen extends ConsumerStatefulWidget {
 
 class _IfRestaurantIsSelectedScreenState
     extends ConsumerState<IfRestaurantIsSelectedScreen> {
-
   String? selectedSquareFootage;
   String? selectedSeatCount;
   String? selectedPriceRange;
 
-  final TextEditingController noteController =
-  TextEditingController();
+  final TextEditingController noteController = TextEditingController();
 
   final List<String> squareFootage = [
     "100 sq ft",
@@ -50,33 +47,30 @@ class _IfRestaurantIsSelectedScreenState
   ];
 
   final List<String> seatCounts = [
-    "Single",
-    "Double",
-    "Triple",
-    "Quad / Family",
-    "Extra Bed",
+    "Under 40",
+    "40 - 100",
+    "100 - 250",
+    " Over 250",
   ];
 
   final List<String> price = [
-    "\$1M - \$3M",
-    "\$4M - \$6M",
-    "\$7M - \$9M",
-    "\$10M - \$12M",
-    "\$13M - \$15M",
-    "\$16M - \$18M",
+    "Under - \$5M",
+    "\$5M - \$10M",
+    "\$10M - \$20M",
+    "\$20M - \$50M",
+    "\$50M - \$100M",
+    "Over - \$100M",
   ];
 
   @override
   Widget build(BuildContext context) {
-
     final form = ref.read(propertyFormProvider);
 
     return Scaffold(
       backgroundColor: ColorManager.bg,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back,
-              color: Colors.black, size: 28),
+          icon: const Icon(Icons.arrow_back, color: Colors.black, size: 28),
           onPressed: () => Navigator.pop(context),
         ),
         backgroundColor: ColorManager.bg,
@@ -89,36 +83,11 @@ class _IfRestaurantIsSelectedScreenState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-              /// Square Footage
-              CustomText(
-                  text: "Square Footage",
-                  size: 18.sp,
-                  color: Colors.black),
+              CustomText(text: "Seat Count", size: 18.sp, color: Colors.black),
               SizedBox(height: 15.h),
               CustomDropdown(
-                color: ColorManager.lightBlue,
-                hintText: "Under 1,000 sf",
-                value: selectedSquareFootage,
-                items: squareFootage,
-                onChanged: (value) {
-                  setState(() {
-                    selectedSquareFootage = value;
-                  });
-                },
-              ),
-
-              SizedBox(height: 20.h),
-
-              /// Seat Count
-              CustomText(
-                  text: "Seat Count",
-                  size: 18.sp,
-                  color: Colors.black),
-              SizedBox(height: 15.h),
-              CustomDropdown(
-                color: ColorManager.lightBlue,
-                hintText: "40 - 100",
+                color: Colors.grey,
+                hintText: "Select Menu",
                 value: selectedSeatCount,
                 items: seatCounts,
                 onChanged: (value) {
@@ -130,7 +99,6 @@ class _IfRestaurantIsSelectedScreenState
 
               SizedBox(height: 20.h),
 
-              /// Asking Price
               CustomText(
                 text: "Asking Price / Key Money",
                 size: 18.sp,
@@ -138,8 +106,8 @@ class _IfRestaurantIsSelectedScreenState
               ),
               SizedBox(height: 15.h),
               CustomDropdown(
-                color: ColorManager.lightBlue,
-                hintText: "\$1M - \$5M",
+                color: Colors.grey,
+                hintText: "Select Menu",
                 value: selectedPriceRange,
                 items: price,
                 onChanged: (value) {
@@ -151,32 +119,24 @@ class _IfRestaurantIsSelectedScreenState
 
               SizedBox(height: 20.h),
 
-              /// Note
-              CustomText(
-                  text: "Note",
-                  size: 18.sp,
-                  color: Colors.black),
+              CustomText(text: "Note", size: 18.sp, color: Colors.black),
               SizedBox(height: 15.h),
               CustomTextfield(
                 controller: noteController,
                 max: 5,
-                color: ColorManager.lightBlue,
+                color: Colors.grey,
                 hintText: "Enter note here",
               ),
 
               SizedBox(height: 40.h),
 
-              /// SUBMIT
               PrimaryButton(
                 onTap: () {
-
-                  /// Save to form state
                   form.squareFootage = selectedSquareFootage;
                   form.seatCount = selectedSeatCount;
                   form.priceRange = selectedPriceRange;
                   form.note = noteController.text;
 
-                  /// Create PropertyModel
                   final property = PropertyModel(
                     actionType: form.actionType,
                     assetType: form.assetType,
@@ -189,21 +149,16 @@ class _IfRestaurantIsSelectedScreenState
                     note: form.note,
                   );
 
-                  /// Add to list
-                  ref
-                      .read(propertyProvider.notifier)
-                      .addProperty(property);
+                  ref.read(propertyProvider.notifier).addProperty(property);
 
-                  /// Reset form
-                  ref
-                      .read(propertyFormProvider.notifier)
-                      .state = PropertyFormState();
+                  ref.read(propertyFormProvider.notifier).state =
+                      PropertyFormState();
 
-                  /// Go back to Home
                   Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      RouteName.homeScreen,
-                          (route) => false);
+                    context,
+                    RouteName.homeScreen,
+                    (route) => false,
+                  );
                 },
                 height: 57.h,
                 title: "Submit",

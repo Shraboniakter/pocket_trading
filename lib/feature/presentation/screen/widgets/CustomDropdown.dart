@@ -32,7 +32,7 @@ class CustomDropdown extends StatelessWidget {
         child: DropdownButton<String>(
           borderRadius:BorderRadius.all(Radius.circular(16.r)),
           alignment: AlignmentDirectional.centerStart,
-          menuMaxHeight: 200.h,
+          menuMaxHeight: 250.h,
           menuWidth: 200.w,
 
           dropdownColor: ColorManager.primary,

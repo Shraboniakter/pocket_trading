@@ -1,4 +1,3 @@
-
 import 'package:flutter_riverpod/legacy.dart';
 
 class PropertyFormState {
@@ -7,7 +6,11 @@ class PropertyFormState {
   String country = "";
   String state = "";
   String city = "";
-
+  String? assetProfile ;
+  String? hotelFeature ;
+  String? marketSegment ;
+  String? lotSize ;
+  String? urgency ;
   String? propertyType;
   String? roomCount;
   String? squareFootage;
@@ -16,5 +19,6 @@ class PropertyFormState {
   String note = "";
 }
 
-final propertyFormProvider =
-StateProvider<PropertyFormState>((ref) => PropertyFormState());
+final propertyFormProvider = StateProvider<PropertyFormState>(
+  (ref) => PropertyFormState(),
+);

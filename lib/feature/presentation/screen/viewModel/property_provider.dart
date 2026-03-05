@@ -9,7 +9,7 @@ class PropertyNotifier extends StateNotifier<List<PropertyModel>> {
   }
 
   void deleteProperty(int index) {
-    final list = [...state];
+    final list =   [...state];
     list.removeAt(index);
     state = list;
   }

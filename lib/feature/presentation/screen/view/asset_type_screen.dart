@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pocket_trading/core/constrants/app_color.dart';
-
 import '../../../../core/routes/route_name.dart';
 import '../../widgets/CustomText.dart';
 import '../../widgets/bottom.dart';

@@ -17,7 +17,7 @@ import 'package:pocket_trading/feature/presentation/screen/view/asset_type_scree
 import 'package:pocket_trading/feature/presentation/screen/view/buy_or_sell_screen.dart';
 import 'package:pocket_trading/feature/presentation/screen/view/if_hotel_is_selected_screen.dart';
 import 'package:pocket_trading/feature/presentation/screen/view/if_restaurant_is_selected_screen.dart';
-import 'package:pocket_trading/feature/presentation/screen/view/location_screen.dart';
+import 'package:pocket_trading/feature/presentation/screen/view/property_location_screen.dart';
 import 'package:pocket_trading/feature/presentation/signUp/view/sign_up_screen.dart';
 
 import '../../feature/presentation/profile/contact/view/contact_screen.dart';
